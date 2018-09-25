@@ -1,0 +1,6 @@
+framework module Pods_Hookers {
+  umbrella header "Pods-Hookers-umbrella.h"
+
+  export *
+  module * { export * }
+}

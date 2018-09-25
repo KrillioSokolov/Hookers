@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Channel" representedClassName=".ChannelManagedObject" syncable="YES">
+        <attribute name="ackLastMsgId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="channelId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="companyId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastLocalReadId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastMsgId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastReadId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUpdateId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="typeValue" attributeType="String" syncable="YES"/>
+        <attribute name="unread" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="ChatPosition" representedClassName=".ChatPositionManagedObject" syncable="YES">
+        <attribute name="channelId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chatPositionId" attributeType="String" syncable="YES"/>
+        <attribute name="messageId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Company" representedClassName=".CompanyManagedObject" syncable="YES">
+        <attribute name="companyId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastDate" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoURLString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="File" representedClassName=".FileManagedObject" syncable="YES">
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="meta" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="size" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
+        <attribute name="url" attributeType="String" syncable="YES"/>
+        <relationship name="message" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="file" inverseEntity="Message" syncable="YES"/>
+    </entity>
+    <entity name="HistoryGap" representedClassName=".HistoryGapManagedObject" syncable="YES">
+        <attribute name="begin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beginCreated" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="channelId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="companyId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="end" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endCreated" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="historyGapId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Message" representedClassName=".MessageManagedObject" syncable="YES">
+        <attribute name="actionValue" attributeType="String" syncable="YES"/>
+        <attribute name="channelId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="clientCreated" optional="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="companyId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="deleteStatusValue" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="messageId" attributeType="String" syncable="YES"/>
+        <attribute name="requestId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sendStatusValue" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serverCreated" optional="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uploadFileStatusValue" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="view" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="viewId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="viewModel" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="file" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="File" inverseName="message" inverseEntity="File" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".UserManagedObject" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Channel" positionX="-207" positionY="-114" width="128" height="240"/>
+        <element name="ChatPosition" positionX="-36" positionY="36" width="128" height="90"/>
+        <element name="Company" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="File" positionX="-36" positionY="36" width="128" height="150"/>
+        <element name="HistoryGap" positionX="-36" positionY="36" width="128" height="150"/>
+        <element name="Message" positionX="97" positionY="126" width="128" height="300"/>
+        <element name="User" positionX="133" positionY="-36" width="128" height="88"/>
+    </elements>
+</model>
