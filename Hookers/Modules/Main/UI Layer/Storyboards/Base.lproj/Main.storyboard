@@ -13,10 +13,12 @@
         <scene sceneID="KDW-UK-FNy">
             <objects>
                 <tabBarController storyboardIdentifier="TabBarControllerStoryboardID" id="jZu-sf-CQY" customClass="TabBarController" customModule="Hookers" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" id="IJu-R5-cUj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.46496030669999999" green="0.1260992688" blue="0.68740451339999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odB-eX-qjf" userLabel="First Responder" sceneMemberID="firstResponder"/>

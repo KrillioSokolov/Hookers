@@ -13,7 +13,6 @@
 		ED02C24321594D69000A882B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02C24221594D69000A882B /* AppDelegate.swift */; };
 		ED02C24821594D69000A882B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED02C24621594D69000A882B /* Main.storyboard */; };
 		ED02C24B21594D69000A882B /* Hookers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED02C24921594D69000A882B /* Hookers.xcdatamodeld */; };
-		ED02C24D21594D6B000A882B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED02C24C21594D6B000A882B /* Assets.xcassets */; };
 		ED02C25021594D6B000A882B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED02C24E21594D6B000A882B /* LaunchScreen.storyboard */; };
 		ED02C25B21594D6B000A882B /* HookersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02C25A21594D6B000A882B /* HookersTests.swift */; };
 		EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5451215958B40079CFBF /* AppCoordinator.swift */; };
@@ -67,11 +66,23 @@
 		EDD668EA215A65BC004DAB67 /* RestaurantsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD668E9215A65BC004DAB67 /* RestaurantsCoordinator.swift */; };
 		EDD668EF215A7C41004DAB67 /* UIStoryboard+Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD668EE215A7C41004DAB67 /* UIStoryboard+Restaurants.swift */; };
 		EDD668F2215A7CD3004DAB67 /* Restaurants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD668F1215A7CD3004DAB67 /* Restaurants.storyboard */; };
-		EDD668F5215A7CFC004DAB67 /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD668F4215A7CFC004DAB67 /* RestaurantsViewController.swift */; };
+		EDD668F5215A7CFC004DAB67 /* RestaurantsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD668F4215A7CFC004DAB67 /* RestaurantsListViewController.swift */; };
 		EDD668FB215A81BD004DAB67 /* UIStoryboards+OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD668FA215A81BD004DAB67 /* UIStoryboards+OrdersList.swift */; };
 		EDD668FD215A81ED004DAB67 /* OrdersList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD668FC215A81ED004DAB67 /* OrdersList.storyboard */; };
 		EDD668FF215A81FF004DAB67 /* OrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD668FE215A81FF004DAB67 /* OrdersListViewController.swift */; };
 		EDD66905215A83BA004DAB67 /* OrdersListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66904215A83BA004DAB67 /* OrdersListCoordinator.swift */; };
+		EDD6690A215BA640004DAB67 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66907215BA640004DAB67 /* UICollectionView+Reusable.swift */; };
+		EDD6690B215BA640004DAB67 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66908215BA640004DAB67 /* Reusable.swift */; };
+		EDD6690C215BA640004DAB67 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66909215BA640004DAB67 /* UITableView+Reusable.swift */; };
+		EDFE7A80215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A7E215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.swift */; };
+		EDFE7A81215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE7A7F215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.xib */; };
+		EDFE7A85215E98CB00FC9D24 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A83215E98CB00FC9D24 /* RestaurantTableViewCell.swift */; };
+		EDFE7A86215E98CB00FC9D24 /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE7A84215E98CB00FC9D24 /* RestaurantTableViewCell.xib */; };
+		EDFE7A88215EAC3400FC9D24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDFE7A87215EAC3300FC9D24 /* Assets.xcassets */; };
+		EDFE7A8C2161095B00FC9D24 /* CircleImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A8A2161095B00FC9D24 /* CircleImageCollectionViewCell.swift */; };
+		EDFE7A8D2161095B00FC9D24 /* CircleImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE7A8B2161095B00FC9D24 /* CircleImageCollectionViewCell.xib */; };
+		EDFE7A91216117C800FC9D24 /* RestaurantsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A90216117C800FC9D24 /* RestaurantsEvent.swift */; };
+		EDFE7A932161227A00FC9D24 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A922161227A00FC9D24 /* RestaurantViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +107,6 @@
 		ED02C24221594D69000A882B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED02C24721594D69000A882B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED02C24A21594D69000A882B /* Hookers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hookers.xcdatamodel; sourceTree = "<group>"; };
-		ED02C24C21594D6B000A882B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED02C24F21594D6B000A882B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED02C25121594D6B000A882B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED02C25621594D6B000A882B /* HookersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HookersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,11 +168,23 @@
 		EDD668E9215A65BC004DAB67 /* RestaurantsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsCoordinator.swift; sourceTree = "<group>"; };
 		EDD668EE215A7C41004DAB67 /* UIStoryboard+Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Restaurants.swift"; sourceTree = "<group>"; };
 		EDD668F1215A7CD3004DAB67 /* Restaurants.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Restaurants.storyboard; sourceTree = "<group>"; };
-		EDD668F4215A7CFC004DAB67 /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewController.swift; sourceTree = "<group>"; };
+		EDD668F4215A7CFC004DAB67 /* RestaurantsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsListViewController.swift; sourceTree = "<group>"; };
 		EDD668FA215A81BD004DAB67 /* UIStoryboards+OrdersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboards+OrdersList.swift"; sourceTree = "<group>"; };
 		EDD668FC215A81ED004DAB67 /* OrdersList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrdersList.storyboard; sourceTree = "<group>"; };
 		EDD668FE215A81FF004DAB67 /* OrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewController.swift; sourceTree = "<group>"; };
 		EDD66904215A83BA004DAB67 /* OrdersListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListCoordinator.swift; sourceTree = "<group>"; };
+		EDD66907215BA640004DAB67 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
+		EDD66908215BA640004DAB67 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		EDD66909215BA640004DAB67 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
+		EDFE7A7E215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageHorizontalScrollTableViewCell.swift; sourceTree = "<group>"; };
+		EDFE7A7F215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleImageHorizontalScrollTableViewCell.xib; sourceTree = "<group>"; };
+		EDFE7A83215E98CB00FC9D24 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		EDFE7A84215E98CB00FC9D24 /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
+		EDFE7A87215EAC3300FC9D24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDFE7A8A2161095B00FC9D24 /* CircleImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		EDFE7A8B2161095B00FC9D24 /* CircleImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		EDFE7A90216117C800FC9D24 /* RestaurantsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsEvent.swift; sourceTree = "<group>"; };
+		EDFE7A922161227A00FC9D24 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		F3955B48E4E9D5CCC4AB200E /* Pods-HookersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HookersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HookersTests/Pods-HookersTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,6 +276,7 @@
 		EDCA544E2159539B0079CFBF /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
+				EDD66906215BA640004DAB67 /* Reusable */,
 				EDCA5F91215961060079CFBF /* Storyboard */,
 			);
 			path = "UI Layer";
@@ -315,6 +338,7 @@
 		EDD6681C2159553C004DAB67 /* Domain Layer */ = {
 			isa = PBXGroup;
 			children = (
+				EDFE7A8F216117AD00FC9D24 /* Events */,
 			);
 			path = "Domain Layer";
 			sourceTree = "<group>";
@@ -498,7 +522,7 @@
 		EDD668E8215A3C69004DAB67 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				ED02C24C21594D6B000A882B /* Assets.xcassets */,
+				EDFE7A87215EAC3300FC9D24 /* Assets.xcassets */,
 				ED02C24E21594D6B000A882B /* LaunchScreen.storyboard */,
 			);
 			path = Assets;
@@ -526,6 +550,7 @@
 		EDD668ED215A7C10004DAB67 /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
+				EDFE7A7D215E96C800FC9D24 /* Cells */,
 				EDD668F3215A7CDB004DAB67 /* View Controllers */,
 				EDD668F0215A7CB3004DAB67 /* Storyboards */,
 			);
@@ -544,7 +569,8 @@
 		EDD668F3215A7CDB004DAB67 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EDD668F4215A7CFC004DAB67 /* RestaurantsViewController.swift */,
+				EDD668F4215A7CFC004DAB67 /* RestaurantsListViewController.swift */,
+				EDFE7A922161227A00FC9D24 /* RestaurantViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -614,6 +640,61 @@
 				EDD66904215A83BA004DAB67 /* OrdersListCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		EDD66906215BA640004DAB67 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				EDD66907215BA640004DAB67 /* UICollectionView+Reusable.swift */,
+				EDD66909215BA640004DAB67 /* UITableView+Reusable.swift */,
+				EDD66908215BA640004DAB67 /* Reusable.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		EDFE7A7D215E96C800FC9D24 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE7A89216107C200FC9D24 /* CircleImageHorizontalScroll TableViewCell */,
+				EDFE7A8E2161096000FC9D24 /* CircleImage CollectioViewCell */,
+				EDFE7A82215E981400FC9D24 /* Restaurant Cell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EDFE7A82215E981400FC9D24 /* Restaurant Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE7A83215E98CB00FC9D24 /* RestaurantTableViewCell.swift */,
+				EDFE7A84215E98CB00FC9D24 /* RestaurantTableViewCell.xib */,
+			);
+			path = "Restaurant Cell";
+			sourceTree = "<group>";
+		};
+		EDFE7A89216107C200FC9D24 /* CircleImageHorizontalScroll TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE7A7E215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.swift */,
+				EDFE7A7F215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.xib */,
+			);
+			path = "CircleImageHorizontalScroll TableViewCell";
+			sourceTree = "<group>";
+		};
+		EDFE7A8E2161096000FC9D24 /* CircleImage CollectioViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE7A8A2161095B00FC9D24 /* CircleImageCollectionViewCell.swift */,
+				EDFE7A8B2161095B00FC9D24 /* CircleImageCollectionViewCell.xib */,
+			);
+			path = "CircleImage CollectioViewCell";
+			sourceTree = "<group>";
+		};
+		EDFE7A8F216117AD00FC9D24 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE7A90216117C800FC9D24 /* RestaurantsEvent.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -705,12 +786,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFE7A86215E98CB00FC9D24 /* RestaurantTableViewCell.xib in Resources */,
 				ED02C25021594D6B000A882B /* LaunchScreen.storyboard in Resources */,
-				ED02C24D21594D6B000A882B /* Assets.xcassets in Resources */,
 				EDD668F2215A7CD3004DAB67 /* Restaurants.storyboard in Resources */,
+				EDFE7A8D2161095B00FC9D24 /* CircleImageCollectionViewCell.xib in Resources */,
 				ED02C24821594D69000A882B /* Main.storyboard in Resources */,
 				EDD668E1215A3C02004DAB67 /* Main.storyboard in Resources */,
 				EDD668FD215A81ED004DAB67 /* OrdersList.storyboard in Resources */,
+				EDFE7A88215EAC3400FC9D24 /* Assets.xcassets in Resources */,
+				EDFE7A81215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,7 +926,10 @@
 				EDD668C6215A3362004DAB67 /* CoreDataStackMoreThanOrEqualIOS10.swift in Sources */,
 				EDD6686821595631004DAB67 /* FileManager.swift in Sources */,
 				EDD668AA215A2F7F004DAB67 /* WeakContainer.swift in Sources */,
+				EDD6690A215BA640004DAB67 /* UICollectionView+Reusable.swift in Sources */,
 				EDD6686C21595631004DAB67 /* UUID.swift in Sources */,
+				EDFE7A80215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.swift in Sources */,
+				EDFE7A8C2161095B00FC9D24 /* CircleImageCollectionViewCell.swift in Sources */,
 				EDD6686B21595631004DAB67 /* KeyedEncodingContainerProtocol.swift in Sources */,
 				EDD668A9215A2F7F004DAB67 /* DomainModel.swift in Sources */,
 				EDD668C1215A3362004DAB67 /* FetchRequest.swift in Sources */,
@@ -858,12 +945,14 @@
 				EDD6686121595631004DAB67 /* UIView.swift in Sources */,
 				EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */,
 				EDD668A0215A2F0F004DAB67 /* CoordinatingContext.swift in Sources */,
-				EDD668F5215A7CFC004DAB67 /* RestaurantsViewController.swift in Sources */,
+				EDD6690C215BA640004DAB67 /* UITableView+Reusable.swift in Sources */,
+				EDD668F5215A7CFC004DAB67 /* RestaurantsListViewController.swift in Sources */,
 				EDD6687021595631004DAB67 /* UIDevice.swift in Sources */,
 				EDD668B1215A2FD9004DAB67 /* Result.swift in Sources */,
 				EDD668FB215A81BD004DAB67 /* UIStoryboards+OrdersList.swift in Sources */,
 				EDD668FF215A81FF004DAB67 /* OrdersListViewController.swift in Sources */,
 				EDD668EF215A7C41004DAB67 /* UIStoryboard+Restaurants.swift in Sources */,
+				EDFE7A91216117C800FC9D24 /* RestaurantsEvent.swift in Sources */,
 				EDD6686721595631004DAB67 /* KeyedDecodingContainer.swift in Sources */,
 				EDD6687721595631004DAB67 /* Bundle.swift in Sources */,
 				EDD6687321595631004DAB67 /* UIImage.swift in Sources */,
@@ -874,6 +963,7 @@
 				EDD6686421595631004DAB67 /* UIImageView+SDWebImage.swift in Sources */,
 				EDD668EA215A65BC004DAB67 /* RestaurantsCoordinator.swift in Sources */,
 				EDD668C3215A3362004DAB67 /* CoreDataStackLessThanIOS10.swift in Sources */,
+				EDFE7A85215E98CB00FC9D24 /* RestaurantTableViewCell.swift in Sources */,
 				EDD6686521595631004DAB67 /* UIStackView.swift in Sources */,
 				EDD6687121595631004DAB67 /* Dictionary.swift in Sources */,
 				EDD668DE215A3C02004DAB67 /* TabBarCoordinator.swift in Sources */,
@@ -889,7 +979,9 @@
 				EDD6687421595631004DAB67 /* UINavigationBar.swift in Sources */,
 				EDD668C2215A3362004DAB67 /* CoreDataDBService.swift in Sources */,
 				ED02C24321594D69000A882B /* AppDelegate.swift in Sources */,
+				EDFE7A932161227A00FC9D24 /* RestaurantViewController.swift in Sources */,
 				EDD66905215A83BA004DAB67 /* OrdersListCoordinator.swift in Sources */,
+				EDD6690B215BA640004DAB67 /* Reusable.swift in Sources */,
 				EDD6686F21595631004DAB67 /* Encodable.swift in Sources */,
 				EDCA5F93215961280079CFBF /* Storyboard+Hookers.swift in Sources */,
 			);

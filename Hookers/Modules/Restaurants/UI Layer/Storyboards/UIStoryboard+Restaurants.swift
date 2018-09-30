@@ -11,7 +11,8 @@ import UIKit
 
 fileprivate enum RestaurantsStoryboardControllerId: String {
     
-    case restaurants = "RestaurantsViewControllerStoryboarId"
+    case restaurantsList = "RestaurantsListViewControllerStoryboarId"
+    case restaurant = "RestaurantViewControllerStoryboarId"
     
 }
 
@@ -23,8 +24,12 @@ extension UIStoryboard {
     
     struct Restaurants {
         
-        static var restaurantsViewController: RestaurantsViewController {
-            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.restaurants.rawValue) as! RestaurantsViewController
+        static var restaurantsListViewController: RestaurantsListViewController {
+            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.restaurantsList.rawValue) as! RestaurantsListViewController
+        }
+        
+        static var restaurantViewController: RestaurantViewController {
+            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.restaurant.rawValue) as! RestaurantViewController
         }
         
     }

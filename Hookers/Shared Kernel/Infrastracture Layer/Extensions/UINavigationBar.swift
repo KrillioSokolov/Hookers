@@ -26,3 +26,25 @@ extension UINavigationBar {
     }
         
 }
+
+extension UINavigationItem {
+    
+    @discardableResult
+    func addBackButton(with target: Any?, action: Selector, tintColor: UIColor? = nil) -> UIBarButtonItem {
+        let backButton = UIButton()
+        let image = UIImage(named: "back_button")?.withRenderingMode(.alwaysTemplate)
+        let barButtonItem = UIBarButtonItem(customView: backButton)
+        
+        backButton.setImage(image, for: .normal)
+        backButton.tintColor = tintColor
+        backButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        backButton.addTarget(target, action: action, for: .touchUpInside)
+        var contentInsets = backButton.contentEdgeInsets
+        contentInsets.left = -30
+        backButton.contentEdgeInsets = contentInsets
+        setLeftBarButton( barButtonItem, animated: true)
+        
+        return barButtonItem
+    }
+    
+}

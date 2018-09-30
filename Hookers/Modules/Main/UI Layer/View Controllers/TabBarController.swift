@@ -17,8 +17,11 @@ final class TabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
+        tabBar.tintColor = .white
+        tabBar.barTintColor = UIColor.clear
         tabBar.isTranslucent = true
-        tabBar.alpha = 0.8
+        tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = UIImage()
     }
     
     func configureTabs(with configuration: [(controller: UIViewController, tabItem: UITabBarItem)]) {
@@ -32,33 +35,3 @@ final class TabBarController: UITabBarController {
     }
     
 }
-
-extension UITabBarController {
-    
-    func setPhoneTabBarVisible(visible: Bool, animated: Bool) {
-        guard !UIDevice.isPad() else { return }
-        guard (tabBarIsVisible() != visible) else { return }
-        let frame = self.tabBar.frame
-        let height = frame.size.height
-        let offsetY = (visible ? -height : height)
-        
-        if #available(iOS 10.0, *) {
-            UIViewPropertyAnimator(duration: 0.3, curve: .linear) {
-                self.tabBar.frame.offsetBy(dx: 0, dy: offsetY)
-                self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height + offsetY)
-                self.view.setNeedsDisplay()
-                self.view.layoutIfNeeded()
-                }.startAnimation()
-        } else {
-            self.tabBar.frame.offsetBy(dx: 0, dy: offsetY)
-            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height + offsetY)
-            self.view.setNeedsDisplay()
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func tabBarIsVisible() -> Bool {
-        return self.tabBar.frame.origin.y < UIScreen.main.bounds.height
-    }
-}
-

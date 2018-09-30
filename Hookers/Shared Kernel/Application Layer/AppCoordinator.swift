@@ -49,6 +49,7 @@ final class AppCoordinator: Coordinator {
         tabBarCoordinator.addTabCoordinators(coordinators: [restaurantCoordinator, ordersListCoordinator])
         
         let rootViewController = tabBarCoordinator.createFlow()
+
         
         window.rootViewController = rootViewController
     }

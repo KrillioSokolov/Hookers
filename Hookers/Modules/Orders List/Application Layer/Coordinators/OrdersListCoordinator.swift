@@ -30,7 +30,6 @@ final class OrdersListCoordinator: TabBarEmbedCoordinator {
         let ordersList = UIStoryboard.OrdersList.ordersListViewController
         
         root = UINavigationController(rootViewController: ordersList)
-        root.view.backgroundColor = .green
     }
     
     override func createFlow() -> UIViewController {
