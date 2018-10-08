@@ -21,3 +21,24 @@ extension UIView {
     }
     
 }
+
+extension UIView {
+    
+    @discardableResult static func instantiateFromNib() -> Self {
+        return instantiateViewFromNib(viewType: self)
+    }
+    
+    private static func instantiateViewFromNib<T: UIView>(viewType: T.Type) -> T! {
+        return Bundle.main.loadNibNamed(
+            String(describing: viewType),
+            owner: nil,
+            options: nil)?.first as! T
+    }
+    
+    static func loadNib<T: UIView>(viewType: T.Type, owner: T) {
+        Bundle.main.loadNibNamed(String(describing: viewType),
+                                 owner: owner,
+                                 options: nil)
+    }
+    
+}

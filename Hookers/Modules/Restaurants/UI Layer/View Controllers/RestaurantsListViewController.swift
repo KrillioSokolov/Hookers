@@ -38,7 +38,6 @@ final class RestaurantsListViewController: UIViewController {
         
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
-        
     }
 
 }
@@ -54,6 +53,8 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(indexPath, cellType: RestaurantTableViewCell.self)
         
+        cell.delegate = self
+        
         return cell
     }
     
@@ -67,6 +68,16 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
         let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurantId: String(indexPath.row))
         
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidChooseRestaurant.self, result: Result(value: value, error: nil))
+    }
+    
+}
+
+extension RestaurantsListViewController: RestaurantTableViewCellDelegate {
+    
+    func didTapRestaurantInfoButton(on cell: UITableViewCell) {
+        let value = RestaurantsEvent.NavigationEvent.DidTapInfoButtonOnRestaurantCell.Value(restaurantId: String(cell.tag))
+        
+        dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidTapInfoButtonOnRestaurantCell.self, result: Result(value: value, error: nil))
     }
     
 }

@@ -52,6 +52,7 @@ extension RestaurantsCoordinator {
     private func register() {
         registerDidChooseRestaurant()
         registerCloseScreen()
+        registerDidTapInfoButtonOnRestaurantCell()
     }
     
     private func registerDidChooseRestaurant() {
@@ -66,7 +67,34 @@ extension RestaurantsCoordinator {
                 controller.dispatcher = self?.dispatcher
                 
                 self?.root.tabBarController?.tabBar.isHidden = true
-                self?.root.pushViewController(controller, animated: true)
+                
+                if let topViewController = self?.root.viewControllers[0],  topViewController.presentedViewController is UINavigationController {
+                    self?.root.dismiss(animated: true, completion: nil)
+                    self?.root.pushViewController(controller, animated: false)
+                } else {
+                    self?.root.pushViewController(controller, animated: true)
+                }
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    private func registerDidTapInfoButtonOnRestaurantCell() {
+        dispatcher.register(type: RestaurantsEvent.NavigationEvent.DidTapInfoButtonOnRestaurantCell.self) { [weak self] result, _ in
+            
+            switch result {
+            case .success(let box):
+                _ =  box.restaurantId
+                
+                let controller = UIStoryboard.Restaurants.restaurantInfoViewController
+                
+                controller.dispatcher = self?.dispatcher
+                
+                let navBarOnModal: UINavigationController = UINavigationController(rootViewController: controller)
+                
+                self?.root.tabBarController?.tabBar.isHidden = true
+                self?.root.present(navBarOnModal, animated: true, completion: nil)
             case .failure(_):
                 break
             }

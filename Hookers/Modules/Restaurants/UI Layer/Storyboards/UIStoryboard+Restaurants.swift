@@ -12,6 +12,7 @@ import UIKit
 fileprivate enum RestaurantsStoryboardControllerId: String {
     
     case restaurantsList = "RestaurantsListViewControllerStoryboarId"
+    case restaurantInfo = "RestaurantInfoViewControllerStoryboarId"
     case restaurant = "RestaurantViewControllerStoryboarId"
     
 }
@@ -30,6 +31,10 @@ extension UIStoryboard {
         
         static var restaurantViewController: RestaurantViewController {
             return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.restaurant.rawValue) as! RestaurantViewController
+        }
+        
+        static var restaurantInfoViewController: RestaurantInfoViewController {
+            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.restaurantInfo.rawValue) as! RestaurantInfoViewController
         }
         
     }

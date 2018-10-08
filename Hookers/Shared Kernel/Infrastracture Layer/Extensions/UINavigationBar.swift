@@ -47,4 +47,18 @@ extension UINavigationItem {
         return barButtonItem
     }
     
+    func addCloseButton(with target: Any?, action: Selector, tintColor: UIColor? = nil) {
+        let closeButton = UIButton()
+        let image = UIImage(named: "btNavBarClose")?.withRenderingMode(.alwaysTemplate)
+        
+        closeButton.setImage(image, for: .normal)
+        closeButton.tintColor = tintColor
+        closeButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        closeButton.addTarget(target, action: action, for: .touchUpInside)
+        var contentInsets = closeButton.contentEdgeInsets
+        contentInsets.left = -30
+        closeButton.contentEdgeInsets = contentInsets
+        setLeftBarButton(UIBarButtonItem(customView: closeButton), animated: true)
+    }
+    
 }

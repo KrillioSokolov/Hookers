@@ -11,10 +11,11 @@
 		56422C50A0B2DA805FBE1DD1 /* Pods_Hookers_HookersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCB692BEF477EA6FB75884A /* Pods_Hookers_HookersTests.framework */; };
 		71A490E37C91D318A0CDBC17 /* Pods_HookersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB76549EE62251F8609EB6CF /* Pods_HookersTests.framework */; };
 		ED02C24321594D69000A882B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02C24221594D69000A882B /* AppDelegate.swift */; };
-		ED02C24821594D69000A882B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED02C24621594D69000A882B /* Main.storyboard */; };
 		ED02C24B21594D69000A882B /* Hookers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED02C24921594D69000A882B /* Hookers.xcdatamodeld */; };
 		ED02C25021594D6B000A882B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED02C24E21594D6B000A882B /* LaunchScreen.storyboard */; };
 		ED02C25B21594D6B000A882B /* HookersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02C25A21594D6B000A882B /* HookersTests.swift */; };
+		ED3A458B2167E46A0078B673 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */; };
+		ED3A458E2167F03F0078B673 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A458D2167F03F0078B673 /* UIViewController.swift */; };
 		EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5451215958B40079CFBF /* AppCoordinator.swift */; };
 		EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5B4421595F080079CFBF /* DataStateLocking.swift */; };
 		EDCA5F93215961280079CFBF /* Storyboard+Hookers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5F92215961280079CFBF /* Storyboard+Hookers.swift */; };
@@ -83,6 +84,8 @@
 		EDFE7A8D2161095B00FC9D24 /* CircleImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE7A8B2161095B00FC9D24 /* CircleImageCollectionViewCell.xib */; };
 		EDFE7A91216117C800FC9D24 /* RestaurantsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A90216117C800FC9D24 /* RestaurantsEvent.swift */; };
 		EDFE7A932161227A00FC9D24 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A922161227A00FC9D24 /* RestaurantViewController.swift */; };
+		EDFE7A972162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A962162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift */; };
+		EDFE7A992162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE7A982162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,13 +108,14 @@
 		E780903F447CF6BF28494499 /* Pods-Hookers-HookersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hookers-HookersTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hookers-HookersTests/Pods-Hookers-HookersTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED02C23F21594D69000A882B /* Hookers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hookers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED02C24221594D69000A882B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED02C24721594D69000A882B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED02C24A21594D69000A882B /* Hookers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hookers.xcdatamodel; sourceTree = "<group>"; };
 		ED02C24F21594D6B000A882B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED02C25121594D6B000A882B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED02C25621594D6B000A882B /* HookersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HookersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED02C25A21594D6B000A882B /* HookersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookersTests.swift; sourceTree = "<group>"; };
 		ED02C25C21594D6B000A882B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
+		ED3A458D2167F03F0078B673 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		EDCA5451215958B40079CFBF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EDCA5B4421595F080079CFBF /* DataStateLocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStateLocking.swift; sourceTree = "<group>"; };
 		EDCA5B4521595F080079CFBF /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 		EDFE7A8B2161095B00FC9D24 /* CircleImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		EDFE7A90216117C800FC9D24 /* RestaurantsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsEvent.swift; sourceTree = "<group>"; };
 		EDFE7A922161227A00FC9D24 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		EDFE7A962162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		EDFE7A982162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleImageTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		F3955B48E4E9D5CCC4AB200E /* Pods-HookersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HookersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HookersTests/Pods-HookersTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -273,9 +279,18 @@
 			path = HookersTests;
 			sourceTree = "<group>";
 		};
+		ED3A458C2167EFD20078B673 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ED3A458D2167F03F0078B673 /* UIViewController.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		EDCA544E2159539B0079CFBF /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
+				ED3A458C2167EFD20078B673 /* Extension */,
 				EDD66906215BA640004DAB67 /* Reusable */,
 				EDCA5F91215961060079CFBF /* Storyboard */,
 			);
@@ -304,7 +319,6 @@
 		EDCA5F91215961060079CFBF /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				ED02C24621594D69000A882B /* Main.storyboard */,
 				EDCA5F92215961280079CFBF /* Storyboard+Hookers.swift */,
 			);
 			path = Storyboard;
@@ -550,6 +564,7 @@
 		EDD668ED215A7C10004DAB67 /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
+				EDFE7A95216292A800FC9D24 /* Header and Footers */,
 				EDFE7A7D215E96C800FC9D24 /* Cells */,
 				EDD668F3215A7CDB004DAB67 /* View Controllers */,
 				EDD668F0215A7CB3004DAB67 /* Storyboards */,
@@ -571,6 +586,7 @@
 			children = (
 				EDD668F4215A7CFC004DAB67 /* RestaurantsListViewController.swift */,
 				EDFE7A922161227A00FC9D24 /* RestaurantViewController.swift */,
+				ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -697,6 +713,15 @@
 			path = Events;
 			sourceTree = "<group>";
 		};
+		EDFE7A95216292A800FC9D24 /* Header and Footers */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE7A962162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift */,
+				EDFE7A982162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib */,
+			);
+			path = "Header and Footers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -748,7 +773,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Kirill Sokolov";
 				TargetAttributes = {
 					ED02C23E21594D69000A882B = {
@@ -790,10 +815,10 @@
 				ED02C25021594D6B000A882B /* LaunchScreen.storyboard in Resources */,
 				EDD668F2215A7CD3004DAB67 /* Restaurants.storyboard in Resources */,
 				EDFE7A8D2161095B00FC9D24 /* CircleImageCollectionViewCell.xib in Resources */,
-				ED02C24821594D69000A882B /* Main.storyboard in Resources */,
 				EDD668E1215A3C02004DAB67 /* Main.storyboard in Resources */,
 				EDD668FD215A81ED004DAB67 /* OrdersList.storyboard in Resources */,
 				EDFE7A88215EAC3400FC9D24 /* Assets.xcassets in Resources */,
+				EDFE7A992162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib in Resources */,
 				EDFE7A81215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -933,13 +958,16 @@
 				EDD6686B21595631004DAB67 /* KeyedEncodingContainerProtocol.swift in Sources */,
 				EDD668A9215A2F7F004DAB67 /* DomainModel.swift in Sources */,
 				EDD668C1215A3362004DAB67 /* FetchRequest.swift in Sources */,
+				ED3A458E2167F03F0078B673 /* UIViewController.swift in Sources */,
 				EDD6687521595631004DAB67 /* String+Shared.swift in Sources */,
 				EDD668E0215A3C02004DAB67 /* UIStoryboard+Main.swift in Sources */,
 				EDD668C5215A3362004DAB67 /* CoreDataOperation.swift in Sources */,
 				EDD6686E21595631004DAB67 /* UIApplication+TopViewController.swift in Sources */,
+				EDFE7A972162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift in Sources */,
 				EDD6686D21595631004DAB67 /* DispatchQueue.swift in Sources */,
 				EDD6687221595631004DAB67 /* UIButton.swift in Sources */,
 				EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */,
+				ED3A458B2167E46A0078B673 /* RestaurantInfoViewController.swift in Sources */,
 				EDD6686221595631004DAB67 /* Array.swift in Sources */,
 				EDD6686321595631004DAB67 /* Collection.swift in Sources */,
 				EDD6686121595631004DAB67 /* UIView.swift in Sources */,
@@ -1006,14 +1034,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ED02C24621594D69000A882B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED02C24721594D69000A882B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ED02C24E21594D6B000A882B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1037,6 +1057,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1084,7 +1105,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1097,6 +1118,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1138,7 +1160,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

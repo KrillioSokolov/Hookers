@@ -29,6 +29,14 @@ struct RestaurantsEvent {
             }
         }
         
+        struct DidTapInfoButtonOnRestaurantCell: Event {
+            typealias Payload = Value
+            
+            struct Value {
+                let restaurantId: String
+            }
+        }
+        
     }
     
 }
