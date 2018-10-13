@@ -24,6 +24,36 @@ extension UIView {
 
 extension UIView {
     
+    func rotate(_ toValue: CGFloat, duration: CFTimeInterval = 0.2) {
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        
+        animation.toValue = toValue
+        animation.duration = duration
+        animation.isRemovedOnCompletion = false
+        animation.fillMode = kCAFillModeForwards
+        
+        self.layer.add(animation, forKey: nil)
+    }
+    
+    func addDefaultShadow() {
+        self.layer.shadowColor = UIColor(r: 80, g: 80, b: 80, alpha: 10).cgColor
+        self.layer.shadowOpacity = 0.8
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = 70
+    }
+    
+    func addShadowView(width:CGFloat=0.2, height:CGFloat=0.2, Opacidade:Float=0.7, maskToBounds:Bool=false, radius:CGFloat=0.5){
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: width, height: height)
+        self.layer.shadowRadius = radius
+        self.layer.shadowOpacity = Opacidade
+        self.layer.masksToBounds = maskToBounds
+    }
+    
+}
+
+extension UIView {
+    
     @discardableResult static func instantiateFromNib() -> Self {
         return instantiateViewFromNib(viewType: self)
     }

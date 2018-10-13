@@ -16,14 +16,19 @@ protocol RestaurantTableViewCellDelegate: class {
 
 final class RestaurantTableViewCell: UITableViewCell, NibReusable {
 
-    @IBOutlet private weak var presentImageView: UIImageView!
-    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet weak var presentImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet private weak var infoButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var likeCountLabel: UILabel!
     
     weak var delegate: RestaurantTableViewCellDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        containerView.layer.cornerRadius = 6
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

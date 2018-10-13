@@ -10,6 +10,7 @@ target 'Hookers' do
     
     #ui
     pod 'SDWebImage', '~> 4.2.3'
+    pod 'DateTimePicker'
 
   # Pods for Hookers
 

@@ -53,6 +53,13 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(indexPath, cellType: RestaurantTableViewCell.self)
         
+        if indexPath.row == 1 {
+            cell.presentImageView.image = UIImage.init(named: "habl")
+            cell.nameLabel.text = "Хабл бабл"
+            cell.likeCountLabel.text = "4.2"
+            cell.distanceLabel.text = "8 км"
+        }
+        
         cell.delegate = self
         
         return cell
@@ -60,15 +67,17 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 44*3
+        return tableView.frame.height/3.5
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //KS: TODO: Add correct setting restaurant model
+                
         let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurantId: String(indexPath.row))
         
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidChooseRestaurant.self, result: Result(value: value, error: nil))
     }
+    
     
 }
 

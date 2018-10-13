@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MixCategoryCollectionViewCell" id="gTV-IL-0wX" customClass="MixCategoryCollectionViewCell" customModule="Hookers" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="285"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="433" height="285"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDj-yK-DJ2">
+                        <rect key="frame" x="0.0" y="0.0" width="433" height="285"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BD0-dJ-OrF">
+                                <rect key="frame" x="0.0" y="0.0" width="433" height="285"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sladkiy" translatesAutoresizingMaskIntoConstraints="NO" id="Irm-6f-Pup">
+                                        <rect key="frame" x="0.0" y="0.0" width="433" height="285"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Irm-6f-Pup" firstAttribute="leading" secondItem="BD0-dJ-OrF" secondAttribute="leading" id="Nl3-Th-MnE"/>
+                                    <constraint firstAttribute="bottom" secondItem="Irm-6f-Pup" secondAttribute="bottom" id="YIJ-OY-JMw"/>
+                                    <constraint firstItem="Irm-6f-Pup" firstAttribute="top" secondItem="BD0-dJ-OrF" secondAttribute="top" id="Ytp-Nm-3n0"/>
+                                    <constraint firstAttribute="trailing" secondItem="Irm-6f-Pup" secondAttribute="trailing" id="bYf-sg-ri8"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сладкий" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvm-zv-0zo">
+                                <rect key="frame" x="185" y="259" width="63.5" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="-1" height="-1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BD0-dJ-OrF" firstAttribute="leading" secondItem="dDj-yK-DJ2" secondAttribute="leading" id="SJx-oS-snT"/>
+                            <constraint firstItem="Pvm-zv-0zo" firstAttribute="centerX" secondItem="dDj-yK-DJ2" secondAttribute="centerX" id="WX8-q2-P9t"/>
+                            <constraint firstAttribute="bottom" secondItem="Pvm-zv-0zo" secondAttribute="bottom" constant="8" id="aiY-4S-9gh"/>
+                            <constraint firstAttribute="bottom" secondItem="BD0-dJ-OrF" secondAttribute="bottom" id="gvR-bB-jM2"/>
+                            <constraint firstAttribute="trailing" secondItem="BD0-dJ-OrF" secondAttribute="trailing" id="ljo-GL-S6y"/>
+                            <constraint firstItem="BD0-dJ-OrF" firstAttribute="top" secondItem="dDj-yK-DJ2" secondAttribute="top" id="ypF-yb-XPS"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="dDj-yK-DJ2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Idb-Aw-azg"/>
+                <constraint firstItem="dDj-yK-DJ2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="M28-AW-AjT"/>
+                <constraint firstAttribute="bottom" secondItem="dDj-yK-DJ2" secondAttribute="bottom" id="XKr-wR-E1W"/>
+                <constraint firstAttribute="trailing" secondItem="dDj-yK-DJ2" secondAttribute="trailing" id="r0n-mn-DHt"/>
+            </constraints>
+            <size key="customSize" width="454" height="286"/>
+            <connections>
+                <outlet property="categoryImageView" destination="Irm-6f-Pup" id="Iz2-bV-tdb"/>
+                <outlet property="containerView" destination="BD0-dJ-OrF" id="Pvq-Xd-iGU"/>
+                <outlet property="nameLabel" destination="Pvm-zv-0zo" id="jsw-3K-UPh"/>
+            </connections>
+            <point key="canvasLocation" x="71.200000000000003" y="214.54272863568218"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="sladkiy" width="250" height="168"/>
+    </resources>
+</document>

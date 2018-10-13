@@ -10,10 +10,20 @@ import UIKit
 
 final class RestaurantViewController: UIViewController {
     
-    @IBOutlet weak var rightArrowImageView: UIImageView!
-    @IBOutlet weak var makeHookahButton: UIButton!
-    @IBOutlet var orderButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var mixListCollectionView: UICollectionView!
+    @IBOutlet private weak var categoryCollectionView: UICollectionView!
+    @IBOutlet private var orderButton: UIButton!
+    @IBOutlet weak var bucketContainerView: UIView!
+    @IBOutlet weak var orderItemsTableView: UITableView!
+//    @IBOutlet weak var containerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonHeightConstraint: NSLayoutConstraint!
+    fileprivate let categoryCollectionViewService = CategoryCollectionViewService()
+    fileprivate let mixListCollectionViewService = MixListCollectionViewService()
+    fileprivate let orderItemsTableViewService = OrderItemsTableViewService()
+    
+    fileprivate var sectionsState = [Int : Bool]()
+    fileprivate var sectionRowsHeightAmount = [Int : CGFloat]()
     
     var dispatcher: Dispatcher!
     
@@ -21,17 +31,43 @@ final class RestaurantViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.addBackButton(with: self, action: #selector(back))
-       
-        makeHookahButton.layer.borderWidth = 1
-        makeHookahButton.layer.borderColor = UIColor.white.cgColor
+        //addHandButton()
         
-        orderButton.layer.borderWidth = 1
-        orderButton.layer.borderColor = UIColor.white.cgColor
+        bucketContainerView.layer.borderWidth = 0.5
+        bucketContainerView.layer.borderColor = UIColor.lightGray.cgColor
         
-        rightArrowImageView.image = rightArrowImageView.image?.withRenderingMode(.alwaysTemplate)
-        rightArrowImageView.tintColor = .white
+        categoryCollectionView.registerReusableCell(cellType: MixCategoryCollectionViewCell.self)
+        mixListCollectionView.registerReusableCell(cellType: MixListCollectionViewCell.self)
+        orderItemsTableView.registerReusableCell(cellType: OrderItemTableViewCell.self)
         
-        tableView.registerReusableCell(cellType: CircleImageHorizontalScrollTableViewCell.self)
+        categoryCollectionView.delegate = categoryCollectionViewService
+        categoryCollectionView.dataSource = categoryCollectionViewService
+        categoryCollectionViewService.delegate = self
+        
+        mixListCollectionView.delegate = mixListCollectionViewService
+        mixListCollectionView.dataSource = mixListCollectionViewService
+        mixListCollectionViewService.delegate = self
+        
+        orderItemsTableView.delegate = orderItemsTableViewService
+        orderItemsTableView.dataSource = orderItemsTableViewService
+        orderItemsTableViewService.delegate = self
+        
+    }
+    
+    func addHandButton() {
+        let backButton = UIButton()
+        let image = UIImage(named: "hand")?.withRenderingMode(.alwaysTemplate)
+        let barButtonItem = UIBarButtonItem(customView: backButton)
+        
+        backButton.setImage(image, for: .normal)
+        backButton.tintColor = view.tintColor
+        backButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        //backButton.addTarget(target, action: nil, for: .touchUpInside)
+        var contentInsets = backButton.contentEdgeInsets
+        contentInsets.left = -30
+        backButton.contentEdgeInsets = contentInsets
+        navigationItem.setRightBarButton( barButtonItem, animated: true)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,73 +95,68 @@ final class RestaurantViewController: UIViewController {
     
 }
 
-extension RestaurantViewController: UITableViewDelegate, UITableViewDataSource {
+extension RestaurantViewController: CategoryServiceDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func serviceDidChoseCategory(_ service: CategoryCollectionViewService, chosenCategory category: String) {
+        //KS: TODO: Test code remove them later
         
-        return 1
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Миксы дня"
-        case 1:
-            return "Миксы недели"
-        case 2:
-            return "Сегодня забивают"
-        default:
-            return nil
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(indexPath, cellType: CircleImageHorizontalScrollTableViewCell.self)
-        switch indexPath.section {
-        case 0:
-            cell.cellImage = UIImage(named: "lemon_pie")
-            cell.mixName = "Лимонный пирог"
-        case 1:
-            cell.cellImage = UIImage(named: "mafin")
-            cell.mixName = "Ванильный мафин"
-        case 2:
-            cell.cellImage = UIImage(named: "hookerMan")
-            cell.mixName = "Nicolas"
-        default:
-            break
-        }
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = CircleImageTableViewHeaderFooterView.instantiateFromNib()
-        
-        headerView.headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
-        headerView.backgroundColor = .black
-       
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //KS: TODO: Add correct setting restaurant model
-        let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurantId: String(indexPath.row))
-        
-        dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidChooseRestaurant.self, result: Result(value: value, error: nil))
+        mixListCollectionViewService.data.shuffle()
+        mixListCollectionView.reloadData()
     }
     
 }
 
+extension RestaurantViewController: MixListServiceDelegate {
+    
+    func serviceDidChoseMix(_ service: MixListCollectionViewService, chosenMixName mixName: String) {
+        
+        orderItemsTableViewService.data.insert(mixName, at: 0)
+        orderButton.isHidden = false
+        
+        UIView.animate(withDuration: 0.3) {
+            self.tableViewHeightConstraint.constant = 44 * self.tableViewHeightConstraintIndex() + 2
+            self.buttonHeightConstraint.constant = 44
+            self.view.layoutIfNeeded()
+        }
+        
+        orderItemsTableView.reloadData()
+    }
+    
+}
 
+extension RestaurantViewController: OrderItemsServiceDelegate {
+    
+    func orderItemsServiceDidDeleteItem(_ service: OrderItemsTableViewService, deletedItem item: String) {
+        
+        if orderItemsTableViewService.data.count == 0 {
+            UIView.animate(withDuration: 0.5) {
+                self.tableViewHeightConstraint.constant = 0
+                self.buttonHeightConstraint.constant = 0
+                self.orderButton.isHidden = true
+                self.view.layoutIfNeeded()
+                //self.orderItemsTableView.reloadData()
+            }
+        } else if orderItemsTableViewService.data.count <= 3 {
+            UIView.animate(withDuration: 0.5) {
+                self.tableViewHeightConstraint.constant = 44 * self.tableViewHeightConstraintIndex()
+                self.buttonHeightConstraint.constant = 44
+                self.view.layoutIfNeeded()
+            }
+        }
+        
+    }
+    
+    func tableViewHeightConstraintIndex() -> CGFloat {
+        let index: CGFloat
+        
+        switch self.orderItemsTableViewService.data.count {
+        case 0, 1, 2:
+            index = CGFloat(self.orderItemsTableViewService.data.count)
+        default:
+            index = 2.5
+        }
+        
+        return index
+    }
+    
+}

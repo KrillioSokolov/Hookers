@@ -14,8 +14,16 @@
 		ED02C24B21594D69000A882B /* Hookers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED02C24921594D69000A882B /* Hookers.xcdatamodeld */; };
 		ED02C25021594D6B000A882B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED02C24E21594D6B000A882B /* LaunchScreen.storyboard */; };
 		ED02C25B21594D6B000A882B /* HookersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02C25A21594D6B000A882B /* HookersTests.swift */; };
+		ED2BA26A216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */; };
+		ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */; };
 		ED3A458B2167E46A0078B673 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */; };
 		ED3A458E2167F03F0078B673 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A458D2167F03F0078B673 /* UIViewController.swift */; };
+		ED5047F9216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED504447216BD44A00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib */; };
+		ED5049FC216BD45000E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5047F8216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift */; };
+		ED8EA89F21711F3700369DAB /* OrderItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA89D21711F3700369DAB /* OrderItemTableViewCell.swift */; };
+		ED8EA8A021711F3700369DAB /* OrderItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8EA89E21711F3700369DAB /* OrderItemTableViewCell.xib */; };
+		ED8EA8A2217126AC00369DAB /* OrderItemsTableViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A1217126AC00369DAB /* OrderItemsTableViewService.swift */; };
+		ED8EA8A42172350500369DAB /* OrderInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */; };
 		EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5451215958B40079CFBF /* AppCoordinator.swift */; };
 		EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5B4421595F080079CFBF /* DataStateLocking.swift */; };
 		EDCA5F93215961280079CFBF /* Storyboard+Hookers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5F92215961280079CFBF /* Storyboard+Hookers.swift */; };
@@ -75,6 +83,11 @@
 		EDD6690A215BA640004DAB67 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66907215BA640004DAB67 /* UICollectionView+Reusable.swift */; };
 		EDD6690B215BA640004DAB67 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66908215BA640004DAB67 /* Reusable.swift */; };
 		EDD6690C215BA640004DAB67 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66909215BA640004DAB67 /* UITableView+Reusable.swift */; };
+		EDE2A03D216E6F8E00FF84E6 /* CategoryCollectionViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE2A03C216E6F8E00FF84E6 /* CategoryCollectionViewService.swift */; };
+		EDE2A041216E729800FF84E6 /* MixListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE2A03F216E729800FF84E6 /* MixListCollectionViewCell.swift */; };
+		EDE2A042216E729800FF84E6 /* MixListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE2A040216E729800FF84E6 /* MixListCollectionViewCell.xib */; };
+		EDE2A044216E88BD00FF84E6 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE2A043216E88BD00FF84E6 /* UILabel.swift */; };
+		EDE2A046216E898900FF84E6 /* MixListCollectionViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE2A045216E898900FF84E6 /* MixListCollectionViewService.swift */; };
 		EDFE7A80215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A7E215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.swift */; };
 		EDFE7A81215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE7A7F215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.xib */; };
 		EDFE7A85215E98CB00FC9D24 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A83215E98CB00FC9D24 /* RestaurantTableViewCell.swift */; };
@@ -114,8 +127,16 @@
 		ED02C25621594D6B000A882B /* HookersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HookersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED02C25A21594D6B000A882B /* HookersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookersTests.swift; sourceTree = "<group>"; };
 		ED02C25C21594D6B000A882B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MixCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
 		ED3A458D2167F03F0078B673 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		ED504447216BD44A00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderStepsExpandedSectionTableViewHeader.xib; sourceTree = "<group>"; };
+		ED5047F8216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderStepsExpandedSectionTableViewHeader.swift; sourceTree = "<group>"; };
+		ED8EA89D21711F3700369DAB /* OrderItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemTableViewCell.swift; sourceTree = "<group>"; };
+		ED8EA89E21711F3700369DAB /* OrderItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderItemTableViewCell.xib; sourceTree = "<group>"; };
+		ED8EA8A1217126AC00369DAB /* OrderItemsTableViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemsTableViewService.swift; sourceTree = "<group>"; };
+		ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoViewController.swift; sourceTree = "<group>"; };
 		EDCA5451215958B40079CFBF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EDCA5B4421595F080079CFBF /* DataStateLocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStateLocking.swift; sourceTree = "<group>"; };
 		EDCA5B4521595F080079CFBF /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
@@ -180,6 +201,11 @@
 		EDD66907215BA640004DAB67 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
 		EDD66908215BA640004DAB67 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		EDD66909215BA640004DAB67 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
+		EDE2A03C216E6F8E00FF84E6 /* CategoryCollectionViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewService.swift; sourceTree = "<group>"; };
+		EDE2A03F216E729800FF84E6 /* MixListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixListCollectionViewCell.swift; sourceTree = "<group>"; };
+		EDE2A040216E729800FF84E6 /* MixListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MixListCollectionViewCell.xib; sourceTree = "<group>"; };
+		EDE2A043216E88BD00FF84E6 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		EDE2A045216E898900FF84E6 /* MixListCollectionViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixListCollectionViewService.swift; sourceTree = "<group>"; };
 		EDFE7A7E215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageHorizontalScrollTableViewCell.swift; sourceTree = "<group>"; };
 		EDFE7A7F215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleImageHorizontalScrollTableViewCell.xib; sourceTree = "<group>"; };
 		EDFE7A83215E98CB00FC9D24 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
@@ -279,12 +305,61 @@
 			path = HookersTests;
 			sourceTree = "<group>";
 		};
+		ED2BA267216CC51C0026EC64 /* MixCategory Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */,
+				ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */,
+			);
+			path = "MixCategory Cell";
+			sourceTree = "<group>";
+		};
 		ED3A458C2167EFD20078B673 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				EDD6682021595631004DAB67 /* UIScrollView.swift */,
+				EDD6682121595631004DAB67 /* CALayer.swift */,
+				EDD6682321595631004DAB67 /* UIView.swift */,
+				EDD6682621595631004DAB67 /* UIImageView+SDWebImage.swift */,
+				EDD6682721595631004DAB67 /* UIStackView.swift */,
+				EDD6682821595631004DAB67 /* UIColor.swift */,
+				EDD6682C21595631004DAB67 /* UIUserNotificationType.swift */,
+				EDD6683021595631004DAB67 /* UIApplication+TopViewController.swift */,
+				EDD6683221595631004DAB67 /* UIDevice.swift */,
+				EDD6683421595631004DAB67 /* UIButton.swift */,
+				EDD6683521595631004DAB67 /* UIImage.swift */,
+				EDD6683621595631004DAB67 /* UINavigationBar.swift */,
 				ED3A458D2167F03F0078B673 /* UIViewController.swift */,
+				EDE2A043216E88BD00FF84E6 /* UILabel.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		ED504445216BD3B500E6C0D1 /* CircleImage Header  */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE7A962162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift */,
+				EDFE7A982162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib */,
+			);
+			path = "CircleImage Header ";
+			sourceTree = "<group>";
+		};
+		ED504446216BD3D600E6C0D1 /* OrderSteps ExpandedTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				ED5047F8216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift */,
+				ED504447216BD44A00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib */,
+			);
+			path = "OrderSteps ExpandedTableViewHeader";
+			sourceTree = "<group>";
+		};
+		ED8EA89C21711F2400369DAB /* OrderItemTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				ED8EA89D21711F3700369DAB /* OrderItemTableViewCell.swift */,
+				ED8EA89E21711F3700369DAB /* OrderItemTableViewCell.xib */,
+			);
+			path = OrderItemTableViewCell;
 			sourceTree = "<group>";
 		};
 		EDCA544E2159539B0079CFBF /* UI Layer */ = {
@@ -300,6 +375,7 @@
 		EDCA544F2159539B0079CFBF /* Application Layer */ = {
 			isa = PBXGroup;
 			children = (
+				EDD6681F21595631004DAB67 /* Extensions */,
 				EDCA5451215958B40079CFBF /* AppCoordinator.swift */,
 			);
 			path = "Application Layer";
@@ -332,7 +408,6 @@
 				EDD668A2215A2F7F004DAB67 /* Notifier */,
 				EDD6689D215A2F00004DAB67 /* Coordinator */,
 				EDCA545F21595EAF0079CFBF /* Notifier */,
-				EDD6681F21595631004DAB67 /* Extensions */,
 				EDD6681D21595631004DAB67 /* Network Services */,
 			);
 			path = "Infrastracture Layer";
@@ -367,28 +442,16 @@
 		EDD6681F21595631004DAB67 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EDD6682021595631004DAB67 /* UIScrollView.swift */,
-				EDD6682121595631004DAB67 /* CALayer.swift */,
 				EDD6682221595631004DAB67 /* Date.swift */,
-				EDD6682321595631004DAB67 /* UIView.swift */,
 				EDD6682421595631004DAB67 /* Array.swift */,
 				EDD6682521595631004DAB67 /* Collection.swift */,
-				EDD6682621595631004DAB67 /* UIImageView+SDWebImage.swift */,
-				EDD6682721595631004DAB67 /* UIStackView.swift */,
-				EDD6682821595631004DAB67 /* UIColor.swift */,
 				EDD6682921595631004DAB67 /* KeyedDecodingContainer.swift */,
 				EDD6682A21595631004DAB67 /* FileManager.swift */,
-				EDD6682C21595631004DAB67 /* UIUserNotificationType.swift */,
 				EDD6682D21595631004DAB67 /* KeyedEncodingContainerProtocol.swift */,
 				EDD6682E21595631004DAB67 /* UUID.swift */,
 				EDD6682F21595631004DAB67 /* DispatchQueue.swift */,
-				EDD6683021595631004DAB67 /* UIApplication+TopViewController.swift */,
 				EDD6683121595631004DAB67 /* Encodable.swift */,
-				EDD6683221595631004DAB67 /* UIDevice.swift */,
 				EDD6683321595631004DAB67 /* Dictionary.swift */,
-				EDD6683421595631004DAB67 /* UIButton.swift */,
-				EDD6683521595631004DAB67 /* UIImage.swift */,
-				EDD6683621595631004DAB67 /* UINavigationBar.swift */,
 				EDD6683721595631004DAB67 /* String */,
 				EDD6683A21595631004DAB67 /* Bundle.swift */,
 			);
@@ -564,6 +627,7 @@
 		EDD668ED215A7C10004DAB67 /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
+				EDE2A03B216E6F4F00FF84E6 /* Services */,
 				EDFE7A95216292A800FC9D24 /* Header and Footers */,
 				EDFE7A7D215E96C800FC9D24 /* Cells */,
 				EDD668F3215A7CDB004DAB67 /* View Controllers */,
@@ -587,6 +651,7 @@
 				EDD668F4215A7CFC004DAB67 /* RestaurantsListViewController.swift */,
 				EDFE7A922161227A00FC9D24 /* RestaurantViewController.swift */,
 				ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */,
+				ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -668,9 +733,31 @@
 			path = Reusable;
 			sourceTree = "<group>";
 		};
+		EDE2A03B216E6F4F00FF84E6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EDE2A03C216E6F8E00FF84E6 /* CategoryCollectionViewService.swift */,
+				EDE2A045216E898900FF84E6 /* MixListCollectionViewService.swift */,
+				ED8EA8A1217126AC00369DAB /* OrderItemsTableViewService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EDE2A03E216E728100FF84E6 /* MixList Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EDE2A03F216E729800FF84E6 /* MixListCollectionViewCell.swift */,
+				EDE2A040216E729800FF84E6 /* MixListCollectionViewCell.xib */,
+			);
+			path = "MixList Cell";
+			sourceTree = "<group>";
+		};
 		EDFE7A7D215E96C800FC9D24 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				ED8EA89C21711F2400369DAB /* OrderItemTableViewCell */,
+				EDE2A03E216E728100FF84E6 /* MixList Cell */,
+				ED2BA267216CC51C0026EC64 /* MixCategory Cell */,
 				EDFE7A89216107C200FC9D24 /* CircleImageHorizontalScroll TableViewCell */,
 				EDFE7A8E2161096000FC9D24 /* CircleImage CollectioViewCell */,
 				EDFE7A82215E981400FC9D24 /* Restaurant Cell */,
@@ -716,8 +803,8 @@
 		EDFE7A95216292A800FC9D24 /* Header and Footers */ = {
 			isa = PBXGroup;
 			children = (
-				EDFE7A962162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift */,
-				EDFE7A982162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib */,
+				ED504446216BD3D600E6C0D1 /* OrderSteps ExpandedTableViewHeader */,
+				ED504445216BD3B500E6C0D1 /* CircleImage Header  */,
 			);
 			path = "Header and Footers";
 			sourceTree = "<group>";
@@ -813,11 +900,15 @@
 			files = (
 				EDFE7A86215E98CB00FC9D24 /* RestaurantTableViewCell.xib in Resources */,
 				ED02C25021594D6B000A882B /* LaunchScreen.storyboard in Resources */,
+				ED8EA8A021711F3700369DAB /* OrderItemTableViewCell.xib in Resources */,
 				EDD668F2215A7CD3004DAB67 /* Restaurants.storyboard in Resources */,
 				EDFE7A8D2161095B00FC9D24 /* CircleImageCollectionViewCell.xib in Resources */,
 				EDD668E1215A3C02004DAB67 /* Main.storyboard in Resources */,
+				ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */,
 				EDD668FD215A81ED004DAB67 /* OrdersList.storyboard in Resources */,
+				EDE2A042216E729800FF84E6 /* MixListCollectionViewCell.xib in Resources */,
 				EDFE7A88215EAC3400FC9D24 /* Assets.xcassets in Resources */,
+				ED5047F9216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib in Resources */,
 				EDFE7A992162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib in Resources */,
 				EDFE7A81215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.xib in Resources */,
 			);
@@ -841,11 +932,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hookers-HookersTests/Pods-Hookers-HookersTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTimePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -861,11 +954,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hookers/Pods-Hookers-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTimePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -946,6 +1041,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED5049FC216BD45000E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift in Sources */,
+				ED8EA8A42172350500369DAB /* OrderInfoViewController.swift in Sources */,
 				EDD668C4215A3362004DAB67 /* CoreDataModelConvertible.swift in Sources */,
 				EDD6687621595631004DAB67 /* String.swift in Sources */,
 				EDD668C6215A3362004DAB67 /* CoreDataStackMoreThanOrEqualIOS10.swift in Sources */,
@@ -955,6 +1052,8 @@
 				EDD6686C21595631004DAB67 /* UUID.swift in Sources */,
 				EDFE7A80215E973200FC9D24 /* CircleImageHorizontalScrollTableViewCell.swift in Sources */,
 				EDFE7A8C2161095B00FC9D24 /* CircleImageCollectionViewCell.swift in Sources */,
+				EDE2A044216E88BD00FF84E6 /* UILabel.swift in Sources */,
+				EDE2A046216E898900FF84E6 /* MixListCollectionViewService.swift in Sources */,
 				EDD6686B21595631004DAB67 /* KeyedEncodingContainerProtocol.swift in Sources */,
 				EDD668A9215A2F7F004DAB67 /* DomainModel.swift in Sources */,
 				EDD668C1215A3362004DAB67 /* FetchRequest.swift in Sources */,
@@ -971,6 +1070,7 @@
 				EDD6686221595631004DAB67 /* Array.swift in Sources */,
 				EDD6686321595631004DAB67 /* Collection.swift in Sources */,
 				EDD6686121595631004DAB67 /* UIView.swift in Sources */,
+				EDE2A03D216E6F8E00FF84E6 /* CategoryCollectionViewService.swift in Sources */,
 				EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */,
 				EDD668A0215A2F0F004DAB67 /* CoordinatingContext.swift in Sources */,
 				EDD6690C215BA640004DAB67 /* UITableView+Reusable.swift in Sources */,
@@ -982,10 +1082,12 @@
 				EDD668EF215A7C41004DAB67 /* UIStoryboard+Restaurants.swift in Sources */,
 				EDFE7A91216117C800FC9D24 /* RestaurantsEvent.swift in Sources */,
 				EDD6686721595631004DAB67 /* KeyedDecodingContainer.swift in Sources */,
+				ED8EA89F21711F3700369DAB /* OrderItemTableViewCell.swift in Sources */,
 				EDD6687721595631004DAB67 /* Bundle.swift in Sources */,
 				EDD6687321595631004DAB67 /* UIImage.swift in Sources */,
 				EDD6686A21595631004DAB67 /* UIUserNotificationType.swift in Sources */,
 				EDD6685E21595631004DAB67 /* UIScrollView.swift in Sources */,
+				ED2BA26A216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift in Sources */,
 				EDD6686021595631004DAB67 /* Date.swift in Sources */,
 				EDD668C8215A3362004DAB67 /* DataBaseService.swift in Sources */,
 				EDD6686421595631004DAB67 /* UIImageView+SDWebImage.swift in Sources */,
@@ -996,6 +1098,7 @@
 				EDD6687121595631004DAB67 /* Dictionary.swift in Sources */,
 				EDD668DE215A3C02004DAB67 /* TabBarCoordinator.swift in Sources */,
 				EDD668B0215A2FD9004DAB67 /* Event.swift in Sources */,
+				ED8EA8A2217126AC00369DAB /* OrderItemsTableViewService.swift in Sources */,
 				EDD6686621595631004DAB67 /* UIColor.swift in Sources */,
 				EDD668A1215A2F0F004DAB67 /* Coordinator.swift in Sources */,
 				EDD668A7215A2F7F004DAB67 /* Executor.swift in Sources */,
@@ -1004,6 +1107,7 @@
 				ED02C24B21594D69000A882B /* Hookers.xcdatamodeld in Sources */,
 				EDD668AF215A2FD9004DAB67 /* Dispatcher.swift in Sources */,
 				EDD668E2215A3C02004DAB67 /* TabBarController.swift in Sources */,
+				EDE2A041216E729800FF84E6 /* MixListCollectionViewCell.swift in Sources */,
 				EDD6687421595631004DAB67 /* UINavigationBar.swift in Sources */,
 				EDD668C2215A3362004DAB67 /* CoreDataDBService.swift in Sources */,
 				ED02C24321594D69000A882B /* AppDelegate.swift in Sources */,
