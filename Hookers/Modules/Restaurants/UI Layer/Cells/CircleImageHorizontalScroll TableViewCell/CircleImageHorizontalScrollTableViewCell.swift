@@ -30,6 +30,7 @@ final class CircleImageHorizontalScrollTableViewCell: UITableViewCell, NibReusab
     }
         
 }
+
     
 extension CircleImageHorizontalScrollTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
         
@@ -55,7 +56,5 @@ extension CircleImageHorizontalScrollTableViewCell: UICollectionViewDelegate, UI
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.alpha = 0.3
     }
-    
-    
         
 }

@@ -111,7 +111,8 @@ extension RestaurantViewController: MixListServiceDelegate {
     func serviceDidChoseMix(_ service: MixListCollectionViewService, chosenMixName mixName: String) {
         
         orderItemsTableViewService.data.insert(mixName, at: 0)
-        orderButton.isHidden = false
+        //orderButton.isHighlighted = false
+        orderButton.isEnabled = true
         
         UIView.animate(withDuration: 0.3) {
             self.tableViewHeightConstraint.constant = 44 * self.tableViewHeightConstraintIndex() + 2
@@ -131,15 +132,13 @@ extension RestaurantViewController: OrderItemsServiceDelegate {
         if orderItemsTableViewService.data.count == 0 {
             UIView.animate(withDuration: 0.5) {
                 self.tableViewHeightConstraint.constant = 0
-                self.buttonHeightConstraint.constant = 0
-                self.orderButton.isHidden = true
+                self.orderButton.isHighlighted = true
                 self.view.layoutIfNeeded()
                 //self.orderItemsTableView.reloadData()
             }
         } else if orderItemsTableViewService.data.count <= 3 {
             UIView.animate(withDuration: 0.5) {
                 self.tableViewHeightConstraint.constant = 44 * self.tableViewHeightConstraintIndex()
-                self.buttonHeightConstraint.constant = 44
                 self.view.layoutIfNeeded()
             }
         }

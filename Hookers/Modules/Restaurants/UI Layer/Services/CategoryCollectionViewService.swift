@@ -20,6 +20,7 @@ final class CategoryCollectionViewService: NSObject {
     weak var delegate: CategoryServiceDelegate!
     
     var data: [PhotoAndName] = [("sladkiy", "Сладкий"), ("myata", "Мятный"), ("kisliy", "Кислый"), ("fruktoviy", "Фруктовый"), ("exotic", "Экзотика")]
+    
 }
 
 extension CategoryCollectionViewService: UICollectionViewDelegate, UICollectionViewDataSource {

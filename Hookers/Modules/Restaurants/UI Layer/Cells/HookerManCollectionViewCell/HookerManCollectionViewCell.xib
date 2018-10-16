@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HookerManCollectionViewCell" id="gTV-IL-0wX" customClass="HookerManCollectionViewCell" customModule="Hookers" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="197" height="195"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="197" height="195"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fj1-j7-Is4">
+                        <rect key="frame" x="0.0" y="0.0" width="197" height="195"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calyanshik" translatesAutoresizingMaskIntoConstraints="NO" id="Y2V-UD-Ths">
+                                <rect key="frame" x="0.0" y="0.0" width="197" height="195"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Николай" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTi-Sx-FTa">
+                                <rect key="frame" x="10" y="164" width="177" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="146/174" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DT0-mE-r6q">
+                                <rect key="frame" x="66.5" y="138.5" width="64" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JTi-Sx-FTa" firstAttribute="leading" secondItem="fj1-j7-Is4" secondAttribute="leading" constant="10" id="7eh-bu-9zP"/>
+                            <constraint firstItem="Y2V-UD-Ths" firstAttribute="top" secondItem="fj1-j7-Is4" secondAttribute="top" id="8nh-h3-8RS"/>
+                            <constraint firstAttribute="bottom" secondItem="JTi-Sx-FTa" secondAttribute="bottom" constant="10" id="FBN-q7-C2m"/>
+                            <constraint firstItem="DT0-mE-r6q" firstAttribute="centerX" secondItem="fj1-j7-Is4" secondAttribute="centerX" id="GDJ-EC-rZs"/>
+                            <constraint firstItem="Y2V-UD-Ths" firstAttribute="leading" secondItem="fj1-j7-Is4" secondAttribute="leading" id="VJh-W9-cI7"/>
+                            <constraint firstAttribute="trailing" secondItem="JTi-Sx-FTa" secondAttribute="trailing" constant="10" id="e1z-3z-8uz"/>
+                            <constraint firstAttribute="trailing" secondItem="Y2V-UD-Ths" secondAttribute="trailing" id="grF-Wy-mjD"/>
+                            <constraint firstAttribute="bottom" secondItem="Y2V-UD-Ths" secondAttribute="bottom" id="tR3-3O-3K4"/>
+                            <constraint firstItem="JTi-Sx-FTa" firstAttribute="top" secondItem="DT0-mE-r6q" secondAttribute="bottom" constant="5" id="ujh-bL-Keb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="fj1-j7-Is4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Omc-I4-wqP"/>
+                <constraint firstItem="fj1-j7-Is4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Vxd-Uc-q4F"/>
+                <constraint firstAttribute="trailing" secondItem="fj1-j7-Is4" secondAttribute="trailing" id="kbP-Iq-z0T"/>
+                <constraint firstAttribute="bottom" secondItem="fj1-j7-Is4" secondAttribute="bottom" id="rIC-qQ-f5o"/>
+            </constraints>
+            <size key="customSize" width="197" height="195"/>
+            <connections>
+                <outlet property="avatarImageView" destination="Y2V-UD-Ths" id="Rx1-hn-qSe"/>
+                <outlet property="containerView" destination="fj1-j7-Is4" id="JWB-2G-EM5"/>
+                <outlet property="likeCount" destination="DT0-mE-r6q" id="X3B-Lu-dKz"/>
+                <outlet property="nameLabel" destination="JTi-Sx-FTa" id="sCG-cK-d2R"/>
+            </connections>
+            <point key="canvasLocation" x="20" y="212.74362818590706"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="calyanshik" width="800" height="600"/>
+    </resources>
+</document>

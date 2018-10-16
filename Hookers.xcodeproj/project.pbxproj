@@ -24,6 +24,8 @@
 		ED8EA8A021711F3700369DAB /* OrderItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8EA89E21711F3700369DAB /* OrderItemTableViewCell.xib */; };
 		ED8EA8A2217126AC00369DAB /* OrderItemsTableViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A1217126AC00369DAB /* OrderItemsTableViewService.swift */; };
 		ED8EA8A42172350500369DAB /* OrderInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */; };
+		ED8EA8A8217665DE00369DAB /* HookerManCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A6217665DD00369DAB /* HookerManCollectionViewCell.swift */; };
+		ED8EA8A9217665DE00369DAB /* HookerManCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8EA8A7217665DD00369DAB /* HookerManCollectionViewCell.xib */; };
 		EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5451215958B40079CFBF /* AppCoordinator.swift */; };
 		EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5B4421595F080079CFBF /* DataStateLocking.swift */; };
 		EDCA5F93215961280079CFBF /* Storyboard+Hookers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5F92215961280079CFBF /* Storyboard+Hookers.swift */; };
@@ -137,6 +139,8 @@
 		ED8EA89E21711F3700369DAB /* OrderItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderItemTableViewCell.xib; sourceTree = "<group>"; };
 		ED8EA8A1217126AC00369DAB /* OrderItemsTableViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemsTableViewService.swift; sourceTree = "<group>"; };
 		ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoViewController.swift; sourceTree = "<group>"; };
+		ED8EA8A6217665DD00369DAB /* HookerManCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookerManCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED8EA8A7217665DD00369DAB /* HookerManCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HookerManCollectionViewCell.xib; sourceTree = "<group>"; };
 		EDCA5451215958B40079CFBF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EDCA5B4421595F080079CFBF /* DataStateLocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStateLocking.swift; sourceTree = "<group>"; };
 		EDCA5B4521595F080079CFBF /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
@@ -360,6 +364,15 @@
 				ED8EA89E21711F3700369DAB /* OrderItemTableViewCell.xib */,
 			);
 			path = OrderItemTableViewCell;
+			sourceTree = "<group>";
+		};
+		ED8EA8A52176659600369DAB /* HookerManCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				ED8EA8A6217665DD00369DAB /* HookerManCollectionViewCell.swift */,
+				ED8EA8A7217665DD00369DAB /* HookerManCollectionViewCell.xib */,
+			);
+			path = HookerManCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		EDCA544E2159539B0079CFBF /* UI Layer */ = {
@@ -755,6 +768,7 @@
 		EDFE7A7D215E96C800FC9D24 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				ED8EA8A52176659600369DAB /* HookerManCollectionViewCell */,
 				ED8EA89C21711F2400369DAB /* OrderItemTableViewCell */,
 				EDE2A03E216E728100FF84E6 /* MixList Cell */,
 				ED2BA267216CC51C0026EC64 /* MixCategory Cell */,
@@ -905,6 +919,7 @@
 				EDFE7A8D2161095B00FC9D24 /* CircleImageCollectionViewCell.xib in Resources */,
 				EDD668E1215A3C02004DAB67 /* Main.storyboard in Resources */,
 				ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */,
+				ED8EA8A9217665DE00369DAB /* HookerManCollectionViewCell.xib in Resources */,
 				EDD668FD215A81ED004DAB67 /* OrdersList.storyboard in Resources */,
 				EDE2A042216E729800FF84E6 /* MixListCollectionViewCell.xib in Resources */,
 				EDFE7A88215EAC3400FC9D24 /* Assets.xcassets in Resources */,
@@ -932,13 +947,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hookers-HookersTests/Pods-Hookers-HookersTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTimePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -954,13 +967,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hookers/Pods-Hookers-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTimePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1070,6 +1081,7 @@
 				EDD6686221595631004DAB67 /* Array.swift in Sources */,
 				EDD6686321595631004DAB67 /* Collection.swift in Sources */,
 				EDD6686121595631004DAB67 /* UIView.swift in Sources */,
+				ED8EA8A8217665DE00369DAB /* HookerManCollectionViewCell.swift in Sources */,
 				EDE2A03D216E6F8E00FF84E6 /* CategoryCollectionViewService.swift in Sources */,
 				EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */,
 				EDD668A0215A2F0F004DAB67 /* CoordinatingContext.swift in Sources */,
