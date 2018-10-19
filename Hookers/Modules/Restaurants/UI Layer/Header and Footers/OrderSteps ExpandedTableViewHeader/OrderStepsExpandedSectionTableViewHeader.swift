@@ -1,9 +1,9 @@
 //
 //  OrderStepsExpandedSectionTableViewHeader.swift
-//  Privat24
+//  Hookers
 //
 //  Created by Kirill on 18.11.2017.
-//  Copyright © 2017 Privat24. All rights reserved.
+//  Copyright © 2017 Hookers. All rights reserved.
 //
 
 import UIKit

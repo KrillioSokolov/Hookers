@@ -22,7 +22,7 @@ final class AppCoordinator: Coordinator {
     init(window: UIWindow) {
         self.window = window
         
-        super.init(context: CoordinatingContext())
+        super.init(context: CoordinatingContext(dispatcher: DefaultDispatcher(), styleguide: DarkThemeDesignStyleGuide()))
     }
     
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

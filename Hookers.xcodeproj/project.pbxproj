@@ -14,6 +14,13 @@
 		ED02C24B21594D69000A882B /* Hookers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED02C24921594D69000A882B /* Hookers.xcdatamodeld */; };
 		ED02C25021594D6B000A882B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED02C24E21594D6B000A882B /* LaunchScreen.storyboard */; };
 		ED02C25B21594D6B000A882B /* HookersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02C25A21594D6B000A882B /* HookersTests.swift */; };
+		ED128A24217A6D8100C2062D /* DesignTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED128A1C217A6D8100C2062D /* DesignTheme.swift */; };
+		ED128A25217A6D8100C2062D /* DarkThemeDesignStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED128A1E217A6D8100C2062D /* DarkThemeDesignStyleGuide.swift */; };
+		ED128A26217A6D8100C2062D /* LightThemeDesignStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED128A1F217A6D8100C2062D /* LightThemeDesignStyleGuide.swift */; };
+		ED128A27217A6D8100C2062D /* DesignStyleGuideProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED128A21217A6D8100C2062D /* DesignStyleGuideProviding.swift */; };
+		ED128A28217A6D8100C2062D /* DesignStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED128A22217A6D8100C2062D /* DesignStyleGuide.swift */; };
+		ED128A29217A6D8100C2062D /* UIStyleGuideRefreshing.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED128A23217A6D8100C2062D /* UIStyleGuideRefreshing.swift */; };
+		ED128A2C217A6F6C00C2062D /* ExternalStyleguide.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED128A2B217A6F6C00C2062D /* ExternalStyleguide.swift */; };
 		ED2BA26A216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */; };
 		ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */; };
 		ED3A458B2167E46A0078B673 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */; };
@@ -129,6 +136,13 @@
 		ED02C25621594D6B000A882B /* HookersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HookersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED02C25A21594D6B000A882B /* HookersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookersTests.swift; sourceTree = "<group>"; };
 		ED02C25C21594D6B000A882B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED128A1C217A6D8100C2062D /* DesignTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignTheme.swift; sourceTree = "<group>"; };
+		ED128A1E217A6D8100C2062D /* DarkThemeDesignStyleGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkThemeDesignStyleGuide.swift; sourceTree = "<group>"; };
+		ED128A1F217A6D8100C2062D /* LightThemeDesignStyleGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightThemeDesignStyleGuide.swift; sourceTree = "<group>"; };
+		ED128A21217A6D8100C2062D /* DesignStyleGuideProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignStyleGuideProviding.swift; sourceTree = "<group>"; };
+		ED128A22217A6D8100C2062D /* DesignStyleGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignStyleGuide.swift; sourceTree = "<group>"; };
+		ED128A23217A6D8100C2062D /* UIStyleGuideRefreshing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStyleGuideRefreshing.swift; sourceTree = "<group>"; };
+		ED128A2B217A6F6C00C2062D /* ExternalStyleguide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalStyleguide.swift; sourceTree = "<group>"; };
 		ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MixCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +323,53 @@
 			path = HookersTests;
 			sourceTree = "<group>";
 		};
+		ED128A1B217A6D8100C2062D /* Design Styleguide */ = {
+			isa = PBXGroup;
+			children = (
+				ED128A1C217A6D8100C2062D /* DesignTheme.swift */,
+				ED128A1D217A6D8100C2062D /* Styleguides */,
+				ED128A20217A6D8100C2062D /* Protocols */,
+			);
+			name = "Design Styleguide";
+			path = "Design Styleguide/Design Styleguide";
+			sourceTree = "<group>";
+		};
+		ED128A1D217A6D8100C2062D /* Styleguides */ = {
+			isa = PBXGroup;
+			children = (
+				ED128A2D217A6F7400C2062D /* Internal */,
+				ED128A2A217A6F6C00C2062D /* External */,
+			);
+			path = Styleguides;
+			sourceTree = "<group>";
+		};
+		ED128A20217A6D8100C2062D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ED128A21217A6D8100C2062D /* DesignStyleGuideProviding.swift */,
+				ED128A22217A6D8100C2062D /* DesignStyleGuide.swift */,
+				ED128A23217A6D8100C2062D /* UIStyleGuideRefreshing.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		ED128A2A217A6F6C00C2062D /* External */ = {
+			isa = PBXGroup;
+			children = (
+				ED128A2B217A6F6C00C2062D /* ExternalStyleguide.swift */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		ED128A2D217A6F7400C2062D /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				ED128A1E217A6D8100C2062D /* DarkThemeDesignStyleGuide.swift */,
+				ED128A1F217A6D8100C2062D /* LightThemeDesignStyleGuide.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		ED2BA267216CC51C0026EC64 /* MixCategory Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +439,7 @@
 		EDCA544E2159539B0079CFBF /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
+				ED128A1B217A6D8100C2062D /* Design Styleguide */,
 				ED3A458C2167EFD20078B673 /* Extension */,
 				EDD66906215BA640004DAB67 /* Reusable */,
 				EDCA5F91215961060079CFBF /* Storyboard */,
@@ -1076,10 +1138,14 @@
 				EDFE7A972162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift in Sources */,
 				EDD6686D21595631004DAB67 /* DispatchQueue.swift in Sources */,
 				EDD6687221595631004DAB67 /* UIButton.swift in Sources */,
+				ED128A24217A6D8100C2062D /* DesignTheme.swift in Sources */,
 				EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */,
 				ED3A458B2167E46A0078B673 /* RestaurantInfoViewController.swift in Sources */,
 				EDD6686221595631004DAB67 /* Array.swift in Sources */,
 				EDD6686321595631004DAB67 /* Collection.swift in Sources */,
+				ED128A29217A6D8100C2062D /* UIStyleGuideRefreshing.swift in Sources */,
+				ED128A28217A6D8100C2062D /* DesignStyleGuide.swift in Sources */,
+				ED128A25217A6D8100C2062D /* DarkThemeDesignStyleGuide.swift in Sources */,
 				EDD6686121595631004DAB67 /* UIView.swift in Sources */,
 				ED8EA8A8217665DE00369DAB /* HookerManCollectionViewCell.swift in Sources */,
 				EDE2A03D216E6F8E00FF84E6 /* CategoryCollectionViewService.swift in Sources */,
@@ -1121,10 +1187,13 @@
 				EDD668E2215A3C02004DAB67 /* TabBarController.swift in Sources */,
 				EDE2A041216E729800FF84E6 /* MixListCollectionViewCell.swift in Sources */,
 				EDD6687421595631004DAB67 /* UINavigationBar.swift in Sources */,
+				ED128A26217A6D8100C2062D /* LightThemeDesignStyleGuide.swift in Sources */,
 				EDD668C2215A3362004DAB67 /* CoreDataDBService.swift in Sources */,
 				ED02C24321594D69000A882B /* AppDelegate.swift in Sources */,
+				ED128A27217A6D8100C2062D /* DesignStyleGuideProviding.swift in Sources */,
 				EDFE7A932161227A00FC9D24 /* RestaurantViewController.swift in Sources */,
 				EDD66905215A83BA004DAB67 /* OrdersListCoordinator.swift in Sources */,
+				ED128A2C217A6F6C00C2062D /* ExternalStyleguide.swift in Sources */,
 				EDD6690B215BA640004DAB67 /* Reusable.swift in Sources */,
 				EDD6686F21595631004DAB67 /* Encodable.swift in Sources */,
 				EDCA5F93215961280079CFBF /* Storyboard+Hookers.swift in Sources */,

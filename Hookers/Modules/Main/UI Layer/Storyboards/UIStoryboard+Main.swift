@@ -1,9 +1,9 @@
 //
 //  UIStoryboard+Main.swift
-//  Privat24
+//  Hookers
 //
-//  Created by Roman Scherbakov on 5/29/17.
-//  Copyright © 2017 Privat24. All rights reserved.
+//  Created by Hookers on 5/29/17.
+//  Copyright © 2017 Hookers. All rights reserved.
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  String+Shared.swift
 //  Hookers
 //
-//  Created by Maksym Letiushov on 03.07.2018.
-//  Copyright © 2018 Приват24. All rights reserved.
+//  Created by Kirill Sokolov on 03.07.2018.
+//  Copyright © 2018 Hookers. All rights reserved.
 //
 
 import Foundation

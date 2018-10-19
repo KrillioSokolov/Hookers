@@ -3,7 +3,7 @@
 //  ClearMVC
 //
 //  Created by Sokolov Kirill on 4/25/18.
-//  Copyright © 2018 Privat24. All rights reserved.
+//  Copyright © 2018 Hookers. All rights reserved.
 //
 
 import Foundation

@@ -3,7 +3,7 @@
 //  Hookers
 //
 //  Created by Sokolov Kirill on 3/26/18.
-//  Copyright © 2018 Приват24. All rights reserved.
+//  Copyright © 2018 Hookers. All rights reserved.
 //
 
 import Foundation

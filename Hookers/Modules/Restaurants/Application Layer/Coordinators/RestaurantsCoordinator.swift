@@ -30,18 +30,55 @@ final class RestaurantsCoordinator: TabBarEmbedCoordinator {
     override func prepareForStart() {
         super.prepareForStart()
         
-        let restaurant = UIStoryboard.Restaurants.restaurantsListViewController
-        
-        restaurant.dispatcher = context.dispatcher
-        restaurant.view.backgroundColor = .black
-        
+        openRestaurantListViewController()
         register()
-        
-        root = UINavigationController(rootViewController: restaurant)
     }
     
     override func createFlow() -> UIViewController {
         return root
+    }
+    
+}
+
+
+//MARK: Open View Controllers
+extension RestaurantsCoordinator {
+    
+    private func openRestaurantListViewController() {
+        let restaurant = UIStoryboard.Restaurants.restaurantsListViewController
+        
+        restaurant.dispatcher = context.dispatcher
+        restaurant.styleguide = context.styleguide
+        
+        root = UINavigationController(rootViewController: restaurant)
+    }
+    
+    private func openRestaurantViewContoller(withRestaurantId restaurantId: String) {
+        let controller = UIStoryboard.Restaurants.restaurantViewController
+        
+        controller.dispatcher = dispatcher
+        controller.styleguide = context.styleguide
+        
+        root.tabBarController?.tabBar.isHidden = true
+        
+        if root.viewControllers[0].presentedViewController is UINavigationController {
+            root.dismiss(animated: true, completion: nil)
+            root.pushViewController(controller, animated: false)
+        } else {
+            root.pushViewController(controller, animated: true)
+        }
+    }
+    
+    private func openRestaurantInfoViewController(withRestaurantId restaurantId: String) {
+        let controller = UIStoryboard.Restaurants.restaurantInfoViewController
+        
+        controller.dispatcher = dispatcher
+        controller.styleguide = context.styleguide
+        
+        let navBarOnModal: UINavigationController = UINavigationController(rootViewController: controller)
+        
+        root.tabBarController?.tabBar.isHidden = true
+        root.present(navBarOnModal, animated: true, completion: nil)
     }
     
 }
@@ -60,20 +97,7 @@ extension RestaurantsCoordinator {
             
             switch result {
             case .success(let box):
-                _ =  box.restaurantId
-                
-                let controller = UIStoryboard.Restaurants.restaurantViewController
-                
-                controller.dispatcher = self?.dispatcher
-                
-                self?.root.tabBarController?.tabBar.isHidden = true
-                
-                if let topViewController = self?.root.viewControllers[0],  topViewController.presentedViewController is UINavigationController {
-                    self?.root.dismiss(animated: true, completion: nil)
-                    self?.root.pushViewController(controller, animated: false)
-                } else {
-                    self?.root.pushViewController(controller, animated: true)
-                }
+               self?.openRestaurantViewContoller(withRestaurantId: box.restaurantId)
             case .failure(_):
                 break
             }
@@ -85,16 +109,7 @@ extension RestaurantsCoordinator {
             
             switch result {
             case .success(let box):
-                _ =  box.restaurantId
-                
-                let controller = UIStoryboard.Restaurants.restaurantInfoViewController
-                
-                controller.dispatcher = self?.dispatcher
-                
-                let navBarOnModal: UINavigationController = UINavigationController(rootViewController: controller)
-                
-                self?.root.tabBarController?.tabBar.isHidden = true
-                self?.root.present(navBarOnModal, animated: true, completion: nil)
+                self?.openRestaurantInfoViewController(withRestaurantId: box.restaurantId)
             case .failure(_):
                 break
             }

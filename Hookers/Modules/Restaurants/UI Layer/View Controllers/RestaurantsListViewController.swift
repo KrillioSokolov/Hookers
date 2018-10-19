@@ -13,6 +13,7 @@ final class RestaurantsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var dispatcher: Dispatcher!
+    var styleguide: DesignStyleGuide!
     
     override func viewDidLoad() {
         super.viewDidLoad()

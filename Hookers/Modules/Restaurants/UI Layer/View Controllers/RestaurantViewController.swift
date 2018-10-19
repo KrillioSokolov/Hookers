@@ -15,9 +15,9 @@ final class RestaurantViewController: UIViewController {
     @IBOutlet private var orderButton: UIButton!
     @IBOutlet weak var bucketContainerView: UIView!
     @IBOutlet weak var orderItemsTableView: UITableView!
-//    @IBOutlet weak var containerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var buttonHeightConstraint: NSLayoutConstraint!
+    
     fileprivate let categoryCollectionViewService = CategoryCollectionViewService()
     fileprivate let mixListCollectionViewService = MixListCollectionViewService()
     fileprivate let orderItemsTableViewService = OrderItemsTableViewService()
@@ -26,13 +26,13 @@ final class RestaurantViewController: UIViewController {
     fileprivate var sectionRowsHeightAmount = [Int : CGFloat]()
     
     var dispatcher: Dispatcher!
+    var styleguide: DesignStyleGuide!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.addBackButton(with: self, action: #selector(back))
-        //addHandButton()
-        
+
         bucketContainerView.layer.borderWidth = 0.5
         bucketContainerView.layer.borderColor = UIColor.lightGray.cgColor
         
@@ -52,31 +52,23 @@ final class RestaurantViewController: UIViewController {
         orderItemsTableView.dataSource = orderItemsTableViewService
         orderItemsTableViewService.delegate = self
         
-    }
-    
-    func addHandButton() {
-        let backButton = UIButton()
-        let image = UIImage(named: "hand")?.withRenderingMode(.alwaysTemplate)
-        let barButtonItem = UIBarButtonItem(customView: backButton)
-        
-        backButton.setImage(image, for: .normal)
-        backButton.tintColor = view.tintColor
-        backButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-        //backButton.addTarget(target, action: nil, for: .touchUpInside)
-        var contentInsets = backButton.contentEdgeInsets
-        contentInsets.left = -30
-        backButton.contentEdgeInsets = contentInsets
-        navigationItem.setRightBarButton( barButtonItem, animated: true)
-
+        orderButton.alpha = 0.5
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.navigationBar.barStyle = .blackOpaque
-        navigationItem.title = "Hookah Place".localized()
         navigationController?.navigationBar.barTintColor = .clear
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.isNavigationBarHidden = false
+        
+        navigationItem.setTitleView(withTitle: "Hookah Place".localized(),
+                                    subtitle: "Выберите микс".localized(),
+                                    titleColor: styleguide.primaryTextColor,
+                                    titleFont: styleguide.regularFont(ofSize: 17),
+                                    subtitleColor: styleguide.secondaryTextColor,
+                                    subtitleFont: styleguide.regularFont(ofSize: 12))
     }
 
     deinit {
@@ -111,7 +103,7 @@ extension RestaurantViewController: MixListServiceDelegate {
     func serviceDidChoseMix(_ service: MixListCollectionViewService, chosenMixName mixName: String) {
         
         orderItemsTableViewService.data.insert(mixName, at: 0)
-        //orderButton.isHighlighted = false
+        orderButton.alpha = 1
         orderButton.isEnabled = true
         
         UIView.animate(withDuration: 0.3) {
@@ -133,6 +125,7 @@ extension RestaurantViewController: OrderItemsServiceDelegate {
             UIView.animate(withDuration: 0.5) {
                 self.tableViewHeightConstraint.constant = 0
                 self.orderButton.isHighlighted = true
+                self.orderButton.alpha = 0.5
                 self.view.layoutIfNeeded()
                 //self.orderItemsTableView.reloadData()
             }

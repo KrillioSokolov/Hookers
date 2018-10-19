@@ -27,9 +27,9 @@ final class OrdersListCoordinator: TabBarEmbedCoordinator {
     override func prepareForStart() {
         super.prepareForStart()
         
-        let ordersList = UIStoryboard.OrdersList.ordersListViewController
+        let ordersListViewController = UIStoryboard.OrdersList.ordersListViewController
         
-        root = UINavigationController(rootViewController: ordersList)
+        root = UINavigationController(rootViewController: ordersListViewController)
     }
     
     override func createFlow() -> UIViewController {

@@ -14,6 +14,7 @@ final class RestaurantInfoViewController: UIViewController {
     @IBOutlet weak var workingTimeButton: UIButton!
     
     var dispatcher: Dispatcher!
+    var styleguide: DesignStyleGuide!
     
     override func viewDidLoad() {
         super.viewDidLoad()

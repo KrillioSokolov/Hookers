@@ -2,8 +2,8 @@
 //  KeyedEncodingContainerProtocol.swift
 //  Hookers
 //
-//  Created by Maksym Letiushov on 20.03.2018.
-//  Copyright © 2018 Приват24. All rights reserved.
+//  Created by Kirill Sokolov on 20.03.2018.
+//  Copyright © 2018 Hookers. All rights reserved.
 //
 
 import Foundation

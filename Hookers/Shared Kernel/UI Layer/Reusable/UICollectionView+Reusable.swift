@@ -1,9 +1,9 @@
 //
 //  UICollectionView+Reusable.swift
-//  channels-ios
+//  Hookers
 //
-//  Created by Roman Scherbakov on 12/26/17.
-//  Copyright © 2017 Приват24. All rights reserved.
+//  Created by Hookers on 12/26/17.
+//  Copyright © 2017 Hookers. All rights reserved.
 //
 
 import UIKit
