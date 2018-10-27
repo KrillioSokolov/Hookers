@@ -2,7 +2,7 @@
 //  UICollectionView+Reusable.swift
 //  Hookers
 //
-//  Created by Hookers on 12/26/17.
+//  Created by Hookers on 12/26/18.
 //  Copyright © 2017 Hookers. All rights reserved.
 //
 

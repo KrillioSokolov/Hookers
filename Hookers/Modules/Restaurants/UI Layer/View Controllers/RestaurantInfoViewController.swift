@@ -19,7 +19,7 @@ final class RestaurantInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.addCloseButton(with: self, action: #selector(close))
+        navigationItem.addCloseButton(with: self, action: #selector(close), tintColor: styleguide.primaryColor)
         
         letsMakeHookahButton.layer.borderWidth = 1
         letsMakeHookahButton.layer.borderColor = UIColor.white.cgColor

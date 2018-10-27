@@ -10,55 +10,44 @@ import UIKit
 
 final class RestaurantViewController: UIViewController {
     
+    @IBOutlet private weak var shadowView: UIView!
     @IBOutlet private weak var mixListCollectionView: UICollectionView!
     @IBOutlet private weak var categoryCollectionView: UICollectionView!
-    @IBOutlet private var orderButton: UIButton!
-    @IBOutlet weak var bucketContainerView: UIView!
-    @IBOutlet weak var orderItemsTableView: UITableView!
-    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var buttonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var orderButton: UIButton!
+    @IBOutlet private weak var bucketContainerView: UIView!
+    @IBOutlet private weak var orderItemsTableView: UITableView!
+    @IBOutlet private weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var buttonHeightConstraint: NSLayoutConstraint!
     
-    fileprivate let categoryCollectionViewService = CategoryCollectionViewService()
-    fileprivate let mixListCollectionViewService = MixListCollectionViewService()
-    fileprivate let orderItemsTableViewService = OrderItemsTableViewService()
-    
-    fileprivate var sectionsState = [Int : Bool]()
-    fileprivate var sectionRowsHeightAmount = [Int : CGFloat]()
+    fileprivate var categoryCollectionViewService: CategoryCollectionViewService!
+    fileprivate var mixListCollectionViewService: MixListCollectionViewService!
+    fileprivate var orderItemsTableViewService: OrderItemsTableViewService!
     
     var dispatcher: Dispatcher!
     var styleguide: DesignStyleGuide!
     
+    var menu = HookahMenuResponse.makeTestData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.addBackButton(with: self, action: #selector(back))
-
-        bucketContainerView.layer.borderWidth = 0.5
-        bucketContainerView.layer.borderColor = UIColor.lightGray.cgColor
+        navigationItem.addBackButton(with: self, action: #selector(back), tintColor: styleguide.primaryColor)
         
-        categoryCollectionView.registerReusableCell(cellType: MixCategoryCollectionViewCell.self)
-        mixListCollectionView.registerReusableCell(cellType: MixListCollectionViewCell.self)
-        orderItemsTableView.registerReusableCell(cellType: OrderItemTableViewCell.self)
+        configurateOrderItemsTableView()
+        configurateMixListCollectionView()
+        configurateMixCategoryCollectionView()
+        configurateDisableOrderButton()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        categoryCollectionView.delegate = categoryCollectionViewService
-        categoryCollectionView.dataSource = categoryCollectionViewService
-        categoryCollectionViewService.delegate = self
-        
-        mixListCollectionView.delegate = mixListCollectionViewService
-        mixListCollectionView.dataSource = mixListCollectionViewService
-        mixListCollectionViewService.delegate = self
-        
-        orderItemsTableView.delegate = orderItemsTableViewService
-        orderItemsTableView.dataSource = orderItemsTableViewService
-        orderItemsTableViewService.delegate = self
-        
-        orderButton.alpha = 0.5
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.barStyle = .blackOpaque
+        navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.barTintColor = .clear
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.isNavigationBarHidden = false
@@ -69,6 +58,8 @@ final class RestaurantViewController: UIViewController {
                                     titleFont: styleguide.regularFont(ofSize: 17),
                                     subtitleColor: styleguide.secondaryTextColor,
                                     subtitleFont: styleguide.regularFont(ofSize: 12))
+        
+        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
     }
 
     deinit {
@@ -87,51 +78,109 @@ final class RestaurantViewController: UIViewController {
     
 }
 
+
+extension RestaurantViewController {
+    
+    func configurateMixCategoryCollectionView() {
+        categoryCollectionViewService = CategoryCollectionViewService(categories: menu.map{DisplayableCategory(categoryId: $0.categoryId, name: $0.name, imageURL: $0.imageURL)})
+        
+        categoryCollectionView.delegate = categoryCollectionViewService
+        categoryCollectionView.dataSource = categoryCollectionViewService
+        categoryCollectionViewService.delegate = self
+        
+        categoryCollectionView.registerReusableCell(cellType: MixCategoryCollectionViewCell.self)
+    }
+    
+    func configurateMixListCollectionView() {
+        mixListCollectionViewService = MixListCollectionViewService(mixes: menu.first?.mixes ?? [])
+        
+        mixListCollectionView.delegate = mixListCollectionViewService
+        mixListCollectionView.dataSource = mixListCollectionViewService
+        mixListCollectionView.allowsSelection = true
+        mixListCollectionViewService.delegate = self
+        
+        mixListCollectionView.registerReusableCell(cellType: MixListCollectionViewCell.self)
+    }
+    
+    func configurateOrderItemsTableView() {
+        orderItemsTableViewService = OrderItemsTableViewService()
+        
+        orderItemsTableView.delegate = orderItemsTableViewService
+        orderItemsTableView.dataSource = orderItemsTableViewService
+        orderItemsTableViewService.delegate = self
+        
+        bucketContainerView.layer.cornerRadius = 8
+        
+        shadowView.layer.borderWidth = 0.5
+        shadowView.layer.borderColor = UIColor.lightGray.cgColor
+        shadowView.layer.cornerRadius = 8
+        shadowView.addDefaultShadow()
+        
+        orderItemsTableView.registerReusableCell(cellType: OrderItemTableViewCell.self)
+    }
+    
+}
+
+
+extension RestaurantViewController {
+    
+    func configurateDisableOrderButton() {
+        orderButton.setTitleColor(styleguide.secondaryTextColor, for: .normal)
+        orderButton.isEnabled = false
+    }
+    
+    func configurateEnabledOrderButton() {
+        orderButton.setTitleColor(.white, for: .normal)
+        orderButton.isEnabled = true
+    }
+    
+}
+
 extension RestaurantViewController: CategoryServiceDelegate {
     
-    func serviceDidChoseCategory(_ service: CategoryCollectionViewService, chosenCategory category: String) {
-        //KS: TODO: Test code remove them later
+    func serviceDidChoseCategory(_ service: CategoryCollectionViewService, chosenCategory category: DisplayableCategory) {
+        guard let mixes = menu.first(where: {$0.categoryId == category.categoryId})?.mixes else { return }
         
-        mixListCollectionViewService.data.shuffle()
-        mixListCollectionView.reloadData()
+        categoryCollectionView.performBatchUpdates(nil, completion: nil)
+        mixListCollectionViewService.updateMixes(with: mixes)
+        
+            self.mixListCollectionView.reloadData()
     }
     
 }
 
 extension RestaurantViewController: MixListServiceDelegate {
     
-    func serviceDidChoseMix(_ service: MixListCollectionViewService, chosenMixName mixName: String) {
-        
-        orderItemsTableViewService.data.insert(mixName, at: 0)
-        orderButton.alpha = 1
-        orderButton.isEnabled = true
+    func serviceDidChoseMix(_ service: MixListCollectionViewService, chosenMix mix: HookahMix) {
+        orderItemsTableViewService.addMixToOrder(mix)
+        configurateEnabledOrderButton()
+        shadowView.layer.shadowOpacity = 0.8
         
         UIView.animate(withDuration: 0.3) {
-            self.tableViewHeightConstraint.constant = 44 * self.tableViewHeightConstraintIndex() + 2
-            self.buttonHeightConstraint.constant = 44
+            self.tableViewHeightConstraint.constant = RestaurantViewController.Constants.orderCellHeight * self.tableViewHeightConstraintIndex() + 2
+            self.buttonHeightConstraint.constant = RestaurantViewController.Constants.orderCellHeight
             self.view.layoutIfNeeded()
         }
         
         orderItemsTableView.reloadData()
+        orderItemsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     
 }
 
 extension RestaurantViewController: OrderItemsServiceDelegate {
     
-    func orderItemsServiceDidDeleteItem(_ service: OrderItemsTableViewService, deletedItem item: String) {
-        
-        if orderItemsTableViewService.data.count == 0 {
+    func orderItemsServiceDidDeleteItem(_ service: OrderItemsTableViewService, deletedItem item: HookahMix) {
+        if orderItemsTableViewService.orderedMixes.count == 0 {
             UIView.animate(withDuration: 0.5) {
                 self.tableViewHeightConstraint.constant = 0
-                self.orderButton.isHighlighted = true
-                self.orderButton.alpha = 0.5
+                self.configurateDisableOrderButton()
+                self.shadowView.layer.shadowOpacity = 0
                 self.view.layoutIfNeeded()
-                //self.orderItemsTableView.reloadData()
             }
-        } else if orderItemsTableViewService.data.count <= 3 {
+        } else if orderItemsTableViewService.orderedMixes.count <= 3 {
             UIView.animate(withDuration: 0.5) {
-                self.tableViewHeightConstraint.constant = 44 * self.tableViewHeightConstraintIndex()
+                self.tableViewHeightConstraint.constant = RestaurantViewController.Constants.orderCellHeight * self.tableViewHeightConstraintIndex()
                 self.view.layoutIfNeeded()
             }
         }
@@ -141,14 +190,25 @@ extension RestaurantViewController: OrderItemsServiceDelegate {
     func tableViewHeightConstraintIndex() -> CGFloat {
         let index: CGFloat
         
-        switch self.orderItemsTableViewService.data.count {
+        switch self.orderItemsTableViewService.orderedMixes.count {
         case 0, 1, 2:
-            index = CGFloat(self.orderItemsTableViewService.data.count)
+            index = CGFloat(self.orderItemsTableViewService.orderedMixes.count)
         default:
             index = 2.5
         }
         
         return index
+    }
+    
+}
+
+extension RestaurantViewController {
+    
+    struct Constants {
+        
+        static let grn = "₴"
+        static let orderCellHeight = CGFloat(44.0)
+        
     }
     
 }

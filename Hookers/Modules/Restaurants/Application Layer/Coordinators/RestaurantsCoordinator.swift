@@ -11,6 +11,7 @@ import UIKit
 final class RestaurantsCoordinator: TabBarEmbedCoordinator {
 
     fileprivate var root: UINavigationController!
+    fileprivate var restaurantStore: RestaurantStore!
     
     private var dispatcher: Dispatcher {
         return context.dispatcher
@@ -30,6 +31,7 @@ final class RestaurantsCoordinator: TabBarEmbedCoordinator {
     override func prepareForStart() {
         super.prepareForStart()
         
+        makeRestaurantStore()
         openRestaurantListViewController()
         register()
     }
@@ -40,6 +42,19 @@ final class RestaurantsCoordinator: TabBarEmbedCoordinator {
     
 }
 
+extension RestaurantsCoordinator {
+    
+    func makeRestaurantStore() {
+        
+        let restaurantNetwork = RestaurantNetworkService(networkService: context.networkService)
+        
+        restaurantStore = RestaurantStore(networkService: restaurantNetwork, dispatcher: context.dispatcher)
+        
+        restaurantStore.getRestaurantsList()
+        
+    }
+    
+}
 
 //MARK: Open View Controllers
 extension RestaurantsCoordinator {

@@ -10,56 +10,91 @@ import UIKit
 
 final class RestaurantsListViewController: UIViewController {
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     var dispatcher: Dispatcher!
     var styleguide: DesignStyleGuide!
     
+    let restaurants = NetworkRestaurant.makeTestRestaurants()
+    let hookahMasters = HookahMaster.testMasters()
+    
+    var displayableData: [DisplayableRestaurantListItem] {
+        return segmentedControl.selectedSegmentIndex == 0 ? restaurants : hookahMasters
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.registerReusableCell(cellType: RestaurantTableViewCell.self)
-        
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        tableView.registerReusableCell(cellType: HookahMasterTableViewCell.self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.barStyle = .blackOpaque
-        navigationItem.title = "Заведения".localized()
+        
+        navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.barTintColor = .clear
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.isNavigationBarHidden = false
         
+        navigationItem.setTitleView(withTitle: "Днепр".localized(),
+                                    subtitle: "Выберите заведение".localized(),
+                                    titleColor: styleguide.primaryTextColor,
+                                    titleFont: styleguide.regularFont(ofSize: 17),
+                                    subtitleColor: styleguide.secondaryTextColor,
+                                    subtitleFont: styleguide.regularFont(ofSize: 12))
+        
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        
+        segmentedControl.tintColor = UIColor.white.withAlphaComponent(0.9)
     }
+    
+    private var isRestaurantsList: Bool {
+        return segmentedControl.selectedSegmentIndex == 0
+    }
+    
+}
 
+extension RestaurantsListViewController {
+    
+    @IBAction func changeSegment(_ sender: Any) {
+        let title = isRestaurantsList ? "Выберите заведение".localized() :
+                                        "Выберите кальянщика".localized()
+        
+        navigationItem.setTitleView(withTitle: "Днепр".localized(),
+                                    subtitle: title,
+                                    titleColor: styleguide.primaryTextColor,
+                                    titleFont: styleguide.regularFont(ofSize: 17),
+                                    subtitleColor: styleguide.secondaryTextColor,
+                                    subtitleFont: styleguide.regularFont(ofSize: 12))
+        
+        tableView.reloadData()
+    }
+    
 }
 
 extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 2
+        return isRestaurantsList ? restaurants.count : hookahMasters.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(indexPath, cellType: RestaurantTableViewCell.self)
+        var cell: UITableViewCell & RestaurantListTableViewCell
         
-        if indexPath.row == 1 {
-            cell.presentImageView.image = UIImage.init(named: "habl")
-            cell.nameLabel.text = "Хабл бабл"
-            cell.likeCountLabel.text = "4.2"
-            cell.distanceLabel.text = "8 км"
-        }
+        cell = isRestaurantsList ? tableView.dequeueReusableCell(indexPath, cellType: RestaurantTableViewCell.self) : tableView.dequeueReusableCell(indexPath, cellType: HookahMasterTableViewCell.self)
+        
+        let displayableItem = displayableData[indexPath.row]
+        
+        cell.presentImageView.image = UIImage.init(named: displayableItem.photo)
+        cell.nameLabel.text = displayableItem.name
+        cell.likeCountLabel.text = displayableItem.likes
+        cell.distanceLabel.text = displayableItem.distanse + "км"
         
         cell.delegate = self
         
@@ -67,7 +102,6 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return tableView.frame.height/3.5
     }
     
@@ -78,7 +112,6 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
         
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidChooseRestaurant.self, result: Result(value: value, error: nil))
     }
-    
     
 }
 

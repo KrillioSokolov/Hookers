@@ -65,7 +65,7 @@ extension LightThemeDesignStyleGuide {
     }
     
     public var primaryColor: UIColor {
-        return UIColor(r: 113, g: 176, b: 62)
+        return UIColor(r: 162, g: 0, b: 255) //UIColor(r: 113, g: 176, b: 62)
     }
     
     public var primaryDarkColor: UIColor {

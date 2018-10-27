@@ -14,8 +14,19 @@ protocol RestaurantTableViewCellDelegate: class {
     
 }
 
-final class RestaurantTableViewCell: UITableViewCell, NibReusable {
+protocol RestaurantListTableViewCell {
+    
+    var presentImageView: UIImageView! { get }
+    var nameLabel: UILabel! { get }
+    var containerView: UIView! { get }
+    var distanceLabel: UILabel! { get }
+    var likeCountLabel: UILabel! { get }
+    var delegate: RestaurantTableViewCellDelegate! { get set }
+ 
+}
 
+final class RestaurantTableViewCell: UITableViewCell, RestaurantListTableViewCell, NibReusable {
+    
     @IBOutlet weak var presentImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet private weak var infoButton: UIButton!

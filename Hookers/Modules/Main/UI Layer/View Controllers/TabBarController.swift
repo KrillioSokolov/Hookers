@@ -2,7 +2,7 @@
 //  TabBarController.swift
 //  Hookers
 //
-//  Created by Hookers on 5/29/17.
+//  Created by Hookers on 5/29/18.
 //  Copyright © 2017 Hookers. All rights reserved.
 //
 
@@ -18,9 +18,9 @@ final class TabBarController: UITabBarController {
     
     private func setupTabBar() {
         tabBar.tintColor = .white
-        tabBar.barTintColor = UIColor.clear
+        tabBar.barTintColor = UIColor.white.withAlphaComponent(0.5)
         tabBar.isTranslucent = true
-        tabBar.backgroundImage = UIImage()
+        tabBar.backgroundImage = UIImage(color: UIColor.black.withAlphaComponent(0.8))
         tabBar.shadowImage = UIImage()
     }
     

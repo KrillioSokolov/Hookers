@@ -21,7 +21,27 @@ final class HookerManCollectionViewCell: UICollectionViewCell, NibReusable {
         
         nameLabel.addDefaultSoftShadow()
         likeCount.addDefaultSoftShadow()
-        
+    }
+    
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseOut, animations: {
+                    self.transform = CGAffineTransform(scaleX: CollectionViewTransformConstants.scaleFactor, y: CollectionViewTransformConstants.scaleFactor)
+                }, completion: nil)
+            } else {
+                UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseOut, animations: {
+                    self.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }, completion: nil)
+            }
+        }
     }
 
+}
+
+struct CollectionViewTransformConstants {
+    
+    static let scaleFactor = CGFloat(1.1)
+    
 }

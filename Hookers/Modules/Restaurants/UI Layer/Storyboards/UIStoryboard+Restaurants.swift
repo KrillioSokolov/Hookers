@@ -14,6 +14,8 @@ fileprivate enum RestaurantsStoryboardControllerId: String {
     case restaurantsList = "RestaurantsListViewControllerStoryboarId"
     case restaurantInfo = "RestaurantInfoViewControllerStoryboarId"
     case restaurant = "RestaurantViewControllerStoryboarId"
+    case orderInfoViewController = "OrderInfoViewControllerStoryboardId"
+    case confirmOrderViewController = "ConfirmOrderViewControllerStoryboardId"
     
 }
 
@@ -35,6 +37,14 @@ extension UIStoryboard {
         
         static var restaurantInfoViewController: RestaurantInfoViewController {
             return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.restaurantInfo.rawValue) as! RestaurantInfoViewController
+        }
+        
+        static var orderInfoViewController: OrderInfoViewController {
+            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.orderInfoViewController.rawValue) as! OrderInfoViewController
+        }
+        
+        static var confirmOrderViewController: ConfirmOrderViewController {
+            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.confirmOrderViewController.rawValue) as! ConfirmOrderViewController
         }
         
     }

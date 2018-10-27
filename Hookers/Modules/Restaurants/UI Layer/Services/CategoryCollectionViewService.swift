@@ -11,22 +11,26 @@ import UIKit
 
 protocol CategoryServiceDelegate: class {
     
-    func serviceDidChoseCategory(_ service: CategoryCollectionViewService, chosenCategory category: String)
+    func serviceDidChoseCategory(_ service: CategoryCollectionViewService, chosenCategory category: DisplayableCategory)
     
 }
 
 final class CategoryCollectionViewService: NSObject {
     
     weak var delegate: CategoryServiceDelegate!
+    var categories : [DisplayableCategory]
+    let size = CGSize(width: UIScreen.main.bounds.size.width/3.5, height: 70)
     
-    var data: [PhotoAndName] = [("sladkiy", "Сладкий"), ("myata", "Мятный"), ("kisliy", "Кислый"), ("fruktoviy", "Фруктовый"), ("exotic", "Экзотика")]
+    init(categories: [DisplayableCategory]) {
+        self.categories = categories
+    }
     
 }
 
 extension CategoryCollectionViewService: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -35,28 +39,27 @@ extension CategoryCollectionViewService: UICollectionViewDelegate, UICollectionV
         cell.layer.shouldRasterize = true;
         cell.layer.rasterizationScale = UIScreen.main.scale;
         
-        let data = self.data[indexPath.row]
+        let category = self.categories[indexPath.row]
         
-        cell.nameLabel.text = data.name
-        cell.categoryImageView.image = UIImage(named: data.photo)
+        cell.nameLabel.text = category.name
+        cell.categoryImageView.image = UIImage(named: category.imageURL)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let category = data[indexPath.row]
+        let category = categories[indexPath.row]
         
-        delegate?.serviceDidChoseCategory(self, chosenCategory: category.name)
+        collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.left, animated: true)
+        
+        delegate?.serviceDidChoseCategory(self, chosenCategory: category)
     }
-    
+
 }
 
 extension CategoryCollectionViewService: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let size = CGSize(width: UIScreen.main.bounds.size.width/3.5, height: 70)
-        
         return size
     }
     

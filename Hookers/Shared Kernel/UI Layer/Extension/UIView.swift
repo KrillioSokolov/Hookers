@@ -39,7 +39,7 @@ extension UIView {
         self.layer.shadowColor = UIColor(r: 80, g: 80, b: 80, alpha: 10).cgColor
         self.layer.shadowOpacity = 0.8
         self.layer.shadowOffset = CGSize.zero
-        self.layer.shadowRadius = 70
+        self.layer.shadowRadius = 10
     }
     
     func addShadowView(width:CGFloat=0.2, height:CGFloat=0.2, Opacidade:Float=0.7, maskToBounds:Bool=false, radius:CGFloat=0.5){
@@ -48,6 +48,13 @@ extension UIView {
         self.layer.shadowRadius = radius
         self.layer.shadowOpacity = Opacidade
         self.layer.masksToBounds = maskToBounds
+    }
+    
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
     }
     
 }

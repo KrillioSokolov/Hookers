@@ -13,40 +13,45 @@ typealias PhotoAndName = (photo: String, name: String)
 
 protocol MixListServiceDelegate: class {
     
-    func serviceDidChoseMix(_ service: MixListCollectionViewService, chosenMixName mixName: String)
+    func serviceDidChoseMix(_ service: MixListCollectionViewService, chosenMix mix: HookahMix)
     
 }
 
 final class MixListCollectionViewService: NSObject  {
  
     weak var delegate: MixListServiceDelegate?
+    private var mixes: [HookahMix]
     
-    var data: [PhotoAndName] = [("lemon_pie", "Лемонный пирог"), ("mishki", "Мишки гамми"), ("vata", "Сладкая вата"), ("moxito", "Мохито"), ("pina-colada", "Пина колада"), ("myata_shoko", "Мятный шоколад"), ("spiced_tea", "Пряный чай"), ("cola_lemon", "Двойной кайф"), ("mafin", "Черничный мафин")]
+    init(mixes: [HookahMix]) {
+        self.mixes = mixes
+    }
     
+    func updateMixes(with newMixes: [HookahMix]) {
+        mixes = newMixes
+    }
+ 
 }
 
 extension MixListCollectionViewService: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return mixes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(indexPath, cellType: MixListCollectionViewCell.self)
         
-        let data = self.data[indexPath.row]
+        let mix = mixes[indexPath.row]
         
-        cell.nameLabel.text = data.name
-        cell.mixImageView.image = UIImage(named: data.photo)
+        cell.nameLabel.text = mix.name
+        cell.mixImageView.image = UIImage(named: mix.imageURL)
+        cell.priceLabel.text = String(mix.price) + " " + RestaurantViewController.Constants.grn
         
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let mix = data[indexPath.row]
-        
-        delegate?.serviceDidChoseMix(self, chosenMixName: mix.name)
+        delegate?.serviceDidChoseMix(self, chosenMix: mixes[indexPath.row])
     }
     
 }

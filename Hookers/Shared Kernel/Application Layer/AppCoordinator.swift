@@ -22,7 +22,10 @@ final class AppCoordinator: Coordinator {
     init(window: UIWindow) {
         self.window = window
         
-        super.init(context: CoordinatingContext(dispatcher: DefaultDispatcher(), styleguide: DarkThemeDesignStyleGuide()))
+        let baseURL = NetworkConstants.devServerBaseURL
+        let networkService = HTTPNetworkService(baseURL: baseURL, requestExecutor: NetworkRequestExecutor())
+        
+        super.init(context: CoordinatingContext(dispatcher: DefaultDispatcher(), styleguide: DarkThemeDesignStyleGuide(), networkService: networkService))
     }
     
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
