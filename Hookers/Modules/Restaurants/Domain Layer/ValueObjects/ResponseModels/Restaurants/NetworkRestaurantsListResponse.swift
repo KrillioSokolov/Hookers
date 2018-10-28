@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct NetworkRestaurantsListResponse: Decodable {
-    
-    let action: String
-    let data: NetworkRestaurantsListResponse.Data
+struct NetworkRestaurantsListResponse {
     
     struct Data: Decodable {
         
         let restaurants: [NetworkRestaurant]
         
     }
+    
+    let action: String
+    let data: NetworkRestaurantsListResponse.Data
     
 }

@@ -25,6 +25,7 @@ final class RestaurantViewController: UIViewController {
     
     var dispatcher: Dispatcher!
     var styleguide: DesignStyleGuide!
+    var restaurantStore: RestaurantStore!
     
     var menu = HookahMenuResponse.makeTestData()
     
@@ -198,6 +199,29 @@ extension RestaurantViewController: OrderItemsServiceDelegate {
         }
         
         return index
+    }
+    
+}
+
+extension RestaurantViewController: DataStateChange {
+    
+    func domainModel(_ model: DomainModel, didChangeDataStateOf change: DataStateChange) {
+        DispatchQueue.updateUI {
+            self.domainModelChanged(model, didChangeDataStateOf: change)
+        }
+    }
+    
+    private func domainModelChanged(_ model: DomainModel, didChangeDataStateOf change: DataStateChange) {
+        if let change = change as? RestaurantStoreStateChange {
+            restaurantStoreStateChange(change: change)
+        }
+    }
+    
+    private func restaurantStoreStateChange(change: RestaurantStoreStateChange) {
+        if change.contains(.isLoadingState) {
+            //KS: TODO: Show/hide skeleton
+            //restaurantStore.isLoading ? addSkeletonViewController() : hideSkeletonViewController()
+        }
     }
     
 }

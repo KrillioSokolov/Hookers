@@ -69,7 +69,7 @@ extension UIView {
         return Bundle.main.loadNibNamed(
             String(describing: viewType),
             owner: nil,
-            options: nil)?.first as! T
+            options: nil)?.first as? T
     }
     
     static func loadNib<T: UIView>(viewType: T.Type, owner: T) {

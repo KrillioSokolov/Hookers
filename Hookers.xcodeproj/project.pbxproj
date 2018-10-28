@@ -28,6 +28,10 @@
 		ED128A40217D039100C2062D /* ConfirmOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED128A3F217D039100C2062D /* ConfirmOrderViewController.swift */; };
 		ED17ACA72184C778005B7125 /* HookahMasterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACA52184C778005B7125 /* HookahMasterTableViewCell.swift */; };
 		ED17ACA82184C778005B7125 /* HookahMasterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED17ACA62184C778005B7125 /* HookahMasterTableViewCell.xib */; };
+		ED17ACA921864D62005B7125 /* DomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5B4621595F090079CFBF /* DomainModel.swift */; };
+		ED17ACAA21864D64005B7125 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5B4521595F080079CFBF /* Executor.swift */; };
+		ED17ACAB21864D67005B7125 /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5B4721595F090079CFBF /* WeakContainer.swift */; };
+		ED17ACAD218656E7005B7125 /* OptionSetBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACAC218656E7005B7125 /* OptionSetBit.swift */; };
 		ED2BA26A216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */; };
 		ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */; };
 		ED3A458B2167E46A0078B673 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */; };
@@ -45,7 +49,6 @@
 		ED48CA0A2182526D00CB26B3 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA092182526D00CB26B3 /* URLConvertible.swift */; };
 		ED48CA0C2182527E00CB26B3 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA0B2182527E00CB26B3 /* HTTPStatusCode.swift */; };
 		ED48CA0E2182545000CB26B3 /* HTTPNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA0D2182544F00CB26B3 /* HTTPNetworkService.swift */; };
-		ED48CA102182561B00CB26B3 /* NetworkActionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA0F2182561A00CB26B3 /* NetworkActionRegistry.swift */; };
 		ED48CA142182562800CB26B3 /* NetworkResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA132182562800CB26B3 /* NetworkResponseMapper.swift */; };
 		ED48CA1A218257BF00CB26B3 /* NetworkResponseInnerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA19218257BF00CB26B3 /* NetworkResponseInnerError.swift */; };
 		ED48CA2021825B9E00CB26B3 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA1F21825B9E00CB26B3 /* NetworkConstants.swift */; };
@@ -175,6 +178,7 @@
 		ED128A3F217D039100C2062D /* ConfirmOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderViewController.swift; sourceTree = "<group>"; };
 		ED17ACA52184C778005B7125 /* HookahMasterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookahMasterTableViewCell.swift; sourceTree = "<group>"; };
 		ED17ACA62184C778005B7125 /* HookahMasterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HookahMasterTableViewCell.xib; sourceTree = "<group>"; };
+		ED17ACAC218656E7005B7125 /* OptionSetBit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSetBit.swift; sourceTree = "<group>"; };
 		ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MixCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +196,6 @@
 		ED48CA092182526D00CB26B3 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
 		ED48CA0B2182527E00CB26B3 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		ED48CA0D2182544F00CB26B3 /* HTTPNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNetworkService.swift; sourceTree = "<group>"; };
-		ED48CA0F2182561A00CB26B3 /* NetworkActionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActionRegistry.swift; sourceTree = "<group>"; };
 		ED48CA132182562800CB26B3 /* NetworkResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseMapper.swift; sourceTree = "<group>"; };
 		ED48CA19218257BF00CB26B3 /* NetworkResponseInnerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseInnerError.swift; sourceTree = "<group>"; };
 		ED48CA1D21825B7D00CB26B3 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
@@ -547,7 +550,6 @@
 				ED48CA0B2182527E00CB26B3 /* HTTPStatusCode.swift */,
 				ED48CA0D2182544F00CB26B3 /* HTTPNetworkService.swift */,
 				ED48CA052182525800CB26B3 /* NetworkRequestExecutor.swift */,
-				ED48CA0F2182561A00CB26B3 /* NetworkActionRegistry.swift */,
 				ED48CA132182562800CB26B3 /* NetworkResponseMapper.swift */,
 			);
 			name = Network;
@@ -695,7 +697,6 @@
 				EDD668AB215A2FD9004DAB67 /* Flux */,
 				EDD6689D215A2F00004DAB67 /* Coordinator */,
 				EDCA545F21595EAF0079CFBF /* Notifier */,
-				EDD6681D21595631004DAB67 /* Network Services */,
 			);
 			path = "Infrastracture Layer";
 			sourceTree = "<group>";
@@ -720,13 +721,6 @@
 			path = "Domain Layer";
 			sourceTree = "<group>";
 		};
-		EDD6681D21595631004DAB67 /* Network Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Network Services";
-			sourceTree = "<group>";
-		};
 		EDD6681F21595631004DAB67 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,6 +736,7 @@
 				EDD6683321595631004DAB67 /* Dictionary.swift */,
 				EDD6683721595631004DAB67 /* String */,
 				EDD6683A21595631004DAB67 /* Bundle.swift */,
+				ED17ACAC218656E7005B7125 /* OptionSetBit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1339,6 +1334,7 @@
 				EDD6686D21595631004DAB67 /* DispatchQueue.swift in Sources */,
 				EDD6687221595631004DAB67 /* UIButton.swift in Sources */,
 				ED128A24217A6D8100C2062D /* DesignTheme.swift in Sources */,
+				ED17ACAB21864D67005B7125 /* WeakContainer.swift in Sources */,
 				ED128A3C217B4F4A00C2062D /* NetworkRestaurant.swift in Sources */,
 				EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */,
 				ED48CA2A2182612400CB26B3 /* RestaurantNetworkService.swift in Sources */,
@@ -1357,7 +1353,6 @@
 				EDD668A0215A2F0F004DAB67 /* CoordinatingContext.swift in Sources */,
 				EDD6690C215BA640004DAB67 /* UITableView+Reusable.swift in Sources */,
 				EDD668F5215A7CFC004DAB67 /* RestaurantsListViewController.swift in Sources */,
-				ED48CA102182561B00CB26B3 /* NetworkActionRegistry.swift in Sources */,
 				EDD6687021595631004DAB67 /* UIDevice.swift in Sources */,
 				EDD668B1215A2FD9004DAB67 /* Result.swift in Sources */,
 				EDD668FB215A81BD004DAB67 /* UIStoryboards+OrdersList.swift in Sources */,
@@ -1366,6 +1361,7 @@
 				EDD668EF215A7C41004DAB67 /* UIStoryboard+Restaurants.swift in Sources */,
 				EDFE7A91216117C800FC9D24 /* RestaurantsEvent.swift in Sources */,
 				EDD6686721595631004DAB67 /* KeyedDecodingContainer.swift in Sources */,
+				ED17ACAA21864D64005B7125 /* Executor.swift in Sources */,
 				ED8EA89F21711F3700369DAB /* OrderItemTableViewCell.swift in Sources */,
 				EDD6687721595631004DAB67 /* Bundle.swift in Sources */,
 				EDD6687321595631004DAB67 /* UIImage.swift in Sources */,
@@ -1389,6 +1385,7 @@
 				ED128A39217B4EFE00C2062D /* NetworkAdress.swift in Sources */,
 				EDD668B0215A2FD9004DAB67 /* Event.swift in Sources */,
 				ED8EA8A2217126AC00369DAB /* OrderItemsTableViewService.swift in Sources */,
+				ED17ACAD218656E7005B7125 /* OptionSetBit.swift in Sources */,
 				EDD6686621595631004DAB67 /* UIColor.swift in Sources */,
 				EDD668A1215A2F0F004DAB67 /* Coordinator.swift in Sources */,
 				ED128A32217B47E000C2062D /* NetworkRestaurantsListResponse.swift in Sources */,
@@ -1396,6 +1393,7 @@
 				EDD668E3215A3C02004DAB67 /* TabBarEmbedCoordinable.swift in Sources */,
 				ED47B980217E3138000C7675 /* HookahMix.swift in Sources */,
 				EDD6685F21595631004DAB67 /* CALayer.swift in Sources */,
+				ED17ACA921864D62005B7125 /* DomainModel.swift in Sources */,
 				ED02C24B21594D69000A882B /* Hookers.xcdatamodeld in Sources */,
 				EDD668AF215A2FD9004DAB67 /* Dispatcher.swift in Sources */,
 				EDD668E2215A3C02004DAB67 /* TabBarController.swift in Sources */,

@@ -2,7 +2,7 @@
 //  WeakContainer.swift
 //  ClearMVC
 //
-//  Created by Sokolov Kirill on 5/5/18.
+//  Created by Maxim Letushov on 5/5/18.
 //  Copyright © 2018 Hookers. All rights reserved.
 //
 

@@ -10,13 +10,25 @@ import Foundation
 
 struct HookahMix: Codable {
     
+    struct Tabacco: Codable {
+        
+        let brand: String
+        let sort: String
+        
+    }
+    
+    let mixId: String
     let name: String
     let imageURL: String
     let price: Double
     let categoryId: String
+    let restaurantId: String
     var strenght: String
     var likes: Int
-    var tabacco: String
+    var tabacco: [HookahMix.Tabacco]
     var description: String
-    
+    let hookahBowl: String?
+    let filling: String?
+
 }
+

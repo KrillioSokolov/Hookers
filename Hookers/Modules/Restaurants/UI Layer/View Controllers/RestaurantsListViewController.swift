@@ -15,9 +15,14 @@ final class RestaurantsListViewController: UIViewController {
     
     var dispatcher: Dispatcher!
     var styleguide: DesignStyleGuide!
+    var restaurantStore: RestaurantStore! {
+        didSet {
+            restaurantStore.addDataStateListener(self)
+        }
+    }
     
-    let restaurants = NetworkRestaurant.makeTestRestaurants()
-    let hookahMasters = HookahMaster.testMasters()
+    var restaurants: [NetworkRestaurant] = [] //NetworkRestaurant.makeTestRestaurants()
+    var hookahMasters = HookahMaster.testMasters()
     
     var displayableData: [DisplayableRestaurantListItem] {
         return segmentedControl.selectedSegmentIndex == 0 ? restaurants : hookahMasters
@@ -28,6 +33,8 @@ final class RestaurantsListViewController: UIViewController {
 
         tableView.registerReusableCell(cellType: RestaurantTableViewCell.self)
         tableView.registerReusableCell(cellType: HookahMasterTableViewCell.self)
+        
+        restaurantStore.getRestaurantsList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +98,9 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
         
         let displayableItem = displayableData[indexPath.row]
         
-        cell.presentImageView.image = UIImage.init(named: displayableItem.photo)
+        let placeholderImage = UIImage(named: "avatar_default", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        cell.presentImageView.download(image: displayableItem.photo, placeholderImage: placeholderImage)
+        
         cell.nameLabel.text = displayableItem.name
         cell.likeCountLabel.text = displayableItem.likes
         cell.distanceLabel.text = displayableItem.distanse + "км"
@@ -121,6 +130,34 @@ extension RestaurantsListViewController: RestaurantTableViewCellDelegate {
         let value = RestaurantsEvent.NavigationEvent.DidTapInfoButtonOnRestaurantCell.Value(restaurantId: String(cell.tag))
         
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidTapInfoButtonOnRestaurantCell.self, result: Result(value: value, error: nil))
+    }
+    
+}
+
+extension RestaurantsListViewController: DataStateListening {
+    
+    func domainModel(_ model: DomainModel, didChangeDataStateOf change: DataStateChange) {
+        DispatchQueue.updateUI {
+            self.domainModelChanged(model, didChangeDataStateOf: change)
+        }
+    }
+    
+    private func domainModelChanged(_ model: DomainModel, didChangeDataStateOf change: DataStateChange) {
+        if let change = change as? RestaurantStoreStateChange {
+            restaurantStoreStateChange(change: change)
+        }
+    }
+    
+    private func restaurantStoreStateChange(change: RestaurantStoreStateChange) {
+        if change.contains(.isLoadingState) {
+            //KS: TODO: Show/hide skeleton
+            //restaurantStore.isLoading ? addSkeletonViewController() : hideSkeletonViewController()
+        }
+        
+        if change.contains(.restaurants) {
+            restaurants = restaurantStore.restaurants
+            tableView.reloadData()
+        }
     }
     
 }

@@ -26,13 +26,77 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hookers/Modules/Restaurants/Domain Layer/ValueObjects/ResponseModels/Restaurants/NetworkRestaurantsListResponse.swift"
-            timestampString = "562266376.956063"
+            timestampString = "562454575.654307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1"
             endingLineNumber = "1"
             landmarkName = "unknown"
             landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hookers/Modules/Restaurants/Domain Layer/Stores/RestaurantStore.swift"
+            timestampString = "562454575.654385"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getRestaurantsList()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hookers.RestaurantStore.getRestaurantsList() -&gt; ()"
+                  moduleName = "Hookers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kirill/StartUp/HookersApp/Hookers/Modules/Restaurants/Domain%20Layer/Stores/RestaurantStore.swift"
+                  timestampString = "562454131.578088"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Hookers.NetworkResponse&gt;, Swift.Optional&lt;Hookers.NetworkRestaurantsListResponse&gt;) -&gt; () in Hookers.RestaurantStore.getRestaurantsList() -&gt; ()"
+                  moduleName = "Hookers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kirill/StartUp/HookersApp/Hookers/Modules/Restaurants/Domain%20Layer/Stores/RestaurantStore.swift"
+                  timestampString = "562454131.5881521"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hookers/Modules/Restaurants/Domain Layer/Stores/RestaurantStore.swift"
+            timestampString = "562454575.6544451"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "getRestaurantsList()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

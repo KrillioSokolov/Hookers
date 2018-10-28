@@ -45,13 +45,9 @@ final class RestaurantsCoordinator: TabBarEmbedCoordinator {
 extension RestaurantsCoordinator {
     
     func makeRestaurantStore() {
-        
         let restaurantNetwork = RestaurantNetworkService(networkService: context.networkService)
         
         restaurantStore = RestaurantStore(networkService: restaurantNetwork, dispatcher: context.dispatcher)
-        
-        restaurantStore.getRestaurantsList()
-        
     }
     
 }
@@ -64,6 +60,7 @@ extension RestaurantsCoordinator {
         
         restaurant.dispatcher = context.dispatcher
         restaurant.styleguide = context.styleguide
+        restaurant.restaurantStore = restaurantStore
         
         root = UINavigationController(rootViewController: restaurant)
     }

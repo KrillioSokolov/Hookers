@@ -1,6 +1,6 @@
 //
 //  Coordinator.swift
-//  ClearMVC
+//  Hookers
 //
 //  Created by Sokolov Kirill on 5/2/18.
 //  Copyright © 2018 Hookers. All rights reserved.

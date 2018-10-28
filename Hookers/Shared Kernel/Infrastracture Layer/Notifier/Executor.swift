@@ -2,7 +2,7 @@
 //  Executor.swift
 //  ClearMVC
 //
-//  Created by Sokolov Kirill on 4/28/18.
+//  Created by Maxim Letushov on 4/28/18.
 //  Copyright © 2018 Hookers. All rights reserved.
 //
 

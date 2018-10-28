@@ -24,13 +24,14 @@ final class RestaurantNetworkService: BaseNetworkService, RestaurantNetwork {
     func getRestaurantList(with completion: @escaping ((NetworkResponse?, NetworkRestaurantsListResponse?) -> Void)) {
         networkService.executeRequest(endpoint: "restaurantsList", method: .get, parameters: nil, headers: nil) { networkResponse in
             
-//                guard let archiveData = try? JSONSerialization.data(withJSONObject: networkResponse.data, options: []) else { return }
-//            let decodedResp = try? JSONDecoder().decode(NetworkRestaurantsListResponse.Data.self, from: networkResponse.data!)
-//            
-//            
-//            print(decodedResp, decodedResp)
+            guard let action = networkResponse.action,
+                let data = networkResponse.data,
+                let decodedResponse = try? JSONDecoder().decode(NetworkRestaurantsListResponse.Data.self, from: data)
+                else { return }
             
-            completion(networkResponse, nil)
+            let networkRestaurantListResponse = NetworkRestaurantsListResponse.init(action: action, data: decodedResponse)
+    
+            completion(networkResponse, networkRestaurantListResponse)
         }
     }
     

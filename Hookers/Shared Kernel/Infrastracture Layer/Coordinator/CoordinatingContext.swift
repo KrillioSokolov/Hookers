@@ -1,6 +1,6 @@
 //
 //  CoordinatingContext.swift
-//  ClearMVC
+//  Hookers
 //
 //  Created by Sokolov Kirill on 5/2/18.
 //  Copyright © 2018 Hookers. All rights reserved.
@@ -15,7 +15,6 @@ final class CoordinatingContext {
     let styleguide: DesignStyleGuide
     let networkService: HTTPNetworkService
     
-    let cache = NSCache<NSString, AnyObject>() //IM: TODO: content undependenced with user
     
     init(dispatcher: Dispatcher, styleguide: DesignStyleGuide, networkService: HTTPNetworkService) {
         self.styleguide = styleguide

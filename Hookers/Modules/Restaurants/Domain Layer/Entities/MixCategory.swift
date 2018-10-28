@@ -13,6 +13,8 @@ struct MixCategory: Codable {
     let categoryId: String
     let name: String
     let imageURL: String
+    let likes: String
+    let description: String
     let mixes: [HookahMix]
     
 }

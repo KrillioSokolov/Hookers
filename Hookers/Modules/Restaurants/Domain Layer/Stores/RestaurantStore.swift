@@ -8,22 +8,51 @@
 
 import Foundation
 
-final class RestaurantStore {
+struct RestaurantStoreStateChange: OptionSet, DataStateChange {
     
-    var networkService: RestaurantNetworkService
+    let rawValue: Int
+    
+    static let isLoadingState = RestaurantStoreStateChange(rawValue: Int.bit1)
+    static let restaurants = RestaurantStoreStateChange(rawValue: Int.bit2)
+    
+}
+
+final class RestaurantStore: DomainModel {
+    
+    var networkService: RestaurantNetwork
     let dispatcher: Dispatcher
+    var restaurants: [NetworkRestaurant] = []
     
-    init(networkService: RestaurantNetworkService, dispatcher: Dispatcher) {
+    var isLoading = false
+    
+    
+    init(networkService: RestaurantNetwork, dispatcher: Dispatcher) {
         
         self.networkService = networkService
         self.dispatcher = dispatcher
         
     }
     
+}
+
+extension RestaurantStore {
+    
+    func startLoading() {
+        changeDataStateOf(RestaurantStoreStateChange.isLoadingState) {
+            isLoading = true
+        }
+    }
+    
     func getRestaurantsList() {
+        startLoading()
         
-        networkService.getRestaurantList { (response, responseModel) in
-            print(responseModel)
+        networkService.getRestaurantList { (networkResponse, restaurantListResponse) in
+            guard let restaurantListResponse = restaurantListResponse else { return }
+            
+            self.changeDataStateOf([.restaurants, .isLoadingState] as RestaurantStoreStateChange, work: {
+                self.isLoading = false
+                self.restaurants = restaurantListResponse.data.restaurants
+            })
         }
     }
     
