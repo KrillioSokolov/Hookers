@@ -18,11 +18,26 @@ protocol CategoryServiceDelegate: class {
 final class CategoryCollectionViewService: NSObject {
     
     weak var delegate: CategoryServiceDelegate!
-    var categories : [DisplayableCategory]
-    let size = CGSize(width: UIScreen.main.bounds.size.width/3.5, height: 70)
+    private var categories : [DisplayableCategory] = []
+    private weak var categoryCollectionView: UICollectionView?
     
-    init(categories: [DisplayableCategory]) {
+    init(colletionView: UICollectionView) {
+        categoryCollectionView = colletionView
+    }
+    
+    func configurate(with delegate: CategoryServiceDelegate) {
+        categoryCollectionView?.delegate = self
+        categoryCollectionView?.dataSource = self
+        
+        categoryCollectionView?.registerReusableCell(cellType:
+            MixCategoryCollectionViewCell.self)
+        
+        self.delegate = delegate
+    }
+    
+    func updateCategories(categories: [DisplayableCategory]) {
         self.categories = categories
+        categoryCollectionView?.reloadData()
     }
     
 }
@@ -42,7 +57,7 @@ extension CategoryCollectionViewService: UICollectionViewDelegate, UICollectionV
         let category = self.categories[indexPath.row]
         
         cell.nameLabel.text = category.name
-        cell.categoryImageView.image = UIImage(named: category.imageURL)
+        cell.categoryImageView.download(image: category.imageURL, placeholderImage: UIImage(named: "default_category"))
         
         return cell
     }
@@ -60,7 +75,9 @@ extension CategoryCollectionViewService: UICollectionViewDelegate, UICollectionV
 extension CategoryCollectionViewService: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return size
+        let width = UIScreen.main.bounds.size.width/3.5
+        
+        return CGSize(width: width, height: width/1.5)
     }
     
 }

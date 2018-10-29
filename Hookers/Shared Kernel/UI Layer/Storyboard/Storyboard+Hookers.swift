@@ -16,10 +16,4 @@ fileprivate enum HookersStoryboardControllerId: String {
     
 }
 
-extension UIStoryboard {
-    
-    static var channelsStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Channels", bundle: Bundle(for: UIViewController.self))
-    }
-    
-}
+

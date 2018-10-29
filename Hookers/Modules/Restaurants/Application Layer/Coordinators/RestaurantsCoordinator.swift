@@ -65,11 +65,13 @@ extension RestaurantsCoordinator {
         root = UINavigationController(rootViewController: restaurant)
     }
     
-    private func openRestaurantViewContoller(withRestaurantId restaurantId: String) {
+    private func openRestaurantViewContoller(with restaurant: NetworkRestaurant) {
         let controller = UIStoryboard.Restaurants.restaurantViewController
         
         controller.dispatcher = dispatcher
         controller.styleguide = context.styleguide
+        controller.restaurantStore = restaurantStore
+        controller.restaurant = restaurant
         
         root.tabBarController?.tabBar.isHidden = true
         
@@ -81,11 +83,12 @@ extension RestaurantsCoordinator {
         }
     }
     
-    private func openRestaurantInfoViewController(withRestaurantId restaurantId: String) {
+    private func openRestaurantInfoViewController(with restaurant: NetworkRestaurant) {
         let controller = UIStoryboard.Restaurants.restaurantInfoViewController
         
         controller.dispatcher = dispatcher
         controller.styleguide = context.styleguide
+        controller.restaurant = restaurant
         
         let navBarOnModal: UINavigationController = UINavigationController(rootViewController: controller)
         
@@ -109,7 +112,7 @@ extension RestaurantsCoordinator {
             
             switch result {
             case .success(let box):
-               self?.openRestaurantViewContoller(withRestaurantId: box.restaurantId)
+               self?.openRestaurantViewContoller(with: box.restaurant)
             case .failure(_):
                 break
             }
@@ -121,7 +124,7 @@ extension RestaurantsCoordinator {
             
             switch result {
             case .success(let box):
-                self?.openRestaurantInfoViewController(withRestaurantId: box.restaurantId)
+                self?.openRestaurantInfoViewController(with: box.restaurant)
             case .failure(_):
                 break
             }

@@ -1,5 +1,5 @@
 //
-//  Store.swift
+//  BaseNetworkService.swift
 //  Hookers
 //
 //  Created by Kirill Sokolov on 25.10.2018.
@@ -8,9 +8,8 @@
 
 import Foundation
 
-protocol Store {
+protocol BaseNetworkService: class {
     
-    var networkService: BaseNetworkService { get }
-    var dispatcher: Dispatcher { get }
+    var networkService: HTTPNetworkService { get }
     
 }

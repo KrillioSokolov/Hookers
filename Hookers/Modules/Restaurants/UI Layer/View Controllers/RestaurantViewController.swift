@@ -25,9 +25,14 @@ final class RestaurantViewController: UIViewController {
     
     var dispatcher: Dispatcher!
     var styleguide: DesignStyleGuide!
-    var restaurantStore: RestaurantStore!
+    var restaurantStore: RestaurantStore! {
+        didSet {
+            restaurantStore.addDataStateListener(self)
+        }
+    }
     
-    var menu = HookahMenuResponse.makeTestData()
+    var restaurant: NetworkRestaurant!
+    var menu: [MixCategory] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,8 @@ final class RestaurantViewController: UIViewController {
         configurateMixListCollectionView()
         configurateMixCategoryCollectionView()
         configurateDisableOrderButton()
+        
+        restaurantStore.getHookahMenu(byRestaurantId: restaurant.restaurantId)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,14 +60,12 @@ final class RestaurantViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.isNavigationBarHidden = false
         
-        navigationItem.setTitleView(withTitle: "Hookah Place".localized(),
+        navigationItem.setTitleView(withTitle: restaurant.name,
                                     subtitle: "Выберите микс".localized(),
                                     titleColor: styleguide.primaryTextColor,
                                     titleFont: styleguide.regularFont(ofSize: 17),
                                     subtitleColor: styleguide.secondaryTextColor,
                                     subtitleFont: styleguide.regularFont(ofSize: 12))
-        
-        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
     }
 
     deinit {
@@ -83,32 +88,18 @@ final class RestaurantViewController: UIViewController {
 extension RestaurantViewController {
     
     func configurateMixCategoryCollectionView() {
-        categoryCollectionViewService = CategoryCollectionViewService(categories: menu.map{DisplayableCategory(categoryId: $0.categoryId, name: $0.name, imageURL: $0.imageURL)})
-        
-        categoryCollectionView.delegate = categoryCollectionViewService
-        categoryCollectionView.dataSource = categoryCollectionViewService
-        categoryCollectionViewService.delegate = self
-        
-        categoryCollectionView.registerReusableCell(cellType: MixCategoryCollectionViewCell.self)
+        categoryCollectionViewService = CategoryCollectionViewService(colletionView: categoryCollectionView)
+        categoryCollectionViewService.configurate(with: self)
     }
     
     func configurateMixListCollectionView() {
-        mixListCollectionViewService = MixListCollectionViewService(mixes: menu.first?.mixes ?? [])
-        
-        mixListCollectionView.delegate = mixListCollectionViewService
-        mixListCollectionView.dataSource = mixListCollectionViewService
-        mixListCollectionView.allowsSelection = true
-        mixListCollectionViewService.delegate = self
-        
-        mixListCollectionView.registerReusableCell(cellType: MixListCollectionViewCell.self)
+        mixListCollectionViewService = MixListCollectionViewService(collectionView: mixListCollectionView)
+        mixListCollectionViewService.configurate(with: self)
     }
     
     func configurateOrderItemsTableView() {
-        orderItemsTableViewService = OrderItemsTableViewService()
-        
-        orderItemsTableView.delegate = orderItemsTableViewService
-        orderItemsTableView.dataSource = orderItemsTableViewService
-        orderItemsTableViewService.delegate = self
+        orderItemsTableViewService = OrderItemsTableViewService(tableView: orderItemsTableView)
+        orderItemsTableViewService.configurate(with: self)
         
         bucketContainerView.layer.cornerRadius = 8
         
@@ -116,8 +107,6 @@ extension RestaurantViewController {
         shadowView.layer.borderColor = UIColor.lightGray.cgColor
         shadowView.layer.cornerRadius = 8
         shadowView.addDefaultShadow()
-        
-        orderItemsTableView.registerReusableCell(cellType: OrderItemTableViewCell.self)
     }
     
 }
@@ -203,7 +192,7 @@ extension RestaurantViewController: OrderItemsServiceDelegate {
     
 }
 
-extension RestaurantViewController: DataStateChange {
+extension RestaurantViewController: DataStateListening {
     
     func domainModel(_ model: DomainModel, didChangeDataStateOf change: DataStateChange) {
         DispatchQueue.updateUI {
@@ -219,8 +208,22 @@ extension RestaurantViewController: DataStateChange {
     
     private func restaurantStoreStateChange(change: RestaurantStoreStateChange) {
         if change.contains(.isLoadingState) {
+            restaurantStore.isLoading ? showSpinner() : hideSpinner()
+            
             //KS: TODO: Show/hide skeleton
             //restaurantStore.isLoading ? addSkeletonViewController() : hideSkeletonViewController()
+        }
+        
+        if change.contains(.hookahMenu) {
+            guard let categories = restaurantStore.hookahMenu?.categories, categories.count > 0 else { return }
+            
+            menu = categories
+            
+            categoryCollectionViewService.updateCategories(categories: categories.map{DisplayableCategory(categoryId: $0.categoryId, name: $0.name, imageURL: $0.imageURL)})
+            
+            mixListCollectionViewService.updateMixes(with: categories.first?.mixes ?? [])
+            
+//            categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
         }
     }
     

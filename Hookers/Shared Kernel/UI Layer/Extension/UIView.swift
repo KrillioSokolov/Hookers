@@ -79,3 +79,9 @@ extension UIView {
     }
     
 }
+
+extension UIView {
+    
+    static let hudTag: Int = 136133337
+    
+}

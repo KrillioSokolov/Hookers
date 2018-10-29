@@ -30,3 +30,15 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+extension UIViewController: SpinnerPresenting {
+    
+    func showSpinner(message: String? = nil, animated: Bool = true, blockUI: Bool = true) {
+        ApplicationSpinner().show(on: view, text: message, animated: animated, blockUI: blockUI)
+    }
+    
+    func hideSpinner(animated: Bool = true) {
+        ApplicationSpinner().hide(from: view, animated: animated)
+    }
+    
+}

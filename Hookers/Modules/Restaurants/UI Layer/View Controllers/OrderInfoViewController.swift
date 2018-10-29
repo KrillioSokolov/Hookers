@@ -176,7 +176,7 @@ extension OrderInfoViewController: UICollectionViewDelegate, UICollectionViewDat
         let master = hookahMasters[indexPath.row]
         
         cell.avatarImageView.image = UIImage.init(named: master.photo)
-        cell.likeCount.text = master.likes
+        cell.likeCount.text = String(master.likes)
         cell.nameLabel.text = master.name
         
         return cell

@@ -25,7 +25,7 @@ struct RestaurantsEvent {
             typealias Payload = Value
             
             struct Value {
-                let restaurantId: String
+                let restaurant: NetworkRestaurant
             }
         }
         
@@ -33,7 +33,7 @@ struct RestaurantsEvent {
             typealias Payload = Value
             
             struct Value {
-                let restaurantId: String
+                let restaurant: NetworkRestaurant
             }
         }
         

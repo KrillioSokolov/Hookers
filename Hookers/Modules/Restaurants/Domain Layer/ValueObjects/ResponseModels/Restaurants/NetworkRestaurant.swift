@@ -12,7 +12,7 @@ struct NetworkRestaurant: DisplayableRestaurantListItem, Decodable {
 
     let restaurantId: String
     var name: String
-    var likes: String
+    var likes: Int
     //let address: NetworkAdress
     let workTimeDescription: String
     let description: String

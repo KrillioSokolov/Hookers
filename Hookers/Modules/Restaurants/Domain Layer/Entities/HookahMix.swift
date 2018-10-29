@@ -23,7 +23,7 @@ struct HookahMix: Codable {
     let price: Double
     let categoryId: String
     let restaurantId: String
-    var strenght: String
+    var strength: String
     var likes: Int
     var tabacco: [HookahMix.Tabacco]
     var description: String

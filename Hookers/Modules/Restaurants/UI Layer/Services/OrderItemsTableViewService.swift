@@ -15,14 +15,32 @@ protocol OrderItemsServiceDelegate: class {
     
 }
 
-final class OrderItemsTableViewService: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class OrderItemsTableViewService: NSObject {
     
-    weak var delegate: OrderItemsServiceDelegate!
+    private weak var delegate: OrderItemsServiceDelegate!
+    private weak var orderItemsTableView: UITableView?
     var orderedMixes: [HookahMix] = []
+    
+    init(tableView: UITableView) {
+        orderItemsTableView = tableView
+    }
+    
+    func configurate(with delegate: OrderItemsServiceDelegate) {
+        orderItemsTableView?.delegate = self
+        orderItemsTableView?.dataSource = self
+        orderItemsTableView?.registerReusableCell(cellType: OrderItemTableViewCell.self)
+        
+        self.delegate = delegate
+    }
     
     func addMixToOrder(_ mix: HookahMix) {
         orderedMixes.insert(mix, at: 0)
+        orderItemsTableView?.reloadData()
     }
+    
+}
+
+extension OrderItemsTableViewService: UITableViewDataSource, UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orderedMixes.count
@@ -34,7 +52,7 @@ final class OrderItemsTableViewService: NSObject, UITableViewDataSource, UITable
         let mix = orderedMixes[indexPath.row]
         
         cell.itemNameLabel.text = mix.name
-        cell.orderImageView.image = UIImage(named: mix.imageURL)
+        cell.orderImageView.download(image: mix.imageURL, placeholderImage: UIImage(named: "default_mix"))
         cell.priceLabel.text = String(mix.price) + " " + RestaurantViewController.Constants.grn
         
         cell.backgroundColor = UIColor.white.withAlphaComponent(0.1)

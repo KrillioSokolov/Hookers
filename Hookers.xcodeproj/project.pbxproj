@@ -32,6 +32,11 @@
 		ED17ACAA21864D64005B7125 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5B4521595F080079CFBF /* Executor.swift */; };
 		ED17ACAB21864D67005B7125 /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5B4721595F090079CFBF /* WeakContainer.swift */; };
 		ED17ACAD218656E7005B7125 /* OptionSetBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACAC218656E7005B7125 /* OptionSetBit.swift */; };
+		ED17ACCF2187C677005B7125 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACC92187C677005B7125 /* Alert.swift */; };
+		ED17ACD02187C677005B7125 /* ApplicationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACCA2187C677005B7125 /* ApplicationAlert.swift */; };
+		ED17ACD12187C677005B7125 /* ApplicationSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACCB2187C677005B7125 /* ApplicationSpinner.swift */; };
+		ED17ACD22187C677005B7125 /* SpinnerPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACCD2187C677005B7125 /* SpinnerPresenting.swift */; };
+		ED17ACD32187C677005B7125 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACCE2187C677005B7125 /* Spinner.swift */; };
 		ED2BA26A216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */; };
 		ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */; };
 		ED3A458B2167E46A0078B673 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */; };
@@ -54,10 +59,8 @@
 		ED48CA2021825B9E00CB26B3 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA1F21825B9E00CB26B3 /* NetworkConstants.swift */; };
 		ED48CA2121825C4600CB26B3 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA1D21825B7D00CB26B3 /* NetworkResponse.swift */; };
 		ED48CA2421825EE500CB26B3 /* RestaurantStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA2321825EE500CB26B3 /* RestaurantStore.swift */; };
-		ED48CA2721825FA900CB26B3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA2621825FA900CB26B3 /* Store.swift */; };
 		ED48CA2A2182612400CB26B3 /* RestaurantNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA292182612400CB26B3 /* RestaurantNetworkService.swift */; };
 		ED48CA2D2182618C00CB26B3 /* BaseNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA2C2182618C00CB26B3 /* BaseNetworkService.swift */; };
-		ED48CA302183726A00CB26B3 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA2F2183726A00CB26B3 /* ResponseModel.swift */; };
 		ED48CA322183BF4300CB26B3 /* DisplayableRestaurantListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA312183BF4300CB26B3 /* DisplayableRestaurantListItem.swift */; };
 		ED5047F9216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED504447216BD44A00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib */; };
 		ED5049FC216BD45000E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5047F8216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift */; };
@@ -179,6 +182,11 @@
 		ED17ACA52184C778005B7125 /* HookahMasterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookahMasterTableViewCell.swift; sourceTree = "<group>"; };
 		ED17ACA62184C778005B7125 /* HookahMasterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HookahMasterTableViewCell.xib; sourceTree = "<group>"; };
 		ED17ACAC218656E7005B7125 /* OptionSetBit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSetBit.swift; sourceTree = "<group>"; };
+		ED17ACC92187C677005B7125 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		ED17ACCA2187C677005B7125 /* ApplicationAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAlert.swift; sourceTree = "<group>"; };
+		ED17ACCB2187C677005B7125 /* ApplicationSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationSpinner.swift; sourceTree = "<group>"; };
+		ED17ACCD2187C677005B7125 /* SpinnerPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerPresenting.swift; sourceTree = "<group>"; };
+		ED17ACCE2187C677005B7125 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MixCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
@@ -202,10 +210,8 @@
 		ED48CA1E21825B8E00CB26B3 /* NetworkResponseInnerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseInnerError.swift; sourceTree = "<group>"; };
 		ED48CA1F21825B9E00CB26B3 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		ED48CA2321825EE500CB26B3 /* RestaurantStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantStore.swift; sourceTree = "<group>"; };
-		ED48CA2621825FA900CB26B3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		ED48CA292182612400CB26B3 /* RestaurantNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantNetworkService.swift; sourceTree = "<group>"; };
 		ED48CA2C2182618C00CB26B3 /* BaseNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkService.swift; sourceTree = "<group>"; };
-		ED48CA2F2183726A00CB26B3 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		ED48CA312183BF4300CB26B3 /* DisplayableRestaurantListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayableRestaurantListItem.swift; sourceTree = "<group>"; };
 		ED504447216BD44A00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderStepsExpandedSectionTableViewHeader.xib; sourceTree = "<group>"; };
 		ED5047F8216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderStepsExpandedSectionTableViewHeader.swift; sourceTree = "<group>"; };
@@ -499,6 +505,34 @@
 			path = HookahMasterTableViewCell;
 			sourceTree = "<group>";
 		};
+		ED17ACAE21878004005B7125 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				ED17ACC82187C677005B7125 /* HUDs */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		ED17ACC82187C677005B7125 /* HUDs */ = {
+			isa = PBXGroup;
+			children = (
+				ED17ACC92187C677005B7125 /* Alert.swift */,
+				ED17ACCA2187C677005B7125 /* ApplicationAlert.swift */,
+				ED17ACCB2187C677005B7125 /* ApplicationSpinner.swift */,
+				ED17ACCC2187C677005B7125 /* Protocols */,
+			);
+			path = HUDs;
+			sourceTree = "<group>";
+		};
+		ED17ACCC2187C677005B7125 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ED17ACCD2187C677005B7125 /* SpinnerPresenting.swift */,
+				ED17ACCE2187C677005B7125 /* Spinner.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		ED2BA267216CC51C0026EC64 /* MixCategory Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,7 +596,6 @@
 				ED48CA1D21825B7D00CB26B3 /* NetworkResponse.swift */,
 				ED48CA1E21825B8E00CB26B3 /* NetworkResponseInnerError.swift */,
 				ED48CA1F21825B9E00CB26B3 /* NetworkConstants.swift */,
-				ED48CA2F2183726A00CB26B3 /* ResponseModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -573,14 +606,6 @@
 				ED48CA2321825EE500CB26B3 /* RestaurantStore.swift */,
 			);
 			path = Stores;
-			sourceTree = "<group>";
-		};
-		ED48CA2521825F9C00CB26B3 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				ED48CA2621825FA900CB26B3 /* Store.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		ED48CA282182610C00CB26B3 /* Infrastructure Layer */ = {
@@ -653,6 +678,7 @@
 		EDCA544E2159539B0079CFBF /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
+				ED17ACAE21878004005B7125 /* Controls */,
 				ED128A1B217A6D8100C2062D /* Design Styleguide */,
 				ED3A458C2167EFD20078B673 /* Extension */,
 				EDD66906215BA640004DAB67 /* Reusable */,
@@ -715,7 +741,6 @@
 		EDD6681C2159553C004DAB67 /* Domain Layer */ = {
 			isa = PBXGroup;
 			children = (
-				ED48CA2521825F9C00CB26B3 /* Protocols */,
 				ED48CA1B21825B6B00CB26B3 /* Network */,
 			);
 			path = "Domain Layer";
@@ -1200,11 +1225,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hookers-HookersTests/Pods-Hookers-HookersTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1220,11 +1247,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hookers/Pods-Hookers-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1308,12 +1337,15 @@
 				ED5049FC216BD45000E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift in Sources */,
 				ED8EA8A42172350500369DAB /* OrderInfoViewController.swift in Sources */,
 				EDD668C4215A3362004DAB67 /* CoreDataModelConvertible.swift in Sources */,
+				ED17ACD02187C677005B7125 /* ApplicationAlert.swift in Sources */,
 				EDD6687621595631004DAB67 /* String.swift in Sources */,
 				EDD668C6215A3362004DAB67 /* CoreDataStackMoreThanOrEqualIOS10.swift in Sources */,
+				ED17ACD12187C677005B7125 /* ApplicationSpinner.swift in Sources */,
+				ED17ACD32187C677005B7125 /* Spinner.swift in Sources */,
 				EDD6686821595631004DAB67 /* FileManager.swift in Sources */,
-				ED48CA302183726A00CB26B3 /* ResponseModel.swift in Sources */,
 				EDD6690A215BA640004DAB67 /* UICollectionView+Reusable.swift in Sources */,
 				ED128A40217D039100C2062D /* ConfirmOrderViewController.swift in Sources */,
+				ED17ACCF2187C677005B7125 /* Alert.swift in Sources */,
 				EDD6686C21595631004DAB67 /* UUID.swift in Sources */,
 				ED48CA2121825C4600CB26B3 /* NetworkResponse.swift in Sources */,
 				EDFE7A8C2161095B00FC9D24 /* CircleImageCollectionViewCell.swift in Sources */,
@@ -1323,6 +1355,7 @@
 				ED48CA2421825EE500CB26B3 /* RestaurantStore.swift in Sources */,
 				ED47B989217E4BD3000C7675 /* OrderModel.swift in Sources */,
 				EDD668C1215A3362004DAB67 /* FetchRequest.swift in Sources */,
+				ED17ACD22187C677005B7125 /* SpinnerPresenting.swift in Sources */,
 				ED48CA2D2182618C00CB26B3 /* BaseNetworkService.swift in Sources */,
 				ED3A458E2167F03F0078B673 /* UIViewController.swift in Sources */,
 				EDD6687521595631004DAB67 /* String+Shared.swift in Sources */,
@@ -1378,7 +1411,6 @@
 				EDD668C3215A3362004DAB67 /* CoreDataStackLessThanIOS10.swift in Sources */,
 				EDFE7A85215E98CB00FC9D24 /* RestaurantTableViewCell.swift in Sources */,
 				ED48CA0A2182526D00CB26B3 /* URLConvertible.swift in Sources */,
-				ED48CA2721825FA900CB26B3 /* Store.swift in Sources */,
 				EDD6686521595631004DAB67 /* UIStackView.swift in Sources */,
 				EDD6687121595631004DAB67 /* Dictionary.swift in Sources */,
 				EDD668DE215A3C02004DAB67 /* TabBarCoordinator.swift in Sources */,

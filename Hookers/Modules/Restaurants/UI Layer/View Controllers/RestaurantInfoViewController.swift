@@ -15,6 +15,7 @@ final class RestaurantInfoViewController: UIViewController {
     
     var dispatcher: Dispatcher!
     var styleguide: DesignStyleGuide!
+    var restaurant: NetworkRestaurant!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ final class RestaurantInfoViewController: UIViewController {
     }
     
     @IBAction func letsMakeHookah(_ sender: Any) {
-        let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurantId: "1")
+        let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurant: restaurant)
         
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidChooseRestaurant.self, result: Result(value: value, error: nil))
     }

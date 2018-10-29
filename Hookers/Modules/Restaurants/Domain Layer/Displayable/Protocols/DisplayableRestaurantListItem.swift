@@ -13,6 +13,6 @@ protocol DisplayableRestaurantListItem {
     var photo: String { get }
     var name: String { get }
     var distanse: String { get }
-    var likes: String { get }
+    var likes: Int { get }
     
 }

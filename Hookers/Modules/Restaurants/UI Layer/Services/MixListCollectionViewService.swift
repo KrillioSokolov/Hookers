@@ -20,14 +20,24 @@ protocol MixListServiceDelegate: class {
 final class MixListCollectionViewService: NSObject  {
  
     weak var delegate: MixListServiceDelegate?
-    private var mixes: [HookahMix]
+    private var mixes: [HookahMix] = []
+    private weak var mixListCollectionView: UICollectionView?
     
-    init(mixes: [HookahMix]) {
-        self.mixes = mixes
+    init(collectionView: UICollectionView) {
+        mixListCollectionView = collectionView
+    }
+    
+    func configurate(with delegate: MixListServiceDelegate) {
+        mixListCollectionView?.delegate = self
+        mixListCollectionView?.dataSource = self
+        mixListCollectionView?.registerReusableCell(cellType: MixListCollectionViewCell.self)
+        
+        self.delegate = delegate
     }
     
     func updateMixes(with newMixes: [HookahMix]) {
         mixes = newMixes
+        mixListCollectionView?.reloadData()
     }
  
 }
@@ -44,7 +54,7 @@ extension MixListCollectionViewService: UICollectionViewDelegate, UICollectionVi
         let mix = mixes[indexPath.row]
         
         cell.nameLabel.text = mix.name
-        cell.mixImageView.image = UIImage(named: mix.imageURL)
+        cell.mixImageView.download(image: mix.imageURL, placeholderImage: UIImage(named: "default_mix"))
         cell.priceLabel.text = String(mix.price) + " " + RestaurantViewController.Constants.grn
         
         return cell

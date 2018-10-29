@@ -10,7 +10,7 @@ import Foundation
 
 struct NetworkConstants {
     
-    static let devServerBaseURL = URL(string: "http://localhost:8081/")!
+    static let devServerBaseURL = URL(string: "http://a72eac1c.ngrok.io/")!
     static let prodServerURL = ""
     
 }

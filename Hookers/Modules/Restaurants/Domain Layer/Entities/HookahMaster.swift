@@ -12,7 +12,7 @@ struct HookahMaster: DisplayableRestaurantListItem {
     
     var name: String
     var photo: String
-    var likes: String
+    var likes: Int
     var distanse: String {
         return String(Int(arc4random_uniform(100)))
     }

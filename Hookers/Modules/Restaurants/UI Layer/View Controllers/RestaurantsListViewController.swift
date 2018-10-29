@@ -92,17 +92,17 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell: UITableViewCell & RestaurantListTableViewCell
-        
-        cell = isRestaurantsList ? tableView.dequeueReusableCell(indexPath, cellType: RestaurantTableViewCell.self) : tableView.dequeueReusableCell(indexPath, cellType: HookahMasterTableViewCell.self)
+        var cell: UITableViewCell & RestaurantListTableViewCell = isRestaurantsList ?
+            tableView.dequeueReusableCell(indexPath, cellType: RestaurantTableViewCell.self) :
+            tableView.dequeueReusableCell(indexPath, cellType: HookahMasterTableViewCell.self)
         
         let displayableItem = displayableData[indexPath.row]
         
         let placeholderImage = UIImage(named: "avatar_default", in: Bundle(for: type(of: self)), compatibleWith: nil)
-        cell.presentImageView.download(image: displayableItem.photo, placeholderImage: placeholderImage)
         
+        cell.presentImageView.download(image: displayableItem.photo, placeholderImage: placeholderImage)
         cell.nameLabel.text = displayableItem.name
-        cell.likeCountLabel.text = displayableItem.likes
+        cell.likeCountLabel.text = String(displayableItem.likes)
         cell.distanceLabel.text = displayableItem.distanse + "км"
         
         cell.delegate = self
@@ -117,7 +117,7 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //KS: TODO: Add correct setting restaurant model
                 
-        let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurantId: String(indexPath.row))
+        let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurant: restaurants[indexPath.row])
         
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidChooseRestaurant.self, result: Result(value: value, error: nil))
     }
@@ -127,7 +127,9 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
 extension RestaurantsListViewController: RestaurantTableViewCellDelegate {
     
     func didTapRestaurantInfoButton(on cell: UITableViewCell) {
-        let value = RestaurantsEvent.NavigationEvent.DidTapInfoButtonOnRestaurantCell.Value(restaurantId: String(cell.tag))
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        let value = RestaurantsEvent.NavigationEvent.DidTapInfoButtonOnRestaurantCell.Value(restaurant: restaurants[indexPath.row])
         
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidTapInfoButtonOnRestaurantCell.self, result: Result(value: value, error: nil))
     }
@@ -150,12 +152,16 @@ extension RestaurantsListViewController: DataStateListening {
     
     private func restaurantStoreStateChange(change: RestaurantStoreStateChange) {
         if change.contains(.isLoadingState) {
+            restaurantStore.isLoading ? self.showSpinner() : self.hideSpinner()
+            
             //KS: TODO: Show/hide skeleton
             //restaurantStore.isLoading ? addSkeletonViewController() : hideSkeletonViewController()
         }
         
         if change.contains(.restaurants) {
-            restaurants = restaurantStore.restaurants
+            guard let restaurants = restaurantStore.restaurants else { return }
+            
+            self.restaurants = restaurants
             tableView.reloadData()
         }
     }
