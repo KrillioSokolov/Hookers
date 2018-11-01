@@ -96,6 +96,21 @@ extension RestaurantsCoordinator {
         root.present(navBarOnModal, animated: true, completion: nil)
     }
     
+    private func openOrderInfoViewController(with restaurant: NetworkRestaurant, mixesForOrder: [HookahMix]) {
+        let controller = UIStoryboard.Restaurants.orderInfoViewController
+        
+        controller.dispatcher = dispatcher
+        controller.styleguide = context.styleguide
+        controller.restaurant = restaurant
+        controller.restaurantStore = restaurantStore
+        controller.mixesForOrder = mixesForOrder
+        
+        let navBarOnModal: UINavigationController = UINavigationController(rootViewController: controller)
+        
+        root.tabBarController?.tabBar.isHidden = true
+        root.present(navBarOnModal, animated: true, completion: nil)
+    }
+    
 }
 
 //MARK: Register Events
@@ -105,6 +120,7 @@ extension RestaurantsCoordinator {
         registerDidChooseRestaurant()
         registerCloseScreen()
         registerDidTapInfoButtonOnRestaurantCell()
+        registerDidChooseMixesForOrder()
     }
     
     private func registerDidChooseRestaurant() {
@@ -125,6 +141,18 @@ extension RestaurantsCoordinator {
             switch result {
             case .success(let box):
                 self?.openRestaurantInfoViewController(with: box.restaurant)
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    private func registerDidChooseMixesForOrder() {
+        dispatcher.register(type: RestaurantsEvent.NavigationEvent.DidChooseMixesForOrder.self) { [weak self] result, _ in
+            
+            switch result {
+            case .success(let box):
+                self?.openOrderInfoViewController(with: box.restaurant, mixesForOrder: box.mixesForOrder)
             case .failure(_):
                 break
             }

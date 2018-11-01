@@ -20,7 +20,7 @@ struct NetworkRestaurant: DisplayableRestaurantListItem, Decodable {
     var distanse: String {
         return String(Int(arc4random_uniform(100)))
     }
-    var photo: String {
+    var imageURL: String {
         return photos.first!
     }
     

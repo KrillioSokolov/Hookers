@@ -24,7 +24,7 @@ final class MixCategoryCollectionViewCell: UICollectionViewCell, NibReusable {
         
         selectedLineView.isHidden = true
         selectedLineView.layer.cornerRadius = 1
-        selectedLineView.addDefaultShadow()
+        selectedLineView.addShadowView()
         
     }
     

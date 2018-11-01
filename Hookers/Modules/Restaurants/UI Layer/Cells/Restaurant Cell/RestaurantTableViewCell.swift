@@ -27,6 +27,7 @@ protocol RestaurantListTableViewCell {
 
 final class RestaurantTableViewCell: UITableViewCell, RestaurantListTableViewCell, NibReusable {
     
+    @IBOutlet weak var heartImageView: UIImageView!
     @IBOutlet weak var presentImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet private weak var infoButton: UIButton!
@@ -40,6 +41,11 @@ final class RestaurantTableViewCell: UITableViewCell, RestaurantListTableViewCel
         super.awakeFromNib()
         
         containerView.layer.cornerRadius = 6
+        likeCountLabel.addDefaultSoftShadow()
+        nameLabel.addDefaultSoftShadow()
+        infoButton.addShadowView()
+        distanceLabel.addShadowView()
+        heartImageView.addShadowView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-typealias PhotoAndName = (photo: String, name: String)
-
 protocol MixListServiceDelegate: class {
     
     func serviceDidChoseMix(_ service: MixListCollectionViewService, chosenMix mix: HookahMix)
@@ -19,7 +17,7 @@ protocol MixListServiceDelegate: class {
 
 final class MixListCollectionViewService: NSObject  {
  
-    weak var delegate: MixListServiceDelegate?
+    private weak var delegate: MixListServiceDelegate?
     private var mixes: [HookahMix] = []
     private weak var mixListCollectionView: UICollectionView?
     

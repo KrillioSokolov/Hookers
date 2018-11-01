@@ -10,7 +10,7 @@ import Foundation
 
 protocol DisplayableRestaurantListItem {
     
-    var photo: String { get }
+    var imageURL: String { get }
     var name: String { get }
     var distanse: String { get }
     var likes: Int { get }

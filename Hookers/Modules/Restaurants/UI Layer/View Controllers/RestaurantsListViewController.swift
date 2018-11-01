@@ -22,10 +22,10 @@ final class RestaurantsListViewController: UIViewController {
     }
     
     var restaurants: [NetworkRestaurant] = [] //NetworkRestaurant.makeTestRestaurants()
-    var hookahMasters = HookahMaster.testMasters()
+    var hookahMasters: [HookahMaster]?
     
     var displayableData: [DisplayableRestaurantListItem] {
-        return segmentedControl.selectedSegmentIndex == 0 ? restaurants : hookahMasters
+        return segmentedControl.selectedSegmentIndex == 0 ? restaurants : hookahMasters ?? []
     }
     
     override func viewDidLoad() {
@@ -67,8 +67,23 @@ final class RestaurantsListViewController: UIViewController {
 extension RestaurantsListViewController {
     
     @IBAction func changeSegment(_ sender: Any) {
-        let title = isRestaurantsList ? "Выберите заведение".localized() :
+        var title = isRestaurantsList ? "Выберите заведение".localized() :
                                         "Выберите кальянщика".localized()
+        
+        if isRestaurantsList {
+            title = "Выберите заведение".localized()
+            
+            tableView.reloadData()
+        } else {
+            title = "Выберите кальянщика".localized()
+            
+            guard hookahMasters == nil else {
+                tableView.reloadData()
+                return
+            }
+            
+            restaurantStore.getHookahMastersList()
+        }
         
         navigationItem.setTitleView(withTitle: "Днепр".localized(),
                                     subtitle: title,
@@ -77,7 +92,7 @@ extension RestaurantsListViewController {
                                     subtitleColor: styleguide.secondaryTextColor,
                                     subtitleFont: styleguide.regularFont(ofSize: 12))
         
-        tableView.reloadData()
+        
     }
     
 }
@@ -86,7 +101,7 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return isRestaurantsList ? restaurants.count : hookahMasters.count
+        return isRestaurantsList ? restaurants.count : hookahMasters?.count ?? 0
         
     }
     
@@ -100,7 +115,7 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
         
         let placeholderImage = UIImage(named: "avatar_default", in: Bundle(for: type(of: self)), compatibleWith: nil)
         
-        cell.presentImageView.download(image: displayableItem.photo, placeholderImage: placeholderImage)
+        cell.presentImageView.download(image: displayableItem.imageURL, placeholderImage: placeholderImage)
         cell.nameLabel.text = displayableItem.name
         cell.likeCountLabel.text = String(displayableItem.likes)
         cell.distanceLabel.text = displayableItem.distanse + "км"
@@ -162,6 +177,13 @@ extension RestaurantsListViewController: DataStateListening {
             guard let restaurants = restaurantStore.restaurants else { return }
             
             self.restaurants = restaurants
+            tableView.reloadData()
+        }
+        
+        if change.contains(.bestHookahMasters) {
+            guard let hookahMasters = restaurantStore.hookahMastersData?.hookahMasters else { return }
+            
+            self.hookahMasters = hookahMasters
             tableView.reloadData()
         }
     }

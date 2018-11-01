@@ -37,6 +37,8 @@
 		ED17ACD12187C677005B7125 /* ApplicationSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACCB2187C677005B7125 /* ApplicationSpinner.swift */; };
 		ED17ACD22187C677005B7125 /* SpinnerPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACCD2187C677005B7125 /* SpinnerPresenting.swift */; };
 		ED17ACD32187C677005B7125 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17ACCE2187C677005B7125 /* Spinner.swift */; };
+		ED2565DF218A249D0077955B /* HookahMastersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2565DE218A249D0077955B /* HookahMastersListResponse.swift */; };
+		ED2565E1218A719E0077955B /* HookahMastersCollectionViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2565E0218A719D0077955B /* HookahMastersCollectionViewService.swift */; };
 		ED2BA26A216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */; };
 		ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */; };
 		ED3A458B2167E46A0078B673 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */; };
@@ -187,6 +189,8 @@
 		ED17ACCB2187C677005B7125 /* ApplicationSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationSpinner.swift; sourceTree = "<group>"; };
 		ED17ACCD2187C677005B7125 /* SpinnerPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerPresenting.swift; sourceTree = "<group>"; };
 		ED17ACCE2187C677005B7125 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		ED2565DE218A249D0077955B /* HookahMastersListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookahMastersListResponse.swift; sourceTree = "<group>"; };
+		ED2565E0218A719D0077955B /* HookahMastersCollectionViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookahMastersCollectionViewService.swift; sourceTree = "<group>"; };
 		ED2BA268216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED2BA269216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MixCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
@@ -464,6 +468,7 @@
 		ED128A33217B4E5000C2062D /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
+				ED2565DD218A24700077955B /* HookahMaster */,
 				ED128A37217B4EE900C2062D /* Adress */,
 				ED128A36217B4ED400C2062D /* Restaurants */,
 			);
@@ -531,6 +536,14 @@
 				ED17ACCE2187C677005B7125 /* Spinner.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		ED2565DD218A24700077955B /* HookahMaster */ = {
+			isa = PBXGroup;
+			children = (
+				ED2565DE218A249D0077955B /* HookahMastersListResponse.swift */,
+			);
+			path = HookahMaster;
 			sourceTree = "<group>";
 		};
 		ED2BA267216CC51C0026EC64 /* MixCategory Cell */ = {
@@ -1039,6 +1052,7 @@
 				EDE2A03C216E6F8E00FF84E6 /* CategoryCollectionViewService.swift */,
 				EDE2A045216E898900FF84E6 /* MixListCollectionViewService.swift */,
 				ED8EA8A1217126AC00369DAB /* OrderItemsTableViewService.swift */,
+				ED2565E0218A719D0077955B /* HookahMastersCollectionViewService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1357,6 +1371,7 @@
 				EDD668C1215A3362004DAB67 /* FetchRequest.swift in Sources */,
 				ED17ACD22187C677005B7125 /* SpinnerPresenting.swift in Sources */,
 				ED48CA2D2182618C00CB26B3 /* BaseNetworkService.swift in Sources */,
+				ED2565DF218A249D0077955B /* HookahMastersListResponse.swift in Sources */,
 				ED3A458E2167F03F0078B673 /* UIViewController.swift in Sources */,
 				EDD6687521595631004DAB67 /* String+Shared.swift in Sources */,
 				EDD668E0215A3C02004DAB67 /* UIStoryboard+Main.swift in Sources */,
@@ -1377,6 +1392,7 @@
 				EDD6686321595631004DAB67 /* Collection.swift in Sources */,
 				ED48CA022182521C00CB26B3 /* ResponseMappingError.swift in Sources */,
 				ED128A29217A6D8100C2062D /* UIStyleGuideRefreshing.swift in Sources */,
+				ED2565E1218A719E0077955B /* HookahMastersCollectionViewService.swift in Sources */,
 				ED128A28217A6D8100C2062D /* DesignStyleGuide.swift in Sources */,
 				ED128A25217A6D8100C2062D /* DarkThemeDesignStyleGuide.swift in Sources */,
 				EDD6686121595631004DAB67 /* UIView.swift in Sources */,

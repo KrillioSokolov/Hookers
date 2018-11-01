@@ -55,14 +55,11 @@ extension OrderItemsTableViewService: UITableViewDataSource, UITableViewDelegate
         cell.orderImageView.download(image: mix.imageURL, placeholderImage: UIImage(named: "default_mix"))
         cell.priceLabel.text = String(mix.price) + " " + RestaurantViewController.Constants.grn
         
-        cell.backgroundColor = UIColor.white.withAlphaComponent(0.1)
-        
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return OrderItemsTableViewService.Constants.cellHeight
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -80,4 +77,14 @@ extension OrderItemsTableViewService: UITableViewDataSource, UITableViewDelegate
         return [delete]
     }
 
+}
+
+extension OrderItemsTableViewService {
+    
+    struct Constants {
+        
+        static let cellHeight = CGFloat(44)
+        
+    }
+    
 }

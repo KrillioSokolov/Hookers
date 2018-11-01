@@ -15,6 +15,8 @@ struct RestaurantStoreStateChange: OptionSet, DataStateChange {
     static let isLoadingState = RestaurantStoreStateChange(rawValue: Int.bit1)
     static let restaurants = RestaurantStoreStateChange(rawValue: Int.bit2)
     static let hookahMenu = RestaurantStoreStateChange(rawValue: Int.bit3)
+    static let bestHookahMasters = RestaurantStoreStateChange(rawValue: Int.bit4)
+    static let hookahMastersForRestaurant = RestaurantStoreStateChange(rawValue: Int.bit5)
     
 }
 
@@ -23,11 +25,11 @@ final class RestaurantStore: DomainModel {
     let networkService: RestaurantNetwork
     let dispatcher: Dispatcher
     
-    var restaurants: [NetworkRestaurant]?
-    var hookahMenu: HookahMenuResponse.Data?
+    private(set) var restaurants: [NetworkRestaurant]?
+    private(set) var hookahMenuData: HookahMenuResponse.Data?
+    private(set) var hookahMastersData: HookahMastersListResponse.Data?
     
-    var isLoading = false
-    
+    private(set) var isLoading = false
     
     init(networkService: RestaurantNetwork, dispatcher: Dispatcher) {
         self.networkService = networkService
@@ -46,7 +48,7 @@ extension RestaurantStore {
                 self.isLoading = false
                 
                 guard let restaurantListResponse = restaurantListResponse else { return }
-                self.restaurants = restaurantListResponse.data.restaurants
+                 self.restaurants = restaurantListResponse.data.restaurants
             })
         }
     }
@@ -58,7 +60,29 @@ extension RestaurantStore {
             self.changeDataStateOf([.hookahMenu, .isLoadingState] as RestaurantStoreStateChange, work: {
                 self.isLoading = false
                 
-                self.hookahMenu = hookahMenuResponse?.data
+                self.hookahMenuData = hookahMenuResponse?.data
+            })
+        }
+    }
+    
+    func getHookahMastersList(restaurantId: String? = nil) {
+        startLoading()
+        
+        networkService.getHookahMastersList(byRestaurantId: restaurantId) { (networkReponse, hookahMastersListResponse) in
+            guard let hookahMastersListResponse = hookahMastersListResponse else { return }
+            
+            let changeType: RestaurantStoreStateChange
+            
+            if hookahMastersListResponse.data.restaurantId != nil {
+                changeType = .hookahMastersForRestaurant
+            } else {
+                //KS: TODO: Change when server will be ready
+                changeType = .bestHookahMasters
+            }
+            
+            self.changeDataStateOf([changeType, .isLoadingState] as RestaurantStoreStateChange, work: {
+                self.isLoading = false
+                self.hookahMastersData = hookahMastersListResponse.data
             })
         }
     }

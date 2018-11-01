@@ -12,66 +12,105 @@ import UIKit
 final class OrderInfoViewController: UIViewController {
     
     @IBOutlet private weak var orderButton: UIButton!
+    
     @IBOutlet private weak var datePicker: UIDatePicker!
     @IBOutlet private weak var dueDateButton: UIButton!
+    @IBOutlet private weak var datePickerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var dueDateContainerView: UIView!
     
-    @IBOutlet weak var peopleCountView: UIView!
-    @IBOutlet weak var hookahMasterContainerView: UIView!
-    @IBOutlet weak var dueDateContainerView: UIView!
+    @IBOutlet private weak var peopleCountView: UIView!
+    @IBOutlet private weak var peopleCountLabel: UILabel!
+    @IBOutlet private weak var stepper: UIStepper!
+    @IBOutlet private weak var peopleCountContainerView: UIView!
     
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var peopleCountLabel: UILabel!
-    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet private weak var hookahMasterContainerView: UIView!
+    @IBOutlet private weak var hookahMasterLabel: UILabel!
+    @IBOutlet private weak var hookahBeLabel: UILabel!
+    @IBOutlet private weak var hookersCollectionView: UICollectionView!
+    @IBOutlet private weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var hookahMasterLabel: UILabel!
-    @IBOutlet weak var hookahBeLabel: UILabel!
-    @IBOutlet weak var hookersCollectionView: UICollectionView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var datePickerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var yourOrderContainer: UIView!
+    @IBOutlet private weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var orderItemsTableView: UITableView!
     
-    private var selectedHookahMaster: HookahMaster!
+    private var orderItemsTableViewService: OrderItemsTableViewService!
+    private var hookahMastersCollectionViewService: HookahMastersCollectionViewService!
     
     private var dueDate = Date()
-    var hookahMasters = HookahMaster.testMasters()
+    private var hookahMasters: [HookahMaster] = []
+    
+    var mixesForOrder: [HookahMix]!
+    var restaurant: NetworkRestaurant!
+    var dispatcher: Dispatcher!
+    var styleguide: DesignStyleGuide!
+    var restaurantStore: RestaurantStore! {
+        didSet {
+            restaurantStore.addDataStateListener(self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configurateDatePicker()
         configurateCollectionView()
+        configurateTableView()
+    
+        navigationItem.addBackButton(with: self, action: #selector(back), tintColor: styleguide.primaryColor)
+    
+        restaurantStore.getHookahMastersList(restaurantId: restaurant.restaurantId)
+        configurateDatePicker()
+        
+        navigationController?.navigationBar.barStyle = .blackTranslucent
+        navigationController?.navigationBar.barTintColor = .clear
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.isNavigationBarHidden = false
+        
+        navigationItem.setTitleView(withTitle: restaurant.name,
+                                    subtitle: "Заполните информацию о заказе".localized(),
+                                    titleColor: styleguide.primaryTextColor,
+                                    titleFont: styleguide.regularFont(ofSize: 17),
+                                    subtitleColor: styleguide.secondaryTextColor,
+                                    subtitleFont: styleguide.regularFont(ofSize: 12))
         
         dueDateContainerView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         dueDateContainerView.layer.cornerRadius = 6
         
-        peopleCountView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
-        peopleCountView.layer.cornerRadius = 6
+        peopleCountContainerView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        peopleCountContainerView.layer.cornerRadius = 6
         
         hookahMasterContainerView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         hookahMasterContainerView.layer.cornerRadius = 6
         
+        yourOrderContainer.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        yourOrderContainer.layer.cornerRadius = 6
+        
         updateDueDateLabel()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let randomMasterIndex = Int(arc4random_uniform(UInt32(hookahMasters.count)))
-            
-        hookersCollectionView.selectItem(at: IndexPath(row: randomMasterIndex, section: 0), animated: true, scrollPosition: .centeredHorizontally)
-        
-        selectedHookahMaster = hookahMasters[randomMasterIndex]
-        
-        updateHookahMasterLabel(name: selectedHookahMaster.name)
     }
     
 }
 
 extension OrderInfoViewController {
     
-    func updateHookahMasterLabel(name: String) {
+    private func updateHookahMasterLabel(name: String?) {
         hookahMasterLabel.text = name
     }
+    
+    private func selectRandomHookahMaster() {
+        let randomMasterIndex = Int(arc4random_uniform(UInt32(hookahMastersCollectionViewService.hookahMasters.count)))
+        
+        hookersCollectionView.selectItem(at: IndexPath(row: randomMasterIndex, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        
+        hookahMastersCollectionViewService.selectedHookahMaster = hookahMastersCollectionViewService.hookahMasters[randomMasterIndex]
+        
+        updateHookahMasterLabel(name: hookahMastersCollectionViewService.selectedHookahMaster?.name)
+    }
+    
+    @objc private func back() {
+        let value = RestaurantsEvent.NavigationEvent.CloseScreen.Value(animated: true)
+        
+        dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.CloseScreen.self, result: Result(value: value))
+    }
+    
     
 }
 
@@ -127,65 +166,98 @@ extension OrderInfoViewController {
     
 }
 
-extension OrderInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension OrderInfoViewController {
     
-    func configurateCollectionView() {
-        hookersCollectionView.dataSource = self
-        hookersCollectionView.delegate = self
-        hookersCollectionView.allowsSelection = true
-        hookersCollectionView.registerReusableCell(cellType: HookerManCollectionViewCell.self)
+    private func configurateTableView() {
+        tableViewHeightConstraint.constant = CGFloat(mixesForOrder.count) * OrderItemsTableViewService.Constants.cellHeight - 1
         
-        collectionViewHeightConstraint.constant = UIScreen.main.bounds.size.height/3 * CollectionViewTransformConstants.scaleFactor
+        orderItemsTableViewService = OrderItemsTableViewService(tableView: orderItemsTableView)
+        orderItemsTableViewService.orderedMixes = mixesForOrder
+        orderItemsTableViewService.configurate(with: self)
+        orderItemsTableView?.isUserInteractionEnabled = false
     }
     
-    func configurateCollectionViewHeight() {
+    private func configurateCollectionView() {
+        hookahMastersCollectionViewService = HookahMastersCollectionViewService(collectionView: hookersCollectionView)
+        
+        collectionViewHeightConstraint.constant = UIScreen.main.bounds.size.height/3 * CollectionViewTransformConstants.scaleFactor
+        
+        hookahMastersCollectionViewService.configurate(with: self)
+    }
+    
+    private func configurateCollectionViewHeight() {
         if Date.isDateInToday(from: dueDate), collectionViewHeightConstraint.constant == 0 {
             UIView.animate(withDuration: 0.2) {
                 self.collectionViewHeightConstraint.constant = UIScreen.main.bounds.size.height/3 * CollectionViewTransformConstants.scaleFactor
                 self.view.layoutIfNeeded()
             }
-            
-            hookahMasterLabel.text = selectedHookahMaster.name
+            selectRandomHookahMaster()
+            hookahMasterLabel.text = hookahMastersCollectionViewService.selectedHookahMaster?.name
             hookahBeLabel.text = "Вашим кальянщиком будет:".localized()
             hookahBeLabel.textAlignment = .left
+            
         } else if !Date.isDateInToday(from: dueDate) {
             UIView.animate(withDuration: 0.2) {
                 self.collectionViewHeightConstraint.constant = 0
                 self.view.layoutIfNeeded()
             }
-            
+            hookahMastersCollectionViewService.selectedHookahMaster = nil
             hookahBeLabel.textAlignment = .center
             hookahBeLabel.text = "Извините, на выбранный Вами день расписание кальянщиков не сформировано".localized()
             hookahMasterLabel.text = ""
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hookahMasters.count
+}
+
+extension OrderInfoViewController: DataStateListening {
+    
+    func domainModel(_ model: DomainModel, didChangeDataStateOf change: DataStateChange) {
+        DispatchQueue.updateUI {
+            self.domainModelChanged(model, didChangeDataStateOf: change)
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = CGSize(width: UIScreen.main.bounds.size.width/2 - 30, height: UIScreen.main.bounds.size.height/3)
-        
-        return size
+    private func domainModelChanged(_ model: DomainModel, didChangeDataStateOf change: DataStateChange) {
+        if let change = change as? RestaurantStoreStateChange {
+            restaurantStoreStateChange(change: change)
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(indexPath, cellType: HookerManCollectionViewCell.self)
+    private func restaurantStoreStateChange(change: RestaurantStoreStateChange) {
+        if change.contains(.isLoadingState) {
+            restaurantStore.isLoading ? showSpinner() : hideSpinner()
+            
+            //KS: TODO: Show/hide skeleton
+            //restaurantStore.isLoading ? addSkeletonViewController() : hideSkeletonViewController()
+        }
         
-        let master = hookahMasters[indexPath.row]
-        
-        cell.avatarImageView.image = UIImage.init(named: master.photo)
-        cell.likeCount.text = String(master.likes)
-        cell.nameLabel.text = master.name
-        
-        return cell
+        if change.contains(.hookahMastersForRestaurant) {
+            
+            guard let hookahMasters = restaurantStore.hookahMastersData?.hookahMasters else { return }
+            
+            hookahMastersCollectionViewService.updateHookahMasters(hookahMasters: hookahMasters)
+            
+            DispatchQueue.delay(delay: 0.1) {
+                self.selectRandomHookahMaster()
+            }
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedHookahMaster = hookahMasters[indexPath.row]
-        updateHookahMasterLabel(name: selectedHookahMaster.name)
-        collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
+}
+
+extension OrderInfoViewController: OrderItemsServiceDelegate {
+    
+    func orderItemsServiceDidDeleteItem(_ service: OrderItemsTableViewService, deletedItem item: HookahMix) {
+        
+    }
+    
+}
+
+extension OrderInfoViewController: HookahMastersServiceDelegate {
+    
+    func serviceDidChoseHookahMaster(_ service: HookahMastersCollectionViewService, chosenHookahMaster hookahMaster: HookahMaster) {
+        updateHookahMasterLabel(name: hookahMaster.name)
     }
     
 }
@@ -196,34 +268,6 @@ extension OrderInfoViewController {
         
         static let dataPickerHeight = CGFloat(120.0)
         
-    }
-    
-}
-
-
-extension OrderInfoViewController {
-    
-    func registerKeyboardNotificication() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification){
-        var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        
-        var contentInset:UIEdgeInsets = scrollView.contentInset
-        
-        contentInset.bottom = keyboardFrame.size.height
-        scrollView.contentInset = contentInset
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification){
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        
-        scrollView.contentInset = contentInset
     }
     
 }

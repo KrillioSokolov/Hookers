@@ -47,11 +47,6 @@ final class RestaurantViewController: UIViewController {
         restaurantStore.getHookahMenu(byRestaurantId: restaurant.restaurantId)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -79,11 +74,12 @@ final class RestaurantViewController: UIViewController {
     }
     
     @IBAction func order(_ sender: Any) {
+        let value = RestaurantsEvent.NavigationEvent.DidChooseMixesForOrder.Value.init(restaurant: restaurant, mixesForOrder: orderItemsTableViewService.orderedMixes)
         
+        dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidChooseMixesForOrder.self, result: Result(value: value))
     }
     
 }
-
 
 extension RestaurantViewController {
     
@@ -100,6 +96,7 @@ extension RestaurantViewController {
     func configurateOrderItemsTableView() {
         orderItemsTableViewService = OrderItemsTableViewService(tableView: orderItemsTableView)
         orderItemsTableViewService.configurate(with: self)
+        orderItemsTableView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         
         bucketContainerView.layer.cornerRadius = 8
         
@@ -215,7 +212,7 @@ extension RestaurantViewController: DataStateListening {
         }
         
         if change.contains(.hookahMenu) {
-            guard let categories = restaurantStore.hookahMenu?.categories, categories.count > 0 else { return }
+            guard let categories = restaurantStore.hookahMenuData?.categories, categories.count > 0 else { return }
             
             menu = categories
             

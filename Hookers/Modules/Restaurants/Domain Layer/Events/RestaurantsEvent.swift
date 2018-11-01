@@ -37,6 +37,15 @@ struct RestaurantsEvent {
             }
         }
         
+        struct DidChooseMixesForOrder: Event {
+            typealias Payload = Value
+            
+            struct Value {
+                let restaurant: NetworkRestaurant
+                let mixesForOrder: [HookahMix]
+            }
+        }
+        
     }
     
 }

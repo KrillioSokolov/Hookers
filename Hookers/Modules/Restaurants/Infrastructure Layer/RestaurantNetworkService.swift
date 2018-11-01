@@ -14,9 +14,34 @@ protocol RestaurantNetwork {
     
     func getHookahMenu(byRestaurantId restaurantId: String, with completion: @escaping ((NetworkResponse?, HookahMenuResponse?) -> Void))
     
+    func getHookahMastersList(byRestaurantId restaurantId: String?, with completion: @escaping ((NetworkResponse?, HookahMastersListResponse?) -> Void))
+    
 }
 
 final class RestaurantNetworkService: BaseNetworkService, RestaurantNetwork {
+    
+    func getHookahMastersList(byRestaurantId restaurantId: String? = nil, with completion: @escaping ((NetworkResponse?, HookahMastersListResponse?) -> Void)) {
+        var parametrs: Parameters?
+        
+        if let restaurantId = restaurantId {
+            parametrs = [ "restaurantId" : restaurantId ]
+        }
+        
+        networkService.executeRequest(endpoint: "hookahMastersList", method: .get, parameters: parametrs, headers: nil) { networkResponse in
+            guard let action = networkResponse.action,
+                let data = networkResponse.data,
+                let decodedResponse = try? JSONDecoder().decode(HookahMastersListResponse.Data.self, from: data)
+                else {
+                    completion(networkResponse, nil)
+                    return
+            }
+            
+            let networkHookahMasterListResponse = HookahMastersListResponse(action: action, data: decodedResponse)
+            
+            completion(networkResponse, networkHookahMasterListResponse)
+        }
+    }
+    
     let networkService: HTTPNetworkService
     
     init(networkService: HTTPNetworkService) {

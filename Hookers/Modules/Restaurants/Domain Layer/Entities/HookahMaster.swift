@@ -8,18 +8,21 @@
 
 import Foundation
 
-struct HookahMaster: DisplayableRestaurantListItem {
+struct HookahMaster: Codable, DisplayableRestaurantListItem {
     
     var name: String
-    var photo: String
+    var imageURL: String
     var likes: Int
     var distanse: String {
         return String(Int(arc4random_uniform(100)))
     }
-    var masterId: String
+    let description: String
+    let hookahMasterId: String
+    let restourantId: String
+
  
     static func testMasters() -> [HookahMaster] {
-        
+//    var masterId: String
 //        let nikolay = HookahMaster(name: "Николай", photo: "kolaHabl-1", likes: "1465/1745", distanse: "11", masterId: "kolya")
 //        let salyam = HookahMaster(name: "Дмитрий", photo: "salyam", likes: "816/1142", distanse: "16", masterId: "salyam")
 //        let hooka1 = HookahMaster(name: "Михей", photo: "hooker1", likes: "2432/2567", distanse: "3", masterId: "mixey")
