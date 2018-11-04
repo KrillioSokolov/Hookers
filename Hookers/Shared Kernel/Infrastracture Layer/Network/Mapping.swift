@@ -48,7 +48,7 @@ protocol MappingFromJSON: Mapping {
 extension MappingFromJSON {
     
     static func JSONToCollection(_ jsonCollection: [JSON]) -> [MappableFromJSON] {
-        return jsonCollection.map { JSONtoAny($0)! }
+        return jsonCollection.compactMap { JSONtoAny($0) }
     }
     
     static func JSONToCollectionIgnoringNil(_ jsonCollection: [JSON]) -> [MappableFromJSON] {

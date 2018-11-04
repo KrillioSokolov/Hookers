@@ -8,16 +8,16 @@
 
 import Foundation
 
-final class NetworkResponseInnerError: Error {
+final class NetworkResponseInnerError: Error, Codable {
     
-    let reqId: String
-    let code: String?
-    let description: String?
+    var reqId: String!
+    let errCode: String?
+    let errDescr: String?
     
     init(reqId: String, code: String?, description: String?) {
         self.reqId = reqId
-        self.code = code
-        self.description = description
+        self.errCode = code
+        self.errDescr = description
     }
     
 }

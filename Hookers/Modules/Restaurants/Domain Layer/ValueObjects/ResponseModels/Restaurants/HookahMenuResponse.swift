@@ -15,6 +15,7 @@ struct HookahMenuResponse: Decodable {
         let categories : [MixCategory]
     }
     
+    let reqId: String
     let action: String
     let data: HookahMenuResponse.Data
     

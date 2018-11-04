@@ -8,13 +8,14 @@
 
 import Foundation
 
-struct HookahMastersListResponse {
-    
-    struct Data: Codable {
+struct HookahMastersListResponse: Decodable {
+
+    struct Data: Decodable {
         let restaurantId: String?
         let hookahMasters: [HookahMaster]
     }
     
+    let reqId: String
     let action: String
     let data: HookahMastersListResponse.Data
     

@@ -37,7 +37,13 @@ final class CategoryCollectionViewService: NSObject {
     
     func updateCategories(categories: [DisplayableCategory]) {
         self.categories = categories
+        
         categoryCollectionView?.reloadData()
+        self.categoryCollectionView?.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
+//        categoryCollectionView?.performBatchUpdates(nil, completion: { _ in
+//            
+//        })
+        //categoryCollectionView?.reloadData()
     }
     
 }

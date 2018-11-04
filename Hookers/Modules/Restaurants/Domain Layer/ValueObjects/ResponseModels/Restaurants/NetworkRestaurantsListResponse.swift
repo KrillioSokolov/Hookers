@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NetworkRestaurantsListResponse {
+struct NetworkRestaurantsListResponse: Decodable {
     
     struct Data: Decodable {
         
@@ -16,6 +16,7 @@ struct NetworkRestaurantsListResponse {
         
     }
     
+    let reqId: String
     let action: String
     let data: NetworkRestaurantsListResponse.Data
     

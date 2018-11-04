@@ -66,12 +66,12 @@ final class HTTPNetworkService {
         self.additionalURLParameterProviders = additionalURLParameterProviders
     }
     
-    public func executeRequest(
+    public func executeRequest<T: Decodable>(
         endpoint: String?,
         method: HTTPMethod = .get,
         parameters: Parameters? = nil,
         headers: HTTPHeaders? = nil,
-        completion: @escaping (NetworkResponse) -> Void) {
+        completion: @escaping (NetworkResponse?, T?) -> Void) {
         
         let parameters = parameters ?? [:]
         let headers = headers ?? [:]
@@ -81,6 +81,8 @@ final class HTTPNetworkService {
         let encoding = (method == .get) ? ParameterEncoding.URL : ParameterEncoding.JSON
         
         let allParameters = parameters + additionalParameters
+        
+        print("http request = (action: \(endpoint ?? ""), parametrs: \(allParameters))")
         
         self.requestExecutor.executeRequest(url,
                                             method: method,
@@ -94,6 +96,7 @@ final class HTTPNetworkService {
                                                                     completion: completion)
         }
     }
+    
     
     func executeRequestWithMultipartData(
         _ multipartFormData: @escaping (MultipartFormData) -> Void,
@@ -131,25 +134,25 @@ final class HTTPNetworkService {
         
         return url!
     }
-    
-    private func handleResponse(data: Data?,
-                                error: Error?,
-                                statusCode: Int?,
-                                httpURLResponse: HTTPURLResponse?,
-                                completion: @escaping (NetworkResponse) -> Void) {
+
+    private func handleResponse<T: Decodable>(data: Data?,
+                                              error: Error?,
+                                              statusCode: Int?,
+                                              httpURLResponse: HTTPURLResponse?,
+                                              completion: @escaping (NetworkResponse?, T?) -> Void) {
         if let error = error {
             let response = NetworkResponse(result: nil, networkInnerError: nil, requestId: nil, action: nil, data: data, httpStatusCode: statusCode, error: error)
-            completion(response)
+            completion(response, nil)
         } else {
-            if let data = data,
-                let json = try? JSONSerialization.jsonObject(with: data) as? JSON {
-                print("http response = ", json?.description ?? "")
-                if let json = json,// json["reqId"] != nil,
-                    let response = NetworkResponseMapper.JSONtoAny(json) {
-                    completion(response)
+            if let data = data {
+                if let decodedResponse = try? JSONDecoder().decode(T.self, from: data) {
+                    
+                    completion(nil, decodedResponse)
+                } else {
+                    let networkResponse = try? JSONDecoder().decode(NetworkResponse.self, from: data)
+                    
+                    completion(networkResponse, nil)
                 }
-            } else {
-                completion(NetworkResponse(result: nil, networkInnerError: nil, requestId: nil, action: nil, data: data, httpStatusCode: statusCode, error: error))
             }
         }
     }

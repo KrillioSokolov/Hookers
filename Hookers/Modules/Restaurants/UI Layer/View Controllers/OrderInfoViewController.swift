@@ -22,6 +22,7 @@ final class OrderInfoViewController: UIViewController {
     @IBOutlet private weak var peopleCountLabel: UILabel!
     @IBOutlet private weak var stepper: UIStepper!
     @IBOutlet private weak var peopleCountContainerView: UIView!
+    @IBOutlet private weak var commentTextView: UITextView!
     
     @IBOutlet private weak var hookahMasterContainerView: UIView!
     @IBOutlet private weak var hookahMasterLabel: UILabel!
@@ -59,6 +60,9 @@ final class OrderInfoViewController: UIViewController {
     
         restaurantStore.getHookahMastersList(restaurantId: restaurant.restaurantId)
         configurateDatePicker()
+        
+        commentTextView.text = "Коментарий к заказу"
+        commentTextView.textColor = styleguide.secondaryTextColor
         
         navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.barTintColor = .clear
@@ -204,7 +208,25 @@ extension OrderInfoViewController {
             hookahMastersCollectionViewService.selectedHookahMaster = nil
             hookahBeLabel.textAlignment = .center
             hookahBeLabel.text = "Извините, на выбранный Вами день расписание кальянщиков не сформировано".localized()
-            hookahMasterLabel.text = ""
+            hookahMasterLabel.text = nil
+        }
+    }
+    
+}
+
+extension OrderInfoViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if commentTextView.textColor == styleguide.secondaryTextColor {
+            commentTextView.text = nil
+            commentTextView.textColor = UIColor.white
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if commentTextView.text.isEmpty {
+            commentTextView.text = "Коментарий к заказу"
+            commentTextView.textColor = styleguide.secondaryTextColor
         }
     }
     

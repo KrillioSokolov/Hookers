@@ -14,11 +14,12 @@ struct HookahMaster: Codable, DisplayableRestaurantListItem {
     var imageURL: String
     var likes: Int
     var distanse: String {
+        //KS: TODO: Change for real value, or remove it.
         return String(Int(arc4random_uniform(100)))
     }
     let description: String
     let hookahMasterId: String
-    let restourantId: String
+    let restaurantId: String
 
  
     static func testMasters() -> [HookahMaster] {

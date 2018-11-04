@@ -231,7 +231,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSw-23-g21">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="430.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="541.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fn7-XI-amW">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -356,23 +356,23 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0i7-0h-YGd">
-                                                <rect key="frame" x="5" y="275.5" width="310" height="44"/>
+                                                <rect key="frame" x="5" y="275.5" width="310" height="155"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Количество человек:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPi-7Q-W8A">
-                                                        <rect key="frame" x="5" y="12" width="168" height="20.5"/>
+                                                        <rect key="frame" x="5" y="10" width="168" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="1" maximumValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="3OS-9m-qDN">
-                                                        <rect key="frame" x="211" y="7.5" width="94" height="29"/>
+                                                        <rect key="frame" x="211" y="6" width="94" height="29"/>
                                                         <color key="tintColor" red="0.63550170589999999" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="step:" destination="clT-ST-e57" eventType="valueChanged" id="TNu-zF-CGI"/>
                                                         </connections>
                                                     </stepper>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Hww-cr-l86">
-                                                        <rect key="frame" x="175" y="12" width="22.5" height="20.5"/>
+                                                        <rect key="frame" x="175" y="10" width="22.5" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGw-6p-KX6">
                                                                 <rect key="frame" x="0.0" y="0.0" width="22.5" height="20.5"/>
@@ -392,20 +392,38 @@
                                                             <constraint firstAttribute="trailing" secondItem="HGw-6p-KX6" secondAttribute="trailing" id="s3Q-YT-apD"/>
                                                         </constraints>
                                                     </view>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Коментарий к заказу" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xgc-82-Brn">
+                                                        <rect key="frame" x="5" y="47" width="300" height="100"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="cJ5-Np-DwR"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardAppearance="alert"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="clT-ST-e57" id="kud-fI-Kf9"/>
+                                                        </connections>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="3OS-9m-qDN" firstAttribute="centerY" secondItem="0i7-0h-YGd" secondAttribute="centerY" id="6eG-LA-ZLE"/>
+                                                    <constraint firstItem="3OS-9m-qDN" firstAttribute="centerY" secondItem="DPi-7Q-W8A" secondAttribute="centerY" id="0Gd-ks-btk"/>
+                                                    <constraint firstItem="Hww-cr-l86" firstAttribute="centerY" secondItem="DPi-7Q-W8A" secondAttribute="centerY" id="AS6-LA-cHb"/>
+                                                    <constraint firstItem="3OS-9m-qDN" firstAttribute="trailing" secondItem="Xgc-82-Brn" secondAttribute="trailing" id="Dav-ld-0r3"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Xgc-82-Brn" secondAttribute="bottom" constant="10" id="Ip9-Q7-qRK"/>
                                                     <constraint firstAttribute="trailing" secondItem="3OS-9m-qDN" secondAttribute="trailing" constant="5" id="Qd4-Gy-c0g"/>
-                                                    <constraint firstAttribute="height" constant="44" id="YqM-Fa-8UE"/>
+                                                    <constraint firstItem="DPi-7Q-W8A" firstAttribute="top" secondItem="0i7-0h-YGd" secondAttribute="top" constant="10" id="Sm5-SJ-PlA"/>
                                                     <constraint firstItem="Hww-cr-l86" firstAttribute="leading" secondItem="DPi-7Q-W8A" secondAttribute="trailing" constant="2" id="cIL-gN-6De"/>
-                                                    <constraint firstItem="Hww-cr-l86" firstAttribute="centerY" secondItem="0i7-0h-YGd" secondAttribute="centerY" id="ccq-ZT-kvH"/>
-                                                    <constraint firstItem="3OS-9m-qDN" firstAttribute="centerY" secondItem="DPi-7Q-W8A" secondAttribute="centerY" id="nkP-kU-Q3M"/>
+                                                    <constraint firstItem="Xgc-82-Brn" firstAttribute="leading" secondItem="DPi-7Q-W8A" secondAttribute="leading" id="fFX-Dd-vAM"/>
+                                                    <constraint firstItem="Xgc-82-Brn" firstAttribute="top" secondItem="3OS-9m-qDN" secondAttribute="bottom" constant="10" id="ktW-MV-OMT"/>
+                                                    <constraint firstItem="Xgc-82-Brn" firstAttribute="leading" secondItem="DPi-7Q-W8A" secondAttribute="leading" id="lky-eE-RJG"/>
+                                                    <constraint firstItem="3OS-9m-qDN" firstAttribute="trailing" secondItem="Xgc-82-Brn" secondAttribute="trailing" id="rpJ-d4-zPw"/>
                                                     <constraint firstItem="DPi-7Q-W8A" firstAttribute="leading" secondItem="0i7-0h-YGd" secondAttribute="leading" constant="5" id="wuM-mL-0RE"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyT-BG-h16">
-                                                <rect key="frame" x="5" y="329.5" width="310" height="91"/>
+                                                <rect key="frame" x="5" y="440.5" width="310" height="91"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваш заказ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvh-fh-cWe">
                                                         <rect key="frame" x="5" y="10" width="87" height="21"/>
@@ -493,6 +511,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="collectionViewHeightConstraint" destination="37K-pi-cxc" id="Ng2-Qw-R38"/>
+                        <outlet property="commentTextView" destination="Xgc-82-Brn" id="F5D-aE-dDU"/>
                         <outlet property="datePicker" destination="CVy-TQ-2CA" id="hdM-dN-XK6"/>
                         <outlet property="datePickerHeightConstraint" destination="tWd-dh-ok1" id="yvf-AU-Zhi"/>
                         <outlet property="dueDateButton" destination="X0q-Zc-p68" id="XwC-HJ-jmb"/>

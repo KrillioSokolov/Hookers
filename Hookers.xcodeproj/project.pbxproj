@@ -50,19 +50,10 @@
 		ED47B989217E4BD3000C7675 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47B988217E4BD3000C7675 /* OrderModel.swift */; };
 		ED47B98B217E59B5000C7675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED47B98A217E59B5000C7675 /* Assets.xcassets */; };
 		ED47B98D217E5A09000C7675 /* HookahMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47B98C217E5A09000C7675 /* HookahMaster.swift */; };
-		ED48CA012182521C00CB26B3 /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48C9FC2182521C00CB26B3 /* Mapping.swift */; };
-		ED48CA022182521C00CB26B3 /* ResponseMappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48C9FD2182521C00CB26B3 /* ResponseMappingError.swift */; };
-		ED48CA062182525800CB26B3 /* NetworkRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA052182525800CB26B3 /* NetworkRequestExecutor.swift */; };
-		ED48CA0A2182526D00CB26B3 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA092182526D00CB26B3 /* URLConvertible.swift */; };
-		ED48CA0C2182527E00CB26B3 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA0B2182527E00CB26B3 /* HTTPStatusCode.swift */; };
-		ED48CA0E2182545000CB26B3 /* HTTPNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA0D2182544F00CB26B3 /* HTTPNetworkService.swift */; };
-		ED48CA142182562800CB26B3 /* NetworkResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA132182562800CB26B3 /* NetworkResponseMapper.swift */; };
-		ED48CA1A218257BF00CB26B3 /* NetworkResponseInnerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA19218257BF00CB26B3 /* NetworkResponseInnerError.swift */; };
 		ED48CA2021825B9E00CB26B3 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA1F21825B9E00CB26B3 /* NetworkConstants.swift */; };
 		ED48CA2121825C4600CB26B3 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA1D21825B7D00CB26B3 /* NetworkResponse.swift */; };
 		ED48CA2421825EE500CB26B3 /* RestaurantStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA2321825EE500CB26B3 /* RestaurantStore.swift */; };
 		ED48CA2A2182612400CB26B3 /* RestaurantNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA292182612400CB26B3 /* RestaurantNetworkService.swift */; };
-		ED48CA2D2182618C00CB26B3 /* BaseNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA2C2182618C00CB26B3 /* BaseNetworkService.swift */; };
 		ED48CA322183BF4300CB26B3 /* DisplayableRestaurantListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48CA312183BF4300CB26B3 /* DisplayableRestaurantListItem.swift */; };
 		ED5047F9216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED504447216BD44A00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib */; };
 		ED5049FC216BD45000E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5047F8216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift */; };
@@ -72,6 +63,23 @@
 		ED8EA8A42172350500369DAB /* OrderInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */; };
 		ED8EA8A8217665DE00369DAB /* HookerManCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A6217665DD00369DAB /* HookerManCollectionViewCell.swift */; };
 		ED8EA8A9217665DE00369DAB /* HookerManCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8EA8A7217665DD00369DAB /* HookerManCollectionViewCell.xib */; };
+		ED9BD3D5218ECD920092B13A /* HookahOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3D4218ECD920092B13A /* HookahOrder.swift */; };
+		ED9BD3D7218EDF2C0092B13A /* RestaurantResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3D6218EDF2C0092B13A /* RestaurantResponse.swift */; };
+		ED9BD3DA218EE0D90092B13A /* HookahOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3D9218EE0D90092B13A /* HookahOrderResponse.swift */; };
+		ED9BD3E2218F5ECF0092B13A /* GeneralNetworkErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3DD218F5ECF0092B13A /* GeneralNetworkErrorPresenting.swift */; };
+		ED9BD3E3218F5ECF0092B13A /* GeneralNetworkPresentingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3DE218F5ECF0092B13A /* GeneralNetworkPresentingError.swift */; };
+		ED9BD3E4218F5ECF0092B13A /* NetworkErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3DF218F5ECF0092B13A /* NetworkErrorHandling.swift */; };
+		ED9BD3E5218F5ECF0092B13A /* NetworkSessionErrorHandlingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3E0218F5ECF0092B13A /* NetworkSessionErrorHandlingService.swift */; };
+		ED9BD3E6218F5ECF0092B13A /* GeneralNetworkErrorHandlingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3E1218F5ECF0092B13A /* GeneralNetworkErrorHandlingService.swift */; };
+		EDBE588E218F626B004D3725 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE5883218F626B004D3725 /* URLConvertible.swift */; };
+		EDBE588F218F626B004D3725 /* NetworkResponseInnerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE5884218F626B004D3725 /* NetworkResponseInnerError.swift */; };
+		EDBE5891218F626B004D3725 /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE5886218F626B004D3725 /* Mapping.swift */; };
+		EDBE5892218F626B004D3725 /* ResponseMappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE5887218F626B004D3725 /* ResponseMappingError.swift */; };
+		EDBE5893218F626B004D3725 /* HTTPNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE5888218F626B004D3725 /* HTTPNetworkService.swift */; };
+		EDBE5894218F626B004D3725 /* NetworkResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE5889218F626B004D3725 /* NetworkResponseMapper.swift */; };
+		EDBE5895218F626B004D3725 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE588A218F626B004D3725 /* HTTPStatusCode.swift */; };
+		EDBE5896218F626B004D3725 /* BaseNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE588C218F626B004D3725 /* BaseNetworkService.swift */; };
+		EDBE5897218F626B004D3725 /* NetworkRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE588D218F626B004D3725 /* NetworkRequestExecutor.swift */; };
 		EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5451215958B40079CFBF /* AppCoordinator.swift */; };
 		EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5B4421595F080079CFBF /* DataStateLocking.swift */; };
 		EDCA5F93215961280079CFBF /* Storyboard+Hookers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5F92215961280079CFBF /* Storyboard+Hookers.swift */; };
@@ -202,20 +210,11 @@
 		ED47B988217E4BD3000C7675 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		ED47B98A217E59B5000C7675 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED47B98C217E5A09000C7675 /* HookahMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookahMaster.swift; sourceTree = "<group>"; };
-		ED48C9FC2182521C00CB26B3 /* Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
-		ED48C9FD2182521C00CB26B3 /* ResponseMappingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMappingError.swift; sourceTree = "<group>"; };
-		ED48CA052182525800CB26B3 /* NetworkRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestExecutor.swift; sourceTree = "<group>"; };
-		ED48CA092182526D00CB26B3 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
-		ED48CA0B2182527E00CB26B3 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
-		ED48CA0D2182544F00CB26B3 /* HTTPNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNetworkService.swift; sourceTree = "<group>"; };
-		ED48CA132182562800CB26B3 /* NetworkResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseMapper.swift; sourceTree = "<group>"; };
-		ED48CA19218257BF00CB26B3 /* NetworkResponseInnerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseInnerError.swift; sourceTree = "<group>"; };
 		ED48CA1D21825B7D00CB26B3 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		ED48CA1E21825B8E00CB26B3 /* NetworkResponseInnerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseInnerError.swift; sourceTree = "<group>"; };
 		ED48CA1F21825B9E00CB26B3 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		ED48CA2321825EE500CB26B3 /* RestaurantStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantStore.swift; sourceTree = "<group>"; };
 		ED48CA292182612400CB26B3 /* RestaurantNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantNetworkService.swift; sourceTree = "<group>"; };
-		ED48CA2C2182618C00CB26B3 /* BaseNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkService.swift; sourceTree = "<group>"; };
 		ED48CA312183BF4300CB26B3 /* DisplayableRestaurantListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayableRestaurantListItem.swift; sourceTree = "<group>"; };
 		ED504447216BD44A00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderStepsExpandedSectionTableViewHeader.xib; sourceTree = "<group>"; };
 		ED5047F8216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderStepsExpandedSectionTableViewHeader.swift; sourceTree = "<group>"; };
@@ -225,6 +224,23 @@
 		ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoViewController.swift; sourceTree = "<group>"; };
 		ED8EA8A6217665DD00369DAB /* HookerManCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookerManCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED8EA8A7217665DD00369DAB /* HookerManCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HookerManCollectionViewCell.xib; sourceTree = "<group>"; };
+		ED9BD3D4218ECD920092B13A /* HookahOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookahOrder.swift; sourceTree = "<group>"; };
+		ED9BD3D6218EDF2C0092B13A /* RestaurantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantResponse.swift; sourceTree = "<group>"; };
+		ED9BD3D9218EE0D90092B13A /* HookahOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookahOrderResponse.swift; sourceTree = "<group>"; };
+		ED9BD3DD218F5ECF0092B13A /* GeneralNetworkErrorPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralNetworkErrorPresenting.swift; sourceTree = "<group>"; };
+		ED9BD3DE218F5ECF0092B13A /* GeneralNetworkPresentingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralNetworkPresentingError.swift; sourceTree = "<group>"; };
+		ED9BD3DF218F5ECF0092B13A /* NetworkErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandling.swift; sourceTree = "<group>"; };
+		ED9BD3E0218F5ECF0092B13A /* NetworkSessionErrorHandlingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSessionErrorHandlingService.swift; sourceTree = "<group>"; };
+		ED9BD3E1218F5ECF0092B13A /* GeneralNetworkErrorHandlingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralNetworkErrorHandlingService.swift; sourceTree = "<group>"; };
+		EDBE5883218F626B004D3725 /* URLConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
+		EDBE5884218F626B004D3725 /* NetworkResponseInnerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseInnerError.swift; sourceTree = "<group>"; };
+		EDBE5886218F626B004D3725 /* Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
+		EDBE5887218F626B004D3725 /* ResponseMappingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMappingError.swift; sourceTree = "<group>"; };
+		EDBE5888218F626B004D3725 /* HTTPNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPNetworkService.swift; sourceTree = "<group>"; };
+		EDBE5889218F626B004D3725 /* NetworkResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseMapper.swift; sourceTree = "<group>"; };
+		EDBE588A218F626B004D3725 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+		EDBE588C218F626B004D3725 /* BaseNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNetworkService.swift; sourceTree = "<group>"; };
+		EDBE588D218F626B004D3725 /* NetworkRequestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestExecutor.swift; sourceTree = "<group>"; };
 		EDCA5451215958B40079CFBF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EDCA5B4421595F080079CFBF /* DataStateLocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStateLocking.swift; sourceTree = "<group>"; };
 		EDCA5B4521595F080079CFBF /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
@@ -461,6 +477,7 @@
 			children = (
 				ED128A34217B4E6900C2062D /* RequestModels */,
 				ED128A33217B4E5000C2062D /* ResponseModels */,
+				ED9BD3D6218EDF2C0092B13A /* RestaurantResponse.swift */,
 			);
 			path = ValueObjects;
 			sourceTree = "<group>";
@@ -468,6 +485,7 @@
 		ED128A33217B4E5000C2062D /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
+				ED9BD3D8218EE0C10092B13A /* Order */,
 				ED2565DD218A24700077955B /* HookahMaster */,
 				ED128A37217B4EE900C2062D /* Adress */,
 				ED128A36217B4ED400C2062D /* Restaurants */,
@@ -586,29 +604,11 @@
 			path = Displayable;
 			sourceTree = "<group>";
 		};
-		ED48C9FA2182521C00CB26B3 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				ED48CA2B2182617D00CB26B3 /* Protocols */,
-				ED48CA19218257BF00CB26B3 /* NetworkResponseInnerError.swift */,
-				ED48C9FC2182521C00CB26B3 /* Mapping.swift */,
-				ED48CA092182526D00CB26B3 /* URLConvertible.swift */,
-				ED48C9FD2182521C00CB26B3 /* ResponseMappingError.swift */,
-				ED48CA0B2182527E00CB26B3 /* HTTPStatusCode.swift */,
-				ED48CA0D2182544F00CB26B3 /* HTTPNetworkService.swift */,
-				ED48CA052182525800CB26B3 /* NetworkRequestExecutor.swift */,
-				ED48CA132182562800CB26B3 /* NetworkResponseMapper.swift */,
-			);
-			name = Network;
-			path = "../../../../../Privat24_v2.0/Privat24/Program/Shared Kernel/Infrastructure Layer/Network";
-			sourceTree = "<group>";
-		};
 		ED48CA1B21825B6B00CB26B3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				ED48CA1D21825B7D00CB26B3 /* NetworkResponse.swift */,
-				ED48CA1E21825B8E00CB26B3 /* NetworkResponseInnerError.swift */,
-				ED48CA1F21825B9E00CB26B3 /* NetworkConstants.swift */,
+				ED9BD3DB218F5E580092B13A /* Errors Handling */,
+				ED9BD3DC218F5E670092B13A /* Value Objects */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -629,17 +629,10 @@
 			path = "Infrastructure Layer";
 			sourceTree = "<group>";
 		};
-		ED48CA2B2182617D00CB26B3 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				ED48CA2C2182618C00CB26B3 /* BaseNetworkService.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		ED48CA2E2182655900CB26B3 /* Restaurants */ = {
 			isa = PBXGroup;
 			children = (
+				ED9BD3D4218ECD920092B13A /* HookahOrder.swift */,
 			);
 			path = Restaurants;
 			sourceTree = "<group>";
@@ -688,6 +681,60 @@
 			path = HookerManCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		ED9BD3D8218EE0C10092B13A /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				ED9BD3D9218EE0D90092B13A /* HookahOrderResponse.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		ED9BD3DB218F5E580092B13A /* Errors Handling */ = {
+			isa = PBXGroup;
+			children = (
+				ED9BD3E1218F5ECF0092B13A /* GeneralNetworkErrorHandlingService.swift */,
+				ED9BD3DD218F5ECF0092B13A /* GeneralNetworkErrorPresenting.swift */,
+				ED9BD3DE218F5ECF0092B13A /* GeneralNetworkPresentingError.swift */,
+				ED9BD3DF218F5ECF0092B13A /* NetworkErrorHandling.swift */,
+				ED9BD3E0218F5ECF0092B13A /* NetworkSessionErrorHandlingService.swift */,
+			);
+			path = "Errors Handling";
+			sourceTree = "<group>";
+		};
+		ED9BD3DC218F5E670092B13A /* Value Objects */ = {
+			isa = PBXGroup;
+			children = (
+				ED48CA1D21825B7D00CB26B3 /* NetworkResponse.swift */,
+				ED48CA1E21825B8E00CB26B3 /* NetworkResponseInnerError.swift */,
+				ED48CA1F21825B9E00CB26B3 /* NetworkConstants.swift */,
+			);
+			path = "Value Objects";
+			sourceTree = "<group>";
+		};
+		EDBE5882218F626B004D3725 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EDBE5883218F626B004D3725 /* URLConvertible.swift */,
+				EDBE5884218F626B004D3725 /* NetworkResponseInnerError.swift */,
+				EDBE5886218F626B004D3725 /* Mapping.swift */,
+				EDBE5887218F626B004D3725 /* ResponseMappingError.swift */,
+				EDBE5888218F626B004D3725 /* HTTPNetworkService.swift */,
+				EDBE5889218F626B004D3725 /* NetworkResponseMapper.swift */,
+				EDBE588A218F626B004D3725 /* HTTPStatusCode.swift */,
+				EDBE588B218F626B004D3725 /* Protocols */,
+				EDBE588D218F626B004D3725 /* NetworkRequestExecutor.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EDBE588B218F626B004D3725 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EDBE588C218F626B004D3725 /* BaseNetworkService.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		EDCA544E2159539B0079CFBF /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,7 +778,7 @@
 		EDD66818215954A9004DAB67 /* Infrastracture Layer */ = {
 			isa = PBXGroup;
 			children = (
-				ED48C9FA2182521C00CB26B3 /* Network */,
+				EDBE5882218F626B004D3725 /* Network */,
 				EDD668B4215A3362004DAB67 /* Data Base */,
 				EDD668AB215A2FD9004DAB67 /* Flux */,
 				EDD6689D215A2F00004DAB67 /* Coordinator */,
@@ -1359,6 +1406,7 @@
 				EDD6686821595631004DAB67 /* FileManager.swift in Sources */,
 				EDD6690A215BA640004DAB67 /* UICollectionView+Reusable.swift in Sources */,
 				ED128A40217D039100C2062D /* ConfirmOrderViewController.swift in Sources */,
+				ED9BD3D5218ECD920092B13A /* HookahOrder.swift in Sources */,
 				ED17ACCF2187C677005B7125 /* Alert.swift in Sources */,
 				EDD6686C21595631004DAB67 /* UUID.swift in Sources */,
 				ED48CA2121825C4600CB26B3 /* NetworkResponse.swift in Sources */,
@@ -1370,18 +1418,18 @@
 				ED47B989217E4BD3000C7675 /* OrderModel.swift in Sources */,
 				EDD668C1215A3362004DAB67 /* FetchRequest.swift in Sources */,
 				ED17ACD22187C677005B7125 /* SpinnerPresenting.swift in Sources */,
-				ED48CA2D2182618C00CB26B3 /* BaseNetworkService.swift in Sources */,
 				ED2565DF218A249D0077955B /* HookahMastersListResponse.swift in Sources */,
 				ED3A458E2167F03F0078B673 /* UIViewController.swift in Sources */,
 				EDD6687521595631004DAB67 /* String+Shared.swift in Sources */,
+				EDBE5892218F626B004D3725 /* ResponseMappingError.swift in Sources */,
 				EDD668E0215A3C02004DAB67 /* UIStoryboard+Main.swift in Sources */,
-				ED48CA0E2182545000CB26B3 /* HTTPNetworkService.swift in Sources */,
 				EDD668C5215A3362004DAB67 /* CoreDataOperation.swift in Sources */,
 				EDD6686E21595631004DAB67 /* UIApplication+TopViewController.swift in Sources */,
 				EDFE7A972162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift in Sources */,
 				EDD6686D21595631004DAB67 /* DispatchQueue.swift in Sources */,
 				EDD6687221595631004DAB67 /* UIButton.swift in Sources */,
 				ED128A24217A6D8100C2062D /* DesignTheme.swift in Sources */,
+				ED9BD3E6218F5ECF0092B13A /* GeneralNetworkErrorHandlingService.swift in Sources */,
 				ED17ACAB21864D67005B7125 /* WeakContainer.swift in Sources */,
 				ED128A3C217B4F4A00C2062D /* NetworkRestaurant.swift in Sources */,
 				EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */,
@@ -1390,10 +1438,11 @@
 				EDD6686221595631004DAB67 /* Array.swift in Sources */,
 				ED128A3E217B51F200C2062D /* DisplayableRestaurant.swift in Sources */,
 				EDD6686321595631004DAB67 /* Collection.swift in Sources */,
-				ED48CA022182521C00CB26B3 /* ResponseMappingError.swift in Sources */,
 				ED128A29217A6D8100C2062D /* UIStyleGuideRefreshing.swift in Sources */,
+				EDBE588E218F626B004D3725 /* URLConvertible.swift in Sources */,
 				ED2565E1218A719E0077955B /* HookahMastersCollectionViewService.swift in Sources */,
 				ED128A28217A6D8100C2062D /* DesignStyleGuide.swift in Sources */,
+				ED9BD3E2218F5ECF0092B13A /* GeneralNetworkErrorPresenting.swift in Sources */,
 				ED128A25217A6D8100C2062D /* DarkThemeDesignStyleGuide.swift in Sources */,
 				EDD6686121595631004DAB67 /* UIView.swift in Sources */,
 				ED8EA8A8217665DE00369DAB /* HookerManCollectionViewCell.swift in Sources */,
@@ -1404,6 +1453,7 @@
 				EDD668F5215A7CFC004DAB67 /* RestaurantsListViewController.swift in Sources */,
 				EDD6687021595631004DAB67 /* UIDevice.swift in Sources */,
 				EDD668B1215A2FD9004DAB67 /* Result.swift in Sources */,
+				ED9BD3E4218F5ECF0092B13A /* NetworkErrorHandling.swift in Sources */,
 				EDD668FB215A81BD004DAB67 /* UIStoryboards+OrdersList.swift in Sources */,
 				ED17ACA72184C778005B7125 /* HookahMasterTableViewCell.swift in Sources */,
 				EDD668FF215A81FF004DAB67 /* OrdersListViewController.swift in Sources */,
@@ -1418,41 +1468,46 @@
 				EDD6685E21595631004DAB67 /* UIScrollView.swift in Sources */,
 				ED2BA26A216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift in Sources */,
 				ED48CA322183BF4300CB26B3 /* DisplayableRestaurantListItem.swift in Sources */,
+				EDBE5896218F626B004D3725 /* BaseNetworkService.swift in Sources */,
 				EDD6686021595631004DAB67 /* Date.swift in Sources */,
 				EDD668C8215A3362004DAB67 /* DataBaseService.swift in Sources */,
-				ED48CA012182521C00CB26B3 /* Mapping.swift in Sources */,
 				EDD6686421595631004DAB67 /* UIImageView+SDWebImage.swift in Sources */,
 				ED47B984217E4395000C7675 /* MixCategory.swift in Sources */,
 				EDD668EA215A65BC004DAB67 /* RestaurantsCoordinator.swift in Sources */,
 				EDD668C3215A3362004DAB67 /* CoreDataStackLessThanIOS10.swift in Sources */,
 				EDFE7A85215E98CB00FC9D24 /* RestaurantTableViewCell.swift in Sources */,
-				ED48CA0A2182526D00CB26B3 /* URLConvertible.swift in Sources */,
 				EDD6686521595631004DAB67 /* UIStackView.swift in Sources */,
 				EDD6687121595631004DAB67 /* Dictionary.swift in Sources */,
 				EDD668DE215A3C02004DAB67 /* TabBarCoordinator.swift in Sources */,
 				ED128A39217B4EFE00C2062D /* NetworkAdress.swift in Sources */,
+				ED9BD3E5218F5ECF0092B13A /* NetworkSessionErrorHandlingService.swift in Sources */,
 				EDD668B0215A2FD9004DAB67 /* Event.swift in Sources */,
 				ED8EA8A2217126AC00369DAB /* OrderItemsTableViewService.swift in Sources */,
 				ED17ACAD218656E7005B7125 /* OptionSetBit.swift in Sources */,
 				EDD6686621595631004DAB67 /* UIColor.swift in Sources */,
 				EDD668A1215A2F0F004DAB67 /* Coordinator.swift in Sources */,
 				ED128A32217B47E000C2062D /* NetworkRestaurantsListResponse.swift in Sources */,
+				EDBE588F218F626B004D3725 /* NetworkResponseInnerError.swift in Sources */,
 				ED47B987217E4997000C7675 /* DisplayableCategory.swift in Sources */,
+				EDBE5891218F626B004D3725 /* Mapping.swift in Sources */,
+				EDBE5893218F626B004D3725 /* HTTPNetworkService.swift in Sources */,
 				EDD668E3215A3C02004DAB67 /* TabBarEmbedCoordinable.swift in Sources */,
 				ED47B980217E3138000C7675 /* HookahMix.swift in Sources */,
 				EDD6685F21595631004DAB67 /* CALayer.swift in Sources */,
 				ED17ACA921864D62005B7125 /* DomainModel.swift in Sources */,
 				ED02C24B21594D69000A882B /* Hookers.xcdatamodeld in Sources */,
 				EDD668AF215A2FD9004DAB67 /* Dispatcher.swift in Sources */,
+				EDBE5895218F626B004D3725 /* HTTPStatusCode.swift in Sources */,
 				EDD668E2215A3C02004DAB67 /* TabBarController.swift in Sources */,
 				EDE2A041216E729800FF84E6 /* MixListCollectionViewCell.swift in Sources */,
+				EDBE5894218F626B004D3725 /* NetworkResponseMapper.swift in Sources */,
 				EDD6687421595631004DAB67 /* UINavigationBar.swift in Sources */,
 				ED128A26217A6D8100C2062D /* LightThemeDesignStyleGuide.swift in Sources */,
-				ED48CA1A218257BF00CB26B3 /* NetworkResponseInnerError.swift in Sources */,
+				ED9BD3D7218EDF2C0092B13A /* RestaurantResponse.swift in Sources */,
 				EDD668C2215A3362004DAB67 /* CoreDataDBService.swift in Sources */,
-				ED48CA0C2182527E00CB26B3 /* HTTPStatusCode.swift in Sources */,
 				ED02C24321594D69000A882B /* AppDelegate.swift in Sources */,
 				ED128A27217A6D8100C2062D /* DesignStyleGuideProviding.swift in Sources */,
+				ED9BD3E3218F5ECF0092B13A /* GeneralNetworkPresentingError.swift in Sources */,
 				ED47B98D217E5A09000C7675 /* HookahMaster.swift in Sources */,
 				EDFE7A932161227A00FC9D24 /* RestaurantViewController.swift in Sources */,
 				EDD66905215A83BA004DAB67 /* OrdersListCoordinator.swift in Sources */,
@@ -1460,10 +1515,10 @@
 				ED47B982217E4369000C7675 /* HookahMenuResponse.swift in Sources */,
 				ED128A2C217A6F6C00C2062D /* ExternalStyleguide.swift in Sources */,
 				EDD6690B215BA640004DAB67 /* Reusable.swift in Sources */,
-				ED48CA142182562800CB26B3 /* NetworkResponseMapper.swift in Sources */,
 				EDD6686F21595631004DAB67 /* Encodable.swift in Sources */,
 				EDCA5F93215961280079CFBF /* Storyboard+Hookers.swift in Sources */,
-				ED48CA062182525800CB26B3 /* NetworkRequestExecutor.swift in Sources */,
+				EDBE5897218F626B004D3725 /* NetworkRequestExecutor.swift in Sources */,
+				ED9BD3DA218EE0D90092B13A /* HookahOrderResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
