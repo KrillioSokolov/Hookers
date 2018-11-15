@@ -31,7 +31,7 @@ final class HookahMastersCollectionViewService: NSObject  {
         hookahMastersCollectionView?.delegate = self
         hookahMastersCollectionView?.dataSource = self
         hookahMastersCollectionView?.allowsSelection = true
-        hookahMastersCollectionView?.registerReusableCell(cellType: HookerManCollectionViewCell.self)
+        hookahMastersCollectionView?.registerReusableCell(cellType: HookerMasterCollectionViewCell.self)
         
         self.delegate = delegate
     }
@@ -51,7 +51,7 @@ extension HookahMastersCollectionViewService: UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(indexPath, cellType: HookerManCollectionViewCell.self)
+        let cell = collectionView.dequeueReusableCell(indexPath, cellType: HookerMasterCollectionViewCell.self)
         
         let master = hookahMasters[indexPath.row]
         

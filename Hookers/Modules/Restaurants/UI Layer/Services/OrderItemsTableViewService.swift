@@ -53,7 +53,7 @@ extension OrderItemsTableViewService: UITableViewDataSource, UITableViewDelegate
         
         cell.itemNameLabel.text = mix.name
         cell.orderImageView.download(image: mix.imageURL, placeholderImage: UIImage(named: "default_mix"))
-        cell.priceLabel.text = String(mix.price) + " " + RestaurantViewController.Constants.grn
+        cell.priceLabel.text = String(mix.price) + " " + HookahMenuViewController.Constants.grn
         
         return cell
     }

@@ -66,7 +66,7 @@ extension RestaurantsCoordinator {
     }
     
     private func openRestaurantViewContoller(with restaurant: NetworkRestaurant) {
-        let controller = UIStoryboard.Restaurants.restaurantViewController
+        let controller = UIStoryboard.Restaurants.hookahMenuViewController
         
         controller.dispatcher = dispatcher
         controller.styleguide = context.styleguide
@@ -105,10 +105,8 @@ extension RestaurantsCoordinator {
         controller.restaurantStore = restaurantStore
         controller.mixesForOrder = mixesForOrder
         
-        let navBarOnModal: UINavigationController = UINavigationController(rootViewController: controller)
-        
         root.tabBarController?.tabBar.isHidden = true
-        root.present(navBarOnModal, animated: true, completion: nil)
+        root.pushViewController(controller, animated: true)
     }
     
 }

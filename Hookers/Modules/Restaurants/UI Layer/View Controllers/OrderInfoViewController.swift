@@ -62,7 +62,6 @@ final class OrderInfoViewController: UIViewController {
         configurateDatePicker()
         
         commentTextView.text = "Коментарий к заказу"
-        commentTextView.textColor = styleguide.secondaryTextColor
         
         navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.barTintColor = .clear
@@ -76,19 +75,22 @@ final class OrderInfoViewController: UIViewController {
                                     subtitleColor: styleguide.secondaryTextColor,
                                     subtitleFont: styleguide.regularFont(ofSize: 12))
         
-        dueDateContainerView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        
         dueDateContainerView.layer.cornerRadius = 6
+        dueDateContainerView.layer.borderWidth = 1
         
-        peopleCountContainerView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         peopleCountContainerView.layer.cornerRadius = 6
+        peopleCountContainerView.layer.borderWidth = 1
         
-        hookahMasterContainerView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         hookahMasterContainerView.layer.cornerRadius = 6
+        hookahMasterContainerView.layer.borderWidth = 1
         
-        yourOrderContainer.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         yourOrderContainer.layer.cornerRadius = 6
+        yourOrderContainer.layer.borderWidth = 1
         
         updateDueDateLabel()
+        
+        refreshUI(withStyleguide: styleguide)
     }
     
 }
@@ -280,6 +282,26 @@ extension OrderInfoViewController: HookahMastersServiceDelegate {
     
     func serviceDidChoseHookahMaster(_ service: HookahMastersCollectionViewService, chosenHookahMaster hookahMaster: HookahMaster) {
         updateHookahMasterLabel(name: hookahMaster.name)
+    }
+    
+}
+
+extension OrderInfoViewController: UIStyleGuideRefreshing {
+    
+    func refreshUI(withStyleguide styleguide: DesignStyleGuide) {
+        yourOrderContainer.backgroundColor = styleguide.bubbleColor
+        yourOrderContainer.layer.borderColor = styleguide.senderTextColor.cgColor
+        
+        hookahMasterContainerView.backgroundColor = styleguide.bubbleColor
+        hookahMasterContainerView.layer.borderColor = styleguide.senderTextColor.cgColor
+        
+        dueDateContainerView.backgroundColor = styleguide.bubbleColor
+        dueDateContainerView.layer.borderColor = styleguide.senderTextColor.cgColor
+        
+        peopleCountContainerView.backgroundColor = styleguide.bubbleColor
+        peopleCountContainerView.layer.borderColor = styleguide.senderTextColor.cgColor
+        
+        commentTextView.textColor = styleguide.secondaryTextColor
     }
     
 }

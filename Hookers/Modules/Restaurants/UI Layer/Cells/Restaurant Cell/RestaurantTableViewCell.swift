@@ -14,7 +14,7 @@ protocol RestaurantTableViewCellDelegate: class {
     
 }
 
-protocol RestaurantListTableViewCell {
+protocol RestaurantListTableViewCell: UIStyleGuideRefreshing {
     
     var presentImageView: UIImageView! { get }
     var nameLabel: UILabel! { get }
@@ -36,11 +36,13 @@ final class RestaurantTableViewCell: UITableViewCell, RestaurantListTableViewCel
     @IBOutlet weak var likeCountLabel: UILabel!
     
     weak var delegate: RestaurantTableViewCellDelegate!
+    weak var styleguide: DesignStyleGuide!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         containerView.layer.cornerRadius = 6
+        containerView.layer.borderWidth = 1
         likeCountLabel.addDefaultSoftShadow()
         nameLabel.addDefaultSoftShadow()
         infoButton.addShadowView()
@@ -57,4 +59,12 @@ final class RestaurantTableViewCell: UITableViewCell, RestaurantListTableViewCel
     @IBAction func restaurantInfo(_ sender: Any) {
         delegate.didTapRestaurantInfoButton(on: self)
     }
+}
+
+extension RestaurantTableViewCell: UIStyleGuideRefreshing {
+    
+    func refreshUI(withStyleguide styleguide: DesignStyleGuide) {
+        containerView.layer.borderColor = styleguide.senderTextColor.cgColor
+    }
+    
 }

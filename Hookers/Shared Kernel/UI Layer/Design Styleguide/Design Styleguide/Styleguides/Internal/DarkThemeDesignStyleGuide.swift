@@ -174,7 +174,7 @@ extension DarkThemeDesignStyleGuide {
     }
     
     public var bubbleColor: UIColor {
-        return UIColor(r: 70, g: 70, b: 70)
+        return .black//UIColor.white.withAlphaComponent(0.1)
     }
     
 }

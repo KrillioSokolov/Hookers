@@ -1,5 +1,5 @@
 //
-//  RestaurantViewController.swift
+//  HookahMenuViewController.swift
 //  Hookers
 //
 //  Created by Kirill Sokolov on 30.09.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RestaurantViewController: UIViewController {
+final class HookahMenuViewController: UIViewController {
     
     @IBOutlet private weak var shadowView: UIView!
     @IBOutlet private weak var mixListCollectionView: UICollectionView!
@@ -81,7 +81,7 @@ final class RestaurantViewController: UIViewController {
     
 }
 
-extension RestaurantViewController {
+extension HookahMenuViewController {
     
     func configurateMixCategoryCollectionView() {
         categoryCollectionViewService = CategoryCollectionViewService(colletionView: categoryCollectionView)
@@ -96,7 +96,7 @@ extension RestaurantViewController {
     func configurateOrderItemsTableView() {
         orderItemsTableViewService = OrderItemsTableViewService(tableView: orderItemsTableView)
         orderItemsTableViewService.configurate(with: self)
-        orderItemsTableView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        orderItemsTableView.backgroundColor = styleguide.bubbleColor
         
         bucketContainerView.layer.cornerRadius = 8
         
@@ -109,7 +109,7 @@ extension RestaurantViewController {
 }
 
 
-extension RestaurantViewController {
+extension HookahMenuViewController {
     
     func configurateDisableOrderButton() {
         orderButton.setTitleColor(styleguide.secondaryTextColor, for: .normal)
@@ -123,7 +123,7 @@ extension RestaurantViewController {
     
 }
 
-extension RestaurantViewController: CategoryServiceDelegate {
+extension HookahMenuViewController: CategoryServiceDelegate {
     
     func serviceDidChoseCategory(_ service: CategoryCollectionViewService, chosenCategory category: DisplayableCategory) {
         guard let mixes = menu.first(where: {$0.categoryId == category.categoryId})?.mixes else { return }
@@ -136,7 +136,7 @@ extension RestaurantViewController: CategoryServiceDelegate {
     
 }
 
-extension RestaurantViewController: MixListServiceDelegate {
+extension HookahMenuViewController: MixListServiceDelegate {
     
     func serviceDidChoseMix(_ service: MixListCollectionViewService, chosenMix mix: HookahMix) {
         orderItemsTableViewService.addMixToOrder(mix)
@@ -144,8 +144,8 @@ extension RestaurantViewController: MixListServiceDelegate {
         shadowView.layer.shadowOpacity = 0.8
         
         UIView.animate(withDuration: 0.3) {
-            self.tableViewHeightConstraint.constant = RestaurantViewController.Constants.orderCellHeight * self.tableViewHeightConstraintIndex() + 2
-            self.buttonHeightConstraint.constant = RestaurantViewController.Constants.orderCellHeight
+            self.tableViewHeightConstraint.constant = HookahMenuViewController.Constants.orderCellHeight * self.tableViewHeightConstraintIndex() + 2
+            self.buttonHeightConstraint.constant = HookahMenuViewController.Constants.orderCellHeight
             self.view.layoutIfNeeded()
         }
         
@@ -155,7 +155,7 @@ extension RestaurantViewController: MixListServiceDelegate {
     
 }
 
-extension RestaurantViewController: OrderItemsServiceDelegate {
+extension HookahMenuViewController: OrderItemsServiceDelegate {
     
     func orderItemsServiceDidDeleteItem(_ service: OrderItemsTableViewService, deletedItem item: HookahMix) {
         if orderItemsTableViewService.orderedMixes.count == 0 {
@@ -167,7 +167,7 @@ extension RestaurantViewController: OrderItemsServiceDelegate {
             }
         } else if orderItemsTableViewService.orderedMixes.count <= 3 {
             UIView.animate(withDuration: 0.5) {
-                self.tableViewHeightConstraint.constant = RestaurantViewController.Constants.orderCellHeight * self.tableViewHeightConstraintIndex()
+                self.tableViewHeightConstraint.constant = HookahMenuViewController.Constants.orderCellHeight * self.tableViewHeightConstraintIndex()
                 self.view.layoutIfNeeded()
             }
         }
@@ -189,7 +189,7 @@ extension RestaurantViewController: OrderItemsServiceDelegate {
     
 }
 
-extension RestaurantViewController: DataStateListening {
+extension HookahMenuViewController: DataStateListening {
     
     func domainModel(_ model: DomainModel, didChangeDataStateOf change: DataStateChange) {
         DispatchQueue.updateUI {
@@ -219,14 +219,12 @@ extension RestaurantViewController: DataStateListening {
             categoryCollectionViewService.updateCategories(categories: categories.map{DisplayableCategory(categoryId: $0.categoryId, name: $0.name, imageURL: $0.imageURL)})
             
             mixListCollectionViewService.updateMixes(with: categories.first?.mixes ?? [])
-            
-           
         }
     }
     
 }
 
-extension RestaurantViewController {
+extension HookahMenuViewController {
     
     struct Constants {
         

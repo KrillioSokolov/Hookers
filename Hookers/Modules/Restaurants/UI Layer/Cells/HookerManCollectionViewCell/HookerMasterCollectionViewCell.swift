@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class HookerManCollectionViewCell: UICollectionViewCell, NibReusable {
+final class HookerMasterCollectionViewCell: UICollectionViewCell, NibReusable {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

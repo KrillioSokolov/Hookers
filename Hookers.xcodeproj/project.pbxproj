@@ -61,8 +61,8 @@
 		ED8EA8A021711F3700369DAB /* OrderItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8EA89E21711F3700369DAB /* OrderItemTableViewCell.xib */; };
 		ED8EA8A2217126AC00369DAB /* OrderItemsTableViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A1217126AC00369DAB /* OrderItemsTableViewService.swift */; };
 		ED8EA8A42172350500369DAB /* OrderInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */; };
-		ED8EA8A8217665DE00369DAB /* HookerManCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A6217665DD00369DAB /* HookerManCollectionViewCell.swift */; };
-		ED8EA8A9217665DE00369DAB /* HookerManCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8EA8A7217665DD00369DAB /* HookerManCollectionViewCell.xib */; };
+		ED8EA8A8217665DE00369DAB /* HookerMasterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8EA8A6217665DD00369DAB /* HookerMasterCollectionViewCell.swift */; };
+		ED8EA8A9217665DE00369DAB /* HookerMasterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8EA8A7217665DD00369DAB /* HookerMasterCollectionViewCell.xib */; };
 		ED9BD3D5218ECD920092B13A /* HookahOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3D4218ECD920092B13A /* HookahOrder.swift */; };
 		ED9BD3D7218EDF2C0092B13A /* RestaurantResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3D6218EDF2C0092B13A /* RestaurantResponse.swift */; };
 		ED9BD3DA218EE0D90092B13A /* HookahOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BD3D9218EE0D90092B13A /* HookahOrderResponse.swift */; };
@@ -146,7 +146,7 @@
 		EDFE7A8C2161095B00FC9D24 /* CircleImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A8A2161095B00FC9D24 /* CircleImageCollectionViewCell.swift */; };
 		EDFE7A8D2161095B00FC9D24 /* CircleImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE7A8B2161095B00FC9D24 /* CircleImageCollectionViewCell.xib */; };
 		EDFE7A91216117C800FC9D24 /* RestaurantsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A90216117C800FC9D24 /* RestaurantsEvent.swift */; };
-		EDFE7A932161227A00FC9D24 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A922161227A00FC9D24 /* RestaurantViewController.swift */; };
+		EDFE7A932161227A00FC9D24 /* HookahMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A922161227A00FC9D24 /* HookahMenuViewController.swift */; };
 		EDFE7A972162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE7A962162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift */; };
 		EDFE7A992162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE7A982162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib */; };
 /* End PBXBuildFile section */
@@ -222,8 +222,8 @@
 		ED8EA89E21711F3700369DAB /* OrderItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderItemTableViewCell.xib; sourceTree = "<group>"; };
 		ED8EA8A1217126AC00369DAB /* OrderItemsTableViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemsTableViewService.swift; sourceTree = "<group>"; };
 		ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoViewController.swift; sourceTree = "<group>"; };
-		ED8EA8A6217665DD00369DAB /* HookerManCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookerManCollectionViewCell.swift; sourceTree = "<group>"; };
-		ED8EA8A7217665DD00369DAB /* HookerManCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HookerManCollectionViewCell.xib; sourceTree = "<group>"; };
+		ED8EA8A6217665DD00369DAB /* HookerMasterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookerMasterCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED8EA8A7217665DD00369DAB /* HookerMasterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HookerMasterCollectionViewCell.xib; sourceTree = "<group>"; };
 		ED9BD3D4218ECD920092B13A /* HookahOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookahOrder.swift; sourceTree = "<group>"; };
 		ED9BD3D6218EDF2C0092B13A /* RestaurantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantResponse.swift; sourceTree = "<group>"; };
 		ED9BD3D9218EE0D90092B13A /* HookahOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookahOrderResponse.swift; sourceTree = "<group>"; };
@@ -311,7 +311,7 @@
 		EDFE7A8A2161095B00FC9D24 /* CircleImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		EDFE7A8B2161095B00FC9D24 /* CircleImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		EDFE7A90216117C800FC9D24 /* RestaurantsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsEvent.swift; sourceTree = "<group>"; };
-		EDFE7A922161227A00FC9D24 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		EDFE7A922161227A00FC9D24 /* HookahMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookahMenuViewController.swift; sourceTree = "<group>"; };
 		EDFE7A962162970B00FC9D24 /* CircleImageTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		EDFE7A982162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleImageTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		F3955B48E4E9D5CCC4AB200E /* Pods-HookersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HookersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HookersTests/Pods-HookersTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -675,8 +675,8 @@
 		ED8EA8A52176659600369DAB /* HookerManCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				ED8EA8A6217665DD00369DAB /* HookerManCollectionViewCell.swift */,
-				ED8EA8A7217665DD00369DAB /* HookerManCollectionViewCell.xib */,
+				ED8EA8A6217665DD00369DAB /* HookerMasterCollectionViewCell.swift */,
+				ED8EA8A7217665DD00369DAB /* HookerMasterCollectionViewCell.xib */,
 			);
 			path = HookerManCollectionViewCell;
 			sourceTree = "<group>";
@@ -1008,7 +1008,7 @@
 			isa = PBXGroup;
 			children = (
 				EDD668F4215A7CFC004DAB67 /* RestaurantsListViewController.swift */,
-				EDFE7A922161227A00FC9D24 /* RestaurantViewController.swift */,
+				EDFE7A922161227A00FC9D24 /* HookahMenuViewController.swift */,
 				ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */,
 				ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */,
 				ED128A3F217D039100C2062D /* ConfirmOrderViewController.swift */,
@@ -1259,7 +1259,7 @@
 				EDD668E1215A3C02004DAB67 /* Main.storyboard in Resources */,
 				ED47B98B217E59B5000C7675 /* Assets.xcassets in Resources */,
 				ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */,
-				ED8EA8A9217665DE00369DAB /* HookerManCollectionViewCell.xib in Resources */,
+				ED8EA8A9217665DE00369DAB /* HookerMasterCollectionViewCell.xib in Resources */,
 				EDD668FD215A81ED004DAB67 /* OrdersList.storyboard in Resources */,
 				EDE2A042216E729800FF84E6 /* MixListCollectionViewCell.xib in Resources */,
 				ED5047F9216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib in Resources */,
@@ -1445,7 +1445,7 @@
 				ED9BD3E2218F5ECF0092B13A /* GeneralNetworkErrorPresenting.swift in Sources */,
 				ED128A25217A6D8100C2062D /* DarkThemeDesignStyleGuide.swift in Sources */,
 				EDD6686121595631004DAB67 /* UIView.swift in Sources */,
-				ED8EA8A8217665DE00369DAB /* HookerManCollectionViewCell.swift in Sources */,
+				ED8EA8A8217665DE00369DAB /* HookerMasterCollectionViewCell.swift in Sources */,
 				EDE2A03D216E6F8E00FF84E6 /* CategoryCollectionViewService.swift in Sources */,
 				EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */,
 				EDD668A0215A2F0F004DAB67 /* CoordinatingContext.swift in Sources */,
@@ -1509,7 +1509,7 @@
 				ED128A27217A6D8100C2062D /* DesignStyleGuideProviding.swift in Sources */,
 				ED9BD3E3218F5ECF0092B13A /* GeneralNetworkPresentingError.swift in Sources */,
 				ED47B98D217E5A09000C7675 /* HookahMaster.swift in Sources */,
-				EDFE7A932161227A00FC9D24 /* RestaurantViewController.swift in Sources */,
+				EDFE7A932161227A00FC9D24 /* HookahMenuViewController.swift in Sources */,
 				EDD66905215A83BA004DAB67 /* OrdersListCoordinator.swift in Sources */,
 				ED48CA2021825B9E00CB26B3 /* NetworkConstants.swift in Sources */,
 				ED47B982217E4369000C7675 /* HookahMenuResponse.swift in Sources */,

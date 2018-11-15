@@ -35,6 +35,7 @@ final class RestaurantsListViewController: UIViewController {
         tableView.registerReusableCell(cellType: HookahMasterTableViewCell.self)
         
         restaurantStore.getRestaurantsList()
+        view.backgroundColor = styleguide.backgroundScreenColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,6 +120,7 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
         cell.nameLabel.text = displayableItem.name
         cell.likeCountLabel.text = String(displayableItem.likes)
         cell.distanceLabel.text = displayableItem.distanse + "км"
+        cell.refreshUI(withStyleguide: styleguide)
         
         cell.delegate = self
         
