@@ -80,6 +80,9 @@
 		EDBE5895218F626B004D3725 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE588A218F626B004D3725 /* HTTPStatusCode.swift */; };
 		EDBE5896218F626B004D3725 /* BaseNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE588C218F626B004D3725 /* BaseNetworkService.swift */; };
 		EDBE5897218F626B004D3725 /* NetworkRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE588D218F626B004D3725 /* NetworkRequestExecutor.swift */; };
+		EDBE589B21A09DCB004D3725 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE589A21A09DCA004D3725 /* DatePickerViewController.swift */; };
+		EDBE589E21A18F00004D3725 /* SegmentedControlHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE589D21A18F00004D3725 /* SegmentedControlHeaderView.swift */; };
+		EDBE58A021A18F1A004D3725 /* SegmentedControlHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBE589F21A18F1A004D3725 /* SegmentedControlHeaderView.xib */; };
 		EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5451215958B40079CFBF /* AppCoordinator.swift */; };
 		EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5B4421595F080079CFBF /* DataStateLocking.swift */; };
 		EDCA5F93215961280079CFBF /* Storyboard+Hookers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA5F92215961280079CFBF /* Storyboard+Hookers.swift */; };
@@ -241,6 +244,9 @@
 		EDBE588A218F626B004D3725 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		EDBE588C218F626B004D3725 /* BaseNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNetworkService.swift; sourceTree = "<group>"; };
 		EDBE588D218F626B004D3725 /* NetworkRequestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestExecutor.swift; sourceTree = "<group>"; };
+		EDBE589A21A09DCA004D3725 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		EDBE589D21A18F00004D3725 /* SegmentedControlHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlHeaderView.swift; sourceTree = "<group>"; };
+		EDBE589F21A18F1A004D3725 /* SegmentedControlHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentedControlHeaderView.xib; sourceTree = "<group>"; };
 		EDCA5451215958B40079CFBF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EDCA5B4421595F080079CFBF /* DataStateLocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStateLocking.swift; sourceTree = "<group>"; };
 		EDCA5B4521595F080079CFBF /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
@@ -735,6 +741,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		EDBE589C21A18ECC004D3725 /* Segmented Control Header */ = {
+			isa = PBXGroup;
+			children = (
+				EDBE589D21A18F00004D3725 /* SegmentedControlHeaderView.swift */,
+				EDBE589F21A18F1A004D3725 /* SegmentedControlHeaderView.xib */,
+			);
+			path = "Segmented Control Header";
+			sourceTree = "<group>";
+		};
 		EDCA544E2159539B0079CFBF /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1012,6 +1027,7 @@
 				ED3A458A2167E46A0078B673 /* RestaurantInfoViewController.swift */,
 				ED8EA8A32172350500369DAB /* OrderInfoViewController.swift */,
 				ED128A3F217D039100C2062D /* ConfirmOrderViewController.swift */,
+				EDBE589A21A09DCA004D3725 /* DatePickerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1156,6 +1172,7 @@
 		EDFE7A95216292A800FC9D24 /* Header and Footers */ = {
 			isa = PBXGroup;
 			children = (
+				EDBE589C21A18ECC004D3725 /* Segmented Control Header */,
 				ED504446216BD3D600E6C0D1 /* OrderSteps ExpandedTableViewHeader */,
 				ED504445216BD3B500E6C0D1 /* CircleImage Header  */,
 			);
@@ -1258,6 +1275,7 @@
 				EDFE7A8D2161095B00FC9D24 /* CircleImageCollectionViewCell.xib in Resources */,
 				EDD668E1215A3C02004DAB67 /* Main.storyboard in Resources */,
 				ED47B98B217E59B5000C7675 /* Assets.xcassets in Resources */,
+				EDBE58A021A18F1A004D3725 /* SegmentedControlHeaderView.xib in Resources */,
 				ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */,
 				ED8EA8A9217665DE00369DAB /* HookerMasterCollectionViewCell.xib in Resources */,
 				EDD668FD215A81ED004DAB67 /* OrdersList.storyboard in Resources */,
@@ -1421,6 +1439,7 @@
 				ED2565DF218A249D0077955B /* HookahMastersListResponse.swift in Sources */,
 				ED3A458E2167F03F0078B673 /* UIViewController.swift in Sources */,
 				EDD6687521595631004DAB67 /* String+Shared.swift in Sources */,
+				EDBE589B21A09DCB004D3725 /* DatePickerViewController.swift in Sources */,
 				EDBE5892218F626B004D3725 /* ResponseMappingError.swift in Sources */,
 				EDD668E0215A3C02004DAB67 /* UIStoryboard+Main.swift in Sources */,
 				EDD668C5215A3362004DAB67 /* CoreDataOperation.swift in Sources */,
@@ -1498,6 +1517,7 @@
 				ED02C24B21594D69000A882B /* Hookers.xcdatamodeld in Sources */,
 				EDD668AF215A2FD9004DAB67 /* Dispatcher.swift in Sources */,
 				EDBE5895218F626B004D3725 /* HTTPStatusCode.swift in Sources */,
+				EDBE589E21A18F00004D3725 /* SegmentedControlHeaderView.swift in Sources */,
 				EDD668E2215A3C02004DAB67 /* TabBarController.swift in Sources */,
 				EDE2A041216E729800FF84E6 /* MixListCollectionViewCell.swift in Sources */,
 				EDBE5894218F626B004D3725 /* NetworkResponseMapper.swift in Sources */,

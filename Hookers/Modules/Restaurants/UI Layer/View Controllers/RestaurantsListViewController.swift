@@ -25,7 +25,7 @@ final class RestaurantsListViewController: UIViewController {
     var hookahMasters: [HookahMaster]?
     
     var displayableData: [DisplayableRestaurantListItem] {
-        return segmentedControl.selectedSegmentIndex == 0 ? restaurants : hookahMasters ?? []
+        return isRestaurantsList ? restaurants : hookahMasters ?? []
     }
     
     override func viewDidLoad() {
@@ -59,32 +59,18 @@ final class RestaurantsListViewController: UIViewController {
         segmentedControl.tintColor = UIColor.white.withAlphaComponent(0.9)
     }
     
-    private var isRestaurantsList: Bool {
-        return segmentedControl.selectedSegmentIndex == 0
-    }
+    private var isRestaurantsList = true
     
 }
 
 extension RestaurantsListViewController {
     
     @IBAction func changeSegment(_ sender: Any) {
-        var title = isRestaurantsList ? "Выберите заведение".localized() :
+        isRestaurantsList = !isRestaurantsList
+        
+        let title = isRestaurantsList ? "Выберите заведение".localized() :
                                         "Выберите кальянщика".localized()
         
-        if isRestaurantsList {
-            title = "Выберите заведение".localized()
-            
-            tableView.reloadData()
-        } else {
-            title = "Выберите кальянщика".localized()
-            
-            guard hookahMasters == nil else {
-                tableView.reloadData()
-                return
-            }
-            
-            restaurantStore.getHookahMastersList()
-        }
         
         navigationItem.setTitleView(withTitle: "Днепр".localized(),
                                     subtitle: title,
@@ -94,6 +80,12 @@ extension RestaurantsListViewController {
                                     subtitleFont: styleguide.regularFont(ofSize: 12))
         
         
+        guard hookahMasters == nil else {
+            tableView.reloadData()
+            return
+        }
+        
+        restaurantStore.getHookahMastersList()
     }
     
 }

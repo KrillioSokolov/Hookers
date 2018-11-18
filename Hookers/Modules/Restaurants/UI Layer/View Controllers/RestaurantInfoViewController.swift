@@ -10,8 +10,11 @@ import UIKit
 
 final class RestaurantInfoViewController: UIViewController {
 
-    @IBOutlet weak var letsMakeHookahButton: UIButton!
-    @IBOutlet weak var workingTimeButton: UIButton!
+    @IBOutlet private weak var letsMakeHookahButton: UIButton!
+    @IBOutlet private weak var workingTimeButton: UIButton!
+    @IBOutlet private weak var restaurantDescription: UILabel!
+    @IBOutlet private weak var restaurantImageView: UIImageView!
+    @IBOutlet weak var hookahPrice: UILabel!
     
     var dispatcher: Dispatcher!
     var styleguide: DesignStyleGuide!
@@ -21,13 +24,9 @@ final class RestaurantInfoViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.addCloseButton(with: self, action: #selector(close), tintColor: styleguide.primaryColor)
-        
-        letsMakeHookahButton.layer.borderWidth = 1
-        letsMakeHookahButton.layer.borderColor = UIColor.white.cgColor
-        
-        letsMakeHookahButton.layer.borderWidth = 1
-        letsMakeHookahButton.layer.borderColor = UIColor.white.cgColor
-
+    
+        configurateUI()
+        refreshUI(withStyleguide: styleguide)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +40,11 @@ final class RestaurantInfoViewController: UIViewController {
     
     deinit {
         print("deinit RestaurantViewController")
+    }
+    
+    func configurateUI() {
+        restaurantImageView.download(image: restaurant.imageURL, placeholderImage: nil)
+        restaurantDescription.text = restaurant.description
     }
     
     @IBAction func letsMakeHookah(_ sender: Any) {
@@ -59,4 +63,14 @@ final class RestaurantInfoViewController: UIViewController {
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.CloseScreen.self, result: Result(value: value))
     }
 
+}
+
+extension RestaurantInfoViewController: UIStyleGuideRefreshing {
+    
+    func refreshUI(withStyleguide styleguide: DesignStyleGuide) {
+        restaurantDescription.textColor = styleguide.labelTextColor
+        hookahPrice.textColor = styleguide.labelTextColor
+        letsMakeHookahButton.backgroundColor = styleguide.primaryColor
+    }
+    
 }

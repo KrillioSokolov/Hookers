@@ -25,7 +25,7 @@ struct RestaurantsEvent {
             typealias Payload = Value
             
             struct Value {
-                let restaurant: NetworkRestaurant
+                let restaurant: DisplayableRestaurantListItem
             }
         }
         
@@ -41,8 +41,16 @@ struct RestaurantsEvent {
             typealias Payload = Value
             
             struct Value {
-                let restaurant: NetworkRestaurant
+                let restaurant: DisplayableRestaurantListItem
                 let mixesForOrder: [HookahMix]
+            }
+        }
+        
+        struct DidSelectDueDate: Event {
+            typealias Payload = Value
+            
+            struct Value {
+                let animated: Bool
             }
         }
         

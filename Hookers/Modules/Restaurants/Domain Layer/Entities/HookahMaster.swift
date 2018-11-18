@@ -20,7 +20,6 @@ struct HookahMaster: Codable, DisplayableRestaurantListItem {
     let description: String
     let hookahMasterId: String
     let restaurantId: String
-
  
     static func testMasters() -> [HookahMaster] {
 //    var masterId: String

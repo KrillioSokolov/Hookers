@@ -41,7 +41,7 @@ final class OrderInfoViewController: UIViewController {
     private var hookahMasters: [HookahMaster] = []
     
     var mixesForOrder: [HookahMix]!
-    var restaurant: NetworkRestaurant!
+    var restaurantListItem: DisplayableRestaurantListItem!
     var dispatcher: Dispatcher!
     var styleguide: DesignStyleGuide!
     var restaurantStore: RestaurantStore! {
@@ -58,7 +58,7 @@ final class OrderInfoViewController: UIViewController {
     
         navigationItem.addBackButton(with: self, action: #selector(back), tintColor: styleguide.primaryColor)
     
-        restaurantStore.getHookahMastersList(restaurantId: restaurant.restaurantId)
+        restaurantStore.getHookahMastersList(restaurantId: restaurantListItem.restaurantId)
         configurateDatePicker()
         
         commentTextView.text = "Коментарий к заказу"
@@ -68,7 +68,7 @@ final class OrderInfoViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.isNavigationBarHidden = false
         
-        navigationItem.setTitleView(withTitle: restaurant.name,
+        navigationItem.setTitleView(withTitle: "Забивает ".localized() + restaurantListItem.name,
                                     subtitle: "Заполните информацию о заказе".localized(),
                                     titleColor: styleguide.primaryTextColor,
                                     titleFont: styleguide.regularFont(ofSize: 17),
@@ -117,7 +117,6 @@ extension OrderInfoViewController {
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.CloseScreen.self, result: Result(value: value))
     }
     
-    
 }
 
 extension OrderInfoViewController {
@@ -160,7 +159,7 @@ extension OrderInfoViewController {
     @IBAction func chooseDueDate(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             if self.datePickerHeightConstraint.constant == 0 {
-                self.datePickerHeightConstraint.constant = OrderInfoViewController.Constants.dataPickerHeight
+                self.datePickerHeightConstraint.constant = Constants.dataPickerHeight
                 self.datePicker.isHidden = false
             } else {
                 self.datePicker.isHidden = true
@@ -302,6 +301,8 @@ extension OrderInfoViewController: UIStyleGuideRefreshing {
         peopleCountContainerView.layer.borderColor = styleguide.senderTextColor.cgColor
         
         commentTextView.textColor = styleguide.secondaryTextColor
+        
+        orderButton.backgroundColor = styleguide.primaryColor
     }
     
 }
