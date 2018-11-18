@@ -41,6 +41,8 @@ final class RestaurantsListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationItem.addBackButton(with: self, action: #selector(back), tintColor: styleguide.primaryColor)
+        
         navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.barTintColor = .clear
         navigationController?.navigationBar.isTranslucent = true
@@ -88,6 +90,12 @@ extension RestaurantsListViewController {
         restaurantStore.getHookahMastersList()
     }
     
+    @objc func back() {
+        let value = RestaurantsEvent.NavigationEvent.CloseScreen.Value(animated: true)
+        
+        dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.CloseScreen.self, result: Result(value: value))
+    }
+    
 }
 
 extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -124,11 +132,15 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //KS: TODO: Add correct setting restaurant model
+        let restaurantListItem = displayableData[indexPath.row]
+        
+        restaurantStore.didChooseRestaurantListItem(restaurantListItem: restaurantListItem)
                 
-        let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurant: restaurants[indexPath.row])
+        let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurant: restaurantListItem)
         
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidChooseRestaurant.self, result: Result(value: value, error: nil))
+        
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
 }

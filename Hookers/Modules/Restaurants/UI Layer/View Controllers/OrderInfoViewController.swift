@@ -13,11 +13,6 @@ final class OrderInfoViewController: UIViewController {
     
     @IBOutlet private weak var orderButton: UIButton!
     
-    @IBOutlet private weak var datePicker: UIDatePicker!
-    @IBOutlet private weak var dueDateButton: UIButton!
-    @IBOutlet private weak var datePickerHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var dueDateContainerView: UIView!
-    
     @IBOutlet private weak var peopleCountView: UIView!
     @IBOutlet private weak var peopleCountLabel: UILabel!
     @IBOutlet private weak var stepper: UIStepper!
@@ -37,7 +32,6 @@ final class OrderInfoViewController: UIViewController {
     private var orderItemsTableViewService: OrderItemsTableViewService!
     private var hookahMastersCollectionViewService: HookahMastersCollectionViewService!
     
-    private var dueDate = Date()
     private var hookahMasters: [HookahMaster] = []
     
     var mixesForOrder: [HookahMix]!
@@ -59,7 +53,6 @@ final class OrderInfoViewController: UIViewController {
         navigationItem.addBackButton(with: self, action: #selector(back), tintColor: styleguide.primaryColor)
     
         restaurantStore.getHookahMastersList(restaurantId: restaurantListItem.restaurantId)
-        configurateDatePicker()
         
         commentTextView.text = "Коментарий к заказу"
         
@@ -75,10 +68,6 @@ final class OrderInfoViewController: UIViewController {
                                     subtitleColor: styleguide.secondaryTextColor,
                                     subtitleFont: styleguide.regularFont(ofSize: 12))
         
-        
-        dueDateContainerView.layer.cornerRadius = 6
-        dueDateContainerView.layer.borderWidth = 1
-        
         peopleCountContainerView.layer.cornerRadius = 6
         peopleCountContainerView.layer.borderWidth = 1
         
@@ -87,8 +76,7 @@ final class OrderInfoViewController: UIViewController {
         
         yourOrderContainer.layer.cornerRadius = 6
         yourOrderContainer.layer.borderWidth = 1
-        
-        updateDueDateLabel()
+        peopleCountContainerView.addShadowView(radius: 70)
         
         refreshUI(withStyleguide: styleguide)
     }
@@ -129,50 +117,6 @@ extension OrderInfoViewController {
 
 extension OrderInfoViewController {
     
-    func configurateDatePicker() {
-        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
-        datePicker.minimumDate = Date().addingTimeInterval(-0)
-        datePicker.maximumDate = Date().addingTimeInterval(60 * 60 * 24 * 14)
-    }
-    
-    func updateDueDateLabel() {
-        let formatter = DateFormatter()
-        
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        formatter.locale = Locale(identifier: "ru-RU")
-        
-        let dueDateString = formatter.string(from: dueDate) == formatter.string(from: Date()) ? "Cейчас".localized() : formatter.string(from: dueDate)
-        
-        let attributeTitle: NSMutableAttributedString =  NSMutableAttributedString(string: dueDateString)
-        attributeTitle.addAttribute(NSAttributedStringKey.underlineStyle, value: 1, range: NSMakeRange(0, attributeTitle.length))
-        
-        dueDateButton.setAttributedTitle(attributeTitle, for: .normal)
-    }
-    
-    @IBAction func dateChanged(_ datePicker: UIDatePicker) {
-        dueDate = datePicker.date
-        updateDueDateLabel()
-        configurateCollectionViewHeight()
-    }
-    
-    @IBAction func chooseDueDate(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            if self.datePickerHeightConstraint.constant == 0 {
-                self.datePickerHeightConstraint.constant = Constants.dataPickerHeight
-                self.datePicker.isHidden = false
-            } else {
-                self.datePicker.isHidden = true
-                self.datePickerHeightConstraint.constant = 0
-            }
-            self.view.layoutIfNeeded()
-        }, completion: nil)
-    }
-    
-}
-
-extension OrderInfoViewController {
-    
     private func configurateTableView() {
         tableViewHeightConstraint.constant = CGFloat(mixesForOrder.count) * OrderItemsTableViewService.Constants.cellHeight - 1
         
@@ -191,7 +135,7 @@ extension OrderInfoViewController {
     }
     
     private func configurateCollectionViewHeight() {
-        if Date.isDateInToday(from: dueDate), collectionViewHeightConstraint.constant == 0 {
+        if Date.isDateInToday(from: restaurantStore.dueDate), collectionViewHeightConstraint.constant == 0 {
             UIView.animate(withDuration: 0.2) {
                 self.collectionViewHeightConstraint.constant = UIScreen.main.bounds.size.height/3 * CollectionViewTransformConstants.scaleFactor
                 self.view.layoutIfNeeded()
@@ -201,14 +145,14 @@ extension OrderInfoViewController {
             hookahBeLabel.text = "Вашим кальянщиком будет:".localized()
             hookahBeLabel.textAlignment = .left
             
-        } else if !Date.isDateInToday(from: dueDate) {
+        } else if !Date.isDateInToday(from: restaurantStore.dueDate) {
             UIView.animate(withDuration: 0.2) {
                 self.collectionViewHeightConstraint.constant = 0
                 self.view.layoutIfNeeded()
             }
             hookahMastersCollectionViewService.selectedHookahMaster = nil
             hookahBeLabel.textAlignment = .center
-            hookahBeLabel.text = "Извините, на выбранный Вами день расписание кальянщиков не сформировано".localized()
+            hookahBeLabel.text = "Извините, на выбранный Вами день расписание кальянщиков не сформировано. Ваш кальянщик будет выбран случайным образом".localized()
             hookahMasterLabel.text = nil
         }
     }
@@ -288,20 +232,10 @@ extension OrderInfoViewController: HookahMastersServiceDelegate {
 extension OrderInfoViewController: UIStyleGuideRefreshing {
     
     func refreshUI(withStyleguide styleguide: DesignStyleGuide) {
-        yourOrderContainer.backgroundColor = styleguide.bubbleColor
-        yourOrderContainer.layer.borderColor = styleguide.senderTextColor.cgColor
-        
-        hookahMasterContainerView.backgroundColor = styleguide.bubbleColor
-        hookahMasterContainerView.layer.borderColor = styleguide.senderTextColor.cgColor
-        
-        dueDateContainerView.backgroundColor = styleguide.bubbleColor
-        dueDateContainerView.layer.borderColor = styleguide.senderTextColor.cgColor
-        
-        peopleCountContainerView.backgroundColor = styleguide.bubbleColor
-        peopleCountContainerView.layer.borderColor = styleguide.senderTextColor.cgColor
-        
+        yourOrderContainer.backgroundColor = styleguide.backgroundScreenColor
+        hookahMasterContainerView.backgroundColor = styleguide.backgroundScreenColor
+        peopleCountContainerView.backgroundColor = styleguide.backgroundScreenColor
         commentTextView.textColor = styleguide.secondaryTextColor
-        
         orderButton.backgroundColor = styleguide.primaryColor
     }
     

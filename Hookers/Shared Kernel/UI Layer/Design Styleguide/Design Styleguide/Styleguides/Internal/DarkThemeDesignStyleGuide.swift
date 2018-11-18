@@ -166,7 +166,7 @@ extension DarkThemeDesignStyleGuide {
     }
     
     public var labelTextColor: UIColor {
-        return UIColor.white
+        return UIColor(r: 255, g: 255, b: 255)
     }
     
     public var shadowColor: UIColor {
@@ -182,7 +182,7 @@ extension DarkThemeDesignStyleGuide {
 extension DarkThemeDesignStyleGuide: AdditionalColorStyleGuide {
     
     var senderTextColor: UIColor {
-        return UIColor(r: 255, g: 255, b: 255)
+        return UIColor(r: 153, g: 153, b: 153)
     }
     
 }

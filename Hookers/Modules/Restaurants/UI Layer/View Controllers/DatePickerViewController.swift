@@ -15,6 +15,7 @@ final class DatePickerViewController: UIViewController {
     var dispatcher: Dispatcher!
     var restaurantStore: RestaurantStore!
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var cityContainerView: UIView!
     @IBOutlet private weak var datePicker: UIDatePicker!
     @IBOutlet private weak var dueDateButton: UIButton!
@@ -26,15 +27,13 @@ final class DatePickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.addBackButton(with: self, action: #selector(back), tintColor: styleguide.primaryColor)
-        
         dueDateContainerView.layer.cornerRadius = 6
         dueDateContainerView.layer.borderWidth = 1
-        dueDateContainerView.addDefaultShadow()
+        
+        containerView.addShadowView(radius: 70)
         
         cityContainerView.layer.cornerRadius = 6
         cityContainerView.layer.borderWidth = 1
-        cityContainerView.addDefaultShadow()
         
         configurateDatePicker()
         updateDueDateLabel()
@@ -42,7 +41,7 @@ final class DatePickerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+  
         navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.barTintColor = .clear
         navigationController?.navigationBar.isTranslucent = true
@@ -106,13 +105,7 @@ extension DatePickerViewController {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
-    
-    @objc func back() {
-        let value = RestaurantsEvent.NavigationEvent.CloseScreen.Value(animated: true)
-        
-        dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.CloseScreen.self, result: Result(value: value))
-    }
-    
+
 }
 
 extension DatePickerViewController {

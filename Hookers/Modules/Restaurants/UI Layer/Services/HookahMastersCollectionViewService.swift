@@ -78,13 +78,16 @@ extension HookahMastersCollectionViewService: UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return HookahMastersCollectionViewService.Constants.cellSize
+        return Constants.cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let numberOfCells = floor(collectionView.frame.size.width / (Constants.cellSize.width + Constants.spaceBetweenCells))
+      
+        guard hookahMasters.count == 1 else {
+            return UIEdgeInsetsMake(0, Constants.inset, 0, Constants.inset) }
         
-        let totalCellWidth = Constants.cellSize.width * CGFloat(numberOfCells)
+        let totalCellWidth = Constants.cellSize.width * CGFloat(collectionView.numberOfItems(inSection: 0)) - Constants.spaceBetweenCells * CGFloat(hookahMasters.count)
+        
         let totalSpacingWidth = Constants.spaceBetweenCells * CGFloat(hookahMasters.count - 1)
         
         let leftInset = (collectionView.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
@@ -101,6 +104,7 @@ extension HookahMastersCollectionViewService {
         
         static let cellSize = CGSize(width: UIScreen.main.bounds.size.width/2 - 10, height: UIScreen.main.bounds.size.height/3)
         static let spaceBetweenCells = CGFloat(10)
+        static let inset = CGFloat(20)
         
     }
     
