@@ -11,6 +11,11 @@ import UIKit
 final class OrdersListCoordinator: TabBarEmbedCoordinator {
     
     fileprivate var root: UINavigationController!
+    fileprivate var ordersStore: OrdersListStore!
+    
+    private var dispatcher: Dispatcher {
+        return context.dispatcher
+    }
     
     init(context: CoordinatingContext) {
         let servicesImage = UIImage(named: "services")
@@ -27,9 +32,9 @@ final class OrdersListCoordinator: TabBarEmbedCoordinator {
     override func prepareForStart() {
         super.prepareForStart()
         
-        let ordersListViewController = UIStoryboard.OrdersList.ordersListViewController
-        
-        root = UINavigationController(rootViewController: ordersListViewController)
+        makeOrdersStore()
+        openOrdersListViewController()
+        register()
     }
     
     override func createFlow() -> UIViewController {
@@ -37,3 +42,56 @@ final class OrdersListCoordinator: TabBarEmbedCoordinator {
     }
     
 }
+
+extension OrdersListCoordinator {
+    
+    func makeOrdersStore() {
+        let restaurantNetwork = OrdersNetworkService(networkService: context.networkService)
+        
+        ordersStore = OrdersListStore(networkService: restaurantNetwork, dispatcher: context.dispatcher)
+    }
+    
+}
+
+//MARK: Open View Controllers
+extension OrdersListCoordinator {
+    
+    private func openOrdersListViewController() {
+        let ordersListViewController = UIStoryboard.OrdersList.ordersListViewController
+        
+        ordersListViewController.dispatcher = context.dispatcher
+        ordersListViewController.styleguide = context.styleguide
+        ordersListViewController.ordersListStore = ordersStore
+        
+        root = UINavigationController(rootViewController: ordersListViewController)
+    }
+    
+
+    
+    
+}
+
+//MARK: Register Events
+extension OrdersListCoordinator {
+    
+    private func register() {
+        registerDidChooseOrder()
+    }
+    
+    //CS: TODO:
+    private func registerDidChooseOrder() {
+//        dispatcher.register(type: RestaurantsEvent.NavigationEvent.DidChooseRestaurant.self) { [weak self] result, _ in
+//
+//            switch result {
+//            case .success(let box):
+//                break
+////                self?.openRestaurantViewContoller(withRestaurantId: box.restaurantId)
+//            case .failure(_):
+//                break
+//            }
+//        }
+    }
+
+}
+
+
