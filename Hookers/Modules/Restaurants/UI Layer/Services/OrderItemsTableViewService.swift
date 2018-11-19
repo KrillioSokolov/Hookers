@@ -59,7 +59,7 @@ extension OrderItemsTableViewService: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return OrderItemsTableViewService.Constants.cellHeight
+        return Constants.cellHeight
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

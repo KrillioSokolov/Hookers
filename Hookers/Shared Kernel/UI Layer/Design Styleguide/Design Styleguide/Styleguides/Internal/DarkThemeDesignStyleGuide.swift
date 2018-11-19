@@ -66,7 +66,7 @@ extension DarkThemeDesignStyleGuide {
     }
     
     public var primaryColor: UIColor {
-        return UIColor(r: 99, g: 11, b: 175)
+        return UIColor(r: 165, g: 11, b: 238)
     }
     
     public var primaryDarkColor: UIColor {
@@ -126,7 +126,7 @@ extension DarkThemeDesignStyleGuide {
     }
     
     public var backgroundScreenColor: UIColor {
-        return UIColor(r: 34, g: 38, b: 44)
+        return UIColor(r: 31, g: 33, b: 36)
     }
     
     public var backgroundCardColor: UIColor {
@@ -166,7 +166,7 @@ extension DarkThemeDesignStyleGuide {
     }
     
     public var labelTextColor: UIColor {
-        return UIColor(r: 153, g: 153, b: 153)
+        return UIColor(r: 255, g: 255, b: 255)
     }
     
     public var shadowColor: UIColor {
@@ -174,7 +174,7 @@ extension DarkThemeDesignStyleGuide {
     }
     
     public var bubbleColor: UIColor {
-        return .black//UIColor.white.withAlphaComponent(0.1)
+        return .black //UIColor.white.withAlphaComponent(0.1)
     }
     
 }
@@ -182,7 +182,7 @@ extension DarkThemeDesignStyleGuide {
 extension DarkThemeDesignStyleGuide: AdditionalColorStyleGuide {
     
     var senderTextColor: UIColor {
-        return UIColor(r: 255, g: 255, b: 255)
+        return UIColor(r: 153, g: 153, b: 153)
     }
     
 }

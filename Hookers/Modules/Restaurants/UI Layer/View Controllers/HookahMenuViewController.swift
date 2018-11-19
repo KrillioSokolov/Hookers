@@ -31,7 +31,7 @@ final class HookahMenuViewController: UIViewController {
         }
     }
     
-    var restaurant: NetworkRestaurant!
+    var restaurantListItem: DisplayableRestaurantListItem!
     var menu: [MixCategory] = []
     
     override func viewDidLoad() {
@@ -44,7 +44,8 @@ final class HookahMenuViewController: UIViewController {
         configurateMixCategoryCollectionView()
         configurateDisableOrderButton()
         
-        restaurantStore.getHookahMenu(byRestaurantId: restaurant.restaurantId)
+        orderButton.backgroundColor = styleguide.primaryColor
+        restaurantStore.getHookahMenu(byRestaurantId: restaurantListItem.restaurantId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +56,7 @@ final class HookahMenuViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.isNavigationBarHidden = false
         
-        navigationItem.setTitleView(withTitle: restaurant.name,
+        navigationItem.setTitleView(withTitle: "Забивает ".localized() + restaurantListItem.name,
                                     subtitle: "Выберите микс".localized(),
                                     titleColor: styleguide.primaryTextColor,
                                     titleFont: styleguide.regularFont(ofSize: 17),
@@ -74,7 +75,7 @@ final class HookahMenuViewController: UIViewController {
     }
     
     @IBAction func order(_ sender: Any) {
-        let value = RestaurantsEvent.NavigationEvent.DidChooseMixesForOrder.Value.init(restaurant: restaurant, mixesForOrder: orderItemsTableViewService.orderedMixes)
+        let value = RestaurantsEvent.NavigationEvent.DidChooseMixesForOrder.Value.init(restaurant: restaurantListItem, mixesForOrder: orderItemsTableViewService.orderedMixes)
         
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidChooseMixesForOrder.self, result: Result(value: value))
     }
@@ -103,21 +104,22 @@ extension HookahMenuViewController {
         shadowView.layer.borderWidth = 0.5
         shadowView.layer.borderColor = UIColor.lightGray.cgColor
         shadowView.layer.cornerRadius = 8
-        shadowView.addDefaultShadow()
+        shadowView.addDefaultSmallShadow()
     }
     
 }
 
-
 extension HookahMenuViewController {
     
     func configurateDisableOrderButton() {
-        orderButton.setTitleColor(styleguide.secondaryTextColor, for: .normal)
+        orderButton.setTitleColor(styleguide.disabledTextColor, for: .normal)
+        orderButton.setTitle("Выберите микс".localized(), for: .normal)
         orderButton.isEnabled = false
     }
     
     func configurateEnabledOrderButton() {
         orderButton.setTitleColor(.white, for: .normal)
+        orderButton.setTitle("Забить".localized(), for: .normal)
         orderButton.isEnabled = true
     }
     
@@ -144,8 +146,8 @@ extension HookahMenuViewController: MixListServiceDelegate {
         shadowView.layer.shadowOpacity = 0.8
         
         UIView.animate(withDuration: 0.3) {
-            self.tableViewHeightConstraint.constant = HookahMenuViewController.Constants.orderCellHeight * self.tableViewHeightConstraintIndex() + 2
-            self.buttonHeightConstraint.constant = HookahMenuViewController.Constants.orderCellHeight
+            self.tableViewHeightConstraint.constant = Constants.orderCellHeight * self.tableViewHeightConstraintIndex() + 2
+            self.buttonHeightConstraint.constant = Constants.orderCellHeight
             self.view.layoutIfNeeded()
         }
         
@@ -167,7 +169,7 @@ extension HookahMenuViewController: OrderItemsServiceDelegate {
             }
         } else if orderItemsTableViewService.orderedMixes.count <= 3 {
             UIView.animate(withDuration: 0.5) {
-                self.tableViewHeightConstraint.constant = HookahMenuViewController.Constants.orderCellHeight * self.tableViewHeightConstraintIndex()
+                self.tableViewHeightConstraint.constant = Constants.orderCellHeight * self.tableViewHeightConstraintIndex()
                 self.view.layoutIfNeeded()
             }
         }

@@ -21,7 +21,7 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5O2-XX-MVR">
                         <rect key="frame" x="5" y="5" width="322" height="92.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rest_default" translatesAutoresizingMaskIntoConstraints="NO" id="N8v-4G-gFe">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rest_default" translatesAutoresizingMaskIntoConstraints="NO" id="N8v-4G-gFe">
                                 <rect key="frame" x="0.0" y="0.0" width="322" height="92.5"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 км" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqD-Qa-9qm">
-                                <rect key="frame" x="275.5" y="65.5" width="36.5" height="17"/>
+                                <rect key="frame" x="270.5" y="65.5" width="36.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Rkv-U0-l8W" secondAttribute="bottom" constant="10" id="1o6-hz-gSY"/>
                             <constraint firstAttribute="bottom" secondItem="BqD-Qa-9qm" secondAttribute="bottom" constant="10" id="4U5-Mb-lFu"/>
-                            <constraint firstAttribute="trailing" secondItem="BqD-Qa-9qm" secondAttribute="trailing" constant="10" id="7SS-pA-LWJ"/>
+                            <constraint firstItem="BqD-Qa-9qm" firstAttribute="trailing" secondItem="pCp-Kz-CP5" secondAttribute="trailing" id="Bno-2v-7A1"/>
                             <constraint firstItem="pXS-lF-O6l" firstAttribute="centerY" secondItem="Rkv-U0-l8W" secondAttribute="centerY" id="E8S-sd-7xw"/>
                             <constraint firstAttribute="bottom" secondItem="N8v-4G-gFe" secondAttribute="bottom" id="PVf-gr-fnj"/>
                             <constraint firstItem="VYx-y0-Bb3" firstAttribute="leading" secondItem="5O2-XX-MVR" secondAttribute="leading" constant="10" id="Qxb-A0-h9x"/>

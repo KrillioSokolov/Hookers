@@ -11,9 +11,10 @@ import UIKit
 
 fileprivate enum RestaurantsStoryboardControllerId: String {
     
-    case restaurantsList = "RestaurantsListViewControllerStoryboarId"
-    case restaurantInfo = "RestaurantInfoViewControllerStoryboarId"
-    case hookahMenu = "HookahMenuViewControllerStoryboarId"
+    case datePickerViewController = "DatePickerViewControllerStoryboarId"
+    case restaurantsListViewController = "RestaurantsListViewControllerStoryboarId"
+    case restaurantInfoViewController = "RestaurantInfoViewControllerStoryboarId"
+    case hookahMenuViewController = "HookahMenuViewControllerStoryboarId"
     case orderInfoViewController = "OrderInfoViewControllerStoryboardId"
     case confirmOrderViewController = "ConfirmOrderViewControllerStoryboardId"
     
@@ -28,15 +29,15 @@ extension UIStoryboard {
     struct Restaurants {
         
         static var restaurantsListViewController: RestaurantsListViewController {
-            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.restaurantsList.rawValue) as! RestaurantsListViewController
+            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.restaurantsListViewController.rawValue) as! RestaurantsListViewController
         }
         
         static var hookahMenuViewController: HookahMenuViewController {
-            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.hookahMenu.rawValue) as! HookahMenuViewController
+            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.hookahMenuViewController.rawValue) as! HookahMenuViewController
         }
         
         static var restaurantInfoViewController: RestaurantInfoViewController {
-            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.restaurantInfo.rawValue) as! RestaurantInfoViewController
+            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.restaurantInfoViewController.rawValue) as! RestaurantInfoViewController
         }
         
         static var orderInfoViewController: OrderInfoViewController {
@@ -45,6 +46,10 @@ extension UIStoryboard {
         
         static var confirmOrderViewController: ConfirmOrderViewController {
             return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.confirmOrderViewController.rawValue) as! ConfirmOrderViewController
+        }
+        
+        static var datePickerViewController: DatePickerViewController {
+            return UIStoryboard.restaurantsStoryboard.instantiateViewController(withIdentifier: RestaurantsStoryboardControllerId.datePickerViewController.rawValue) as! DatePickerViewController
         }
         
     }

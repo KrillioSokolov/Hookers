@@ -26,6 +26,8 @@ final class HookahMasterTableViewCell: UITableViewCell, RestaurantListTableViewC
         containerView.layer.cornerRadius = 6
         containerView.layer.borderWidth = 1
         imageContainerView.layer.cornerRadius = 6
+        
+        containerView.addShadowView()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,8 +45,7 @@ final class HookahMasterTableViewCell: UITableViewCell, RestaurantListTableViewC
 extension HookahMasterTableViewCell: UIStyleGuideRefreshing {
     
     func refreshUI(withStyleguide styleguide: DesignStyleGuide) {
-        containerView.backgroundColor = styleguide.bubbleColor
-        containerView.layer.borderColor = styleguide.senderTextColor.cgColor
+        containerView.backgroundColor = styleguide.backgroundScreenColor
     }
     
 }

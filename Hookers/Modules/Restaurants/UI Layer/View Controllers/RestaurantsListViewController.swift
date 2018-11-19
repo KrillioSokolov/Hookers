@@ -25,7 +25,7 @@ final class RestaurantsListViewController: UIViewController {
     var hookahMasters: [HookahMaster]?
     
     var displayableData: [DisplayableRestaurantListItem] {
-        return segmentedControl.selectedSegmentIndex == 0 ? restaurants : hookahMasters ?? []
+        return isRestaurantsList ? restaurants : hookahMasters ?? []
     }
     
     override func viewDidLoad() {
@@ -40,6 +40,8 @@ final class RestaurantsListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationItem.addBackButton(with: self, action: #selector(back), tintColor: styleguide.primaryColor)
         
         navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.barTintColor = .clear
@@ -59,32 +61,18 @@ final class RestaurantsListViewController: UIViewController {
         segmentedControl.tintColor = UIColor.white.withAlphaComponent(0.9)
     }
     
-    private var isRestaurantsList: Bool {
-        return segmentedControl.selectedSegmentIndex == 0
-    }
+    private var isRestaurantsList = true
     
 }
 
 extension RestaurantsListViewController {
     
     @IBAction func changeSegment(_ sender: Any) {
-        var title = isRestaurantsList ? "Выберите заведение".localized() :
+        isRestaurantsList = !isRestaurantsList
+        
+        let title = isRestaurantsList ? "Выберите заведение".localized() :
                                         "Выберите кальянщика".localized()
         
-        if isRestaurantsList {
-            title = "Выберите заведение".localized()
-            
-            tableView.reloadData()
-        } else {
-            title = "Выберите кальянщика".localized()
-            
-            guard hookahMasters == nil else {
-                tableView.reloadData()
-                return
-            }
-            
-            restaurantStore.getHookahMastersList()
-        }
         
         navigationItem.setTitleView(withTitle: "Днепр".localized(),
                                     subtitle: title,
@@ -94,6 +82,18 @@ extension RestaurantsListViewController {
                                     subtitleFont: styleguide.regularFont(ofSize: 12))
         
         
+        guard hookahMasters == nil else {
+            tableView.reloadData()
+            return
+        }
+        
+        restaurantStore.getHookahMastersList()
+    }
+    
+    @objc func back() {
+        let value = RestaurantsEvent.NavigationEvent.CloseScreen.Value(animated: true)
+        
+        dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.CloseScreen.self, result: Result(value: value))
     }
     
 }
@@ -132,11 +132,15 @@ extension RestaurantsListViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //KS: TODO: Add correct setting restaurant model
+        let restaurantListItem = displayableData[indexPath.row]
+        
+        restaurantStore.didChooseRestaurantListItem(restaurantListItem: restaurantListItem)
                 
-        let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurant: restaurants[indexPath.row])
+        let value = RestaurantsEvent.NavigationEvent.DidChooseRestaurant.Value(restaurant: restaurantListItem)
         
         dispatcher.dispatch(type: RestaurantsEvent.NavigationEvent.DidChooseRestaurant.self, result: Result(value: value, error: nil))
+        
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
 }

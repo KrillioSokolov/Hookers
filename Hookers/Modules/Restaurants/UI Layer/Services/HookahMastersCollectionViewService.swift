@@ -17,6 +17,8 @@ protocol HookahMastersServiceDelegate: class {
 
 final class HookahMastersCollectionViewService: NSObject  {
     
+    let size = CGSize(width: UIScreen.main.bounds.size.width/2 - 10, height: UIScreen.main.bounds.size.height/3)
+    
     var selectedHookahMaster: HookahMaster?
     var hookahMasters: [HookahMaster] = []
     
@@ -56,7 +58,6 @@ extension HookahMastersCollectionViewService: UICollectionViewDelegate, UICollec
         let master = hookahMasters[indexPath.row]
         
         cell.avatarImageView.download(image: master.imageURL, placeholderImage: nil)
-        cell.likeCount.text = String(master.likes)
         cell.nameLabel.text = master.name
         
         return cell
@@ -77,9 +78,34 @@ extension HookahMastersCollectionViewService: UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let size = CGSize(width: UIScreen.main.bounds.size.width/2 - 10, height: UIScreen.main.bounds.size.height/3)
+        return Constants.cellSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+      
+        guard hookahMasters.count == 1 else {
+            return UIEdgeInsetsMake(0, Constants.inset, 0, Constants.inset) }
         
-        return size
+        let totalCellWidth = Constants.cellSize.width * CGFloat(collectionView.numberOfItems(inSection: 0)) - Constants.spaceBetweenCells * CGFloat(hookahMasters.count)
+        
+        let totalSpacingWidth = Constants.spaceBetweenCells * CGFloat(hookahMasters.count - 1)
+        
+        let leftInset = (collectionView.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+        
+        return UIEdgeInsetsMake(0, leftInset, 0, rightInset)
+    }
+    
+}
+
+extension HookahMastersCollectionViewService {
+    
+    struct Constants {
+        
+        static let cellSize = CGSize(width: UIScreen.main.bounds.size.width/2 - 10, height: UIScreen.main.bounds.size.height/3)
+        static let spaceBetweenCells = CGFloat(10)
+        static let inset = CGFloat(20)
+        
     }
     
 }

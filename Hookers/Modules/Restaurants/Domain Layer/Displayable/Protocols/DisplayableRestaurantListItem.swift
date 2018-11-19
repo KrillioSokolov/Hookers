@@ -14,5 +14,6 @@ protocol DisplayableRestaurantListItem {
     var name: String { get }
     var distanse: String { get }
     var likes: Int { get }
+    var restaurantId: String { get }
     
 }

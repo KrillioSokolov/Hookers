@@ -41,13 +41,14 @@ final class RestaurantTableViewCell: UITableViewCell, RestaurantListTableViewCel
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        presentImageView.layer.cornerRadius = 6
         containerView.layer.cornerRadius = 6
         containerView.layer.borderWidth = 1
         likeCountLabel.addDefaultSoftShadow()
         nameLabel.addDefaultSoftShadow()
         infoButton.addShadowView()
         distanceLabel.addShadowView()
-        heartImageView.addShadowView()
+        containerView.addShadowView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -64,7 +65,9 @@ final class RestaurantTableViewCell: UITableViewCell, RestaurantListTableViewCel
 extension RestaurantTableViewCell: UIStyleGuideRefreshing {
     
     func refreshUI(withStyleguide styleguide: DesignStyleGuide) {
-        containerView.layer.borderColor = styleguide.senderTextColor.cgColor
+        nameLabel.textColor = styleguide.labelTextColor
+        distanceLabel.textColor = styleguide.labelTextColor
+        likeCountLabel.textColor = styleguide.labelTextColor
     }
     
 }

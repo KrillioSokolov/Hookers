@@ -31,6 +31,8 @@ final class RestaurantStore: DomainModel {
     private(set) var hookahOrderResponseData: HookahOrderResponse.Data?
     
     private(set) var orderedMixes: [HookahMix] = []
+    private(set) var currentRestaurantListItem: DisplayableRestaurantListItem?
+    private(set) var dueDate: Date!
     
     private(set) var isLoading = false
     
@@ -45,6 +47,14 @@ extension RestaurantStore {
     
     func updateOrderedHookahMixes(with mixes: [HookahMix]) {
         orderedMixes = mixes
+    }
+    
+    func didChooseRestaurantListItem(restaurantListItem: DisplayableRestaurantListItem) {
+        currentRestaurantListItem = restaurantListItem
+    }
+    
+    func didSelectDueDate(with dueDate: Date) {
+        self.dueDate = dueDate
     }
     
 }
@@ -67,6 +77,7 @@ extension RestaurantStore {
     
     func getHookahMenu(byRestaurantId restaurantId: String) {
         startLoading()
+        
         taskDispatcher.dispatch {
             self.networkService.getHookahMenu(byRestaurantId: restaurantId) { (networkResponse, hookahMenuResponse) in
                 self.changeDataStateOf([.hookahMenu, .isLoadingState] as RestaurantStoreStateChange, work: {
@@ -79,7 +90,20 @@ extension RestaurantStore {
     }
     
     func getHookahMastersList(restaurantId: String? = nil) {
+        guard let hookahMaster = currentRestaurantListItem as? HookahMaster else {
+            networkHookahMastersList(restaurantId: restaurantId)
+            
+            return
+        }
+        
+        self.changeDataStateOf([.hookahMastersForRestaurant] as RestaurantStoreStateChange, work: {
+            self.hookahMastersData = HookahMastersListResponse.Data(restaurantId: hookahMaster.restaurantId, hookahMasters: [hookahMaster])
+        })
+    }
+    
+    private func networkHookahMastersList(restaurantId: String? = nil) {
         startLoading()
+        
         taskDispatcher.dispatch {
             self.networkService.getHookahMastersList(byRestaurantId: restaurantId) { (networkReponse, hookahMastersListResponse) in
                 let changeType: RestaurantStoreStateChange
@@ -100,6 +124,7 @@ extension RestaurantStore {
     
     func makeHookahOrder(with hookahOrder: HookahOrder) {
         startLoading()
+        
         taskDispatcher.dispatch {
             self.networkService.makeHookahOrder(hookahOrder, with: { (networkResponse, hookahOrderResponse) in
                 

@@ -35,11 +35,18 @@ extension UIView {
         self.layer.add(animation, forKey: nil)
     }
     
-    func addDefaultShadow() {
+    func addDefaultSmallShadow() {
         self.layer.shadowColor = UIColor(r: 80, g: 80, b: 80, alpha: 10).cgColor
         self.layer.shadowOpacity = 0.8
         self.layer.shadowOffset = CGSize.zero
         self.layer.shadowRadius = 10
+    }
+    
+    func addDefaultShadow() {
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.1
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = 70
     }
     
     func addShadowView(width:CGFloat=0.2, height:CGFloat=0.2, Opacidade:Float=0.7, maskToBounds:Bool=false, radius:CGFloat=0.5){

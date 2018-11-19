@@ -32,7 +32,7 @@ final class RestaurantsCoordinator: TabBarEmbedCoordinator {
         super.prepareForStart()
         
         makeRestaurantStore()
-        openRestaurantListViewController()
+        openDatePickerViewController()
         register()
     }
     
@@ -55,23 +55,33 @@ extension RestaurantsCoordinator {
 //MARK: Open View Controllers
 extension RestaurantsCoordinator {
     
-    private func openRestaurantListViewController() {
-        let restaurant = UIStoryboard.Restaurants.restaurantsListViewController
+    private func openDatePickerViewController() {
+        let controller = UIStoryboard.Restaurants.datePickerViewController
         
-        restaurant.dispatcher = context.dispatcher
-        restaurant.styleguide = context.styleguide
-        restaurant.restaurantStore = restaurantStore
+        controller.dispatcher = context.dispatcher
+        controller.styleguide = context.styleguide
+        controller.restaurantStore = restaurantStore
         
-        root = UINavigationController(rootViewController: restaurant)
+        root = UINavigationController(rootViewController: controller)
     }
     
-    private func openRestaurantViewContoller(with restaurant: NetworkRestaurant) {
+    private func openRestaurantListViewController(animated: Bool) {
+        let controller = UIStoryboard.Restaurants.restaurantsListViewController
+        
+        controller.dispatcher = context.dispatcher
+        controller.styleguide = context.styleguide
+        controller.restaurantStore = restaurantStore
+        
+        root.pushViewController(controller, animated: animated)
+    }
+    
+    private func openRestaurantViewContoller(with restaurant: DisplayableRestaurantListItem) {
         let controller = UIStoryboard.Restaurants.hookahMenuViewController
         
         controller.dispatcher = dispatcher
         controller.styleguide = context.styleguide
         controller.restaurantStore = restaurantStore
-        controller.restaurant = restaurant
+        controller.restaurantListItem = restaurant
         
         root.tabBarController?.tabBar.isHidden = true
         
@@ -96,12 +106,12 @@ extension RestaurantsCoordinator {
         root.present(navBarOnModal, animated: true, completion: nil)
     }
     
-    private func openOrderInfoViewController(with restaurant: NetworkRestaurant, mixesForOrder: [HookahMix]) {
+    private func openOrderInfoViewController(with restaurant: DisplayableRestaurantListItem, mixesForOrder: [HookahMix]) {
         let controller = UIStoryboard.Restaurants.orderInfoViewController
         
         controller.dispatcher = dispatcher
         controller.styleguide = context.styleguide
-        controller.restaurant = restaurant
+        controller.restaurantListItem = restaurant
         controller.restaurantStore = restaurantStore
         controller.mixesForOrder = mixesForOrder
         
@@ -115,6 +125,7 @@ extension RestaurantsCoordinator {
 extension RestaurantsCoordinator {
     
     private func register() {
+        registerDidSelectDueDate()
         registerDidChooseRestaurant()
         registerCloseScreen()
         registerDidTapInfoButtonOnRestaurantCell()
@@ -147,10 +158,20 @@ extension RestaurantsCoordinator {
     
     private func registerDidChooseMixesForOrder() {
         dispatcher.register(type: RestaurantsEvent.NavigationEvent.DidChooseMixesForOrder.self) { [weak self] result, _ in
-            
             switch result {
             case .success(let box):
                 self?.openOrderInfoViewController(with: box.restaurant, mixesForOrder: box.mixesForOrder)
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    private func registerDidSelectDueDate() {
+        dispatcher.register(type: RestaurantsEvent.NavigationEvent.DidSelectDueDate.self) { [weak self] result, _ in
+            switch result {
+            case .success(let box):
+                self?.openRestaurantListViewController(animated: box.animated)
             case .failure(_):
                 break
             }
@@ -161,8 +182,6 @@ extension RestaurantsCoordinator {
         dispatcher.register(type: RestaurantsEvent.NavigationEvent.CloseScreen.self) { [weak self] result, _ in
             switch result {
             case .success(let box):
-            self?.root.tabBarController?.tabBar.isHidden = false
-                
             if self?.root.presentedViewController != nil {
                 self?.root.dismiss(animated: box.animated, completion: nil)
             } else {
