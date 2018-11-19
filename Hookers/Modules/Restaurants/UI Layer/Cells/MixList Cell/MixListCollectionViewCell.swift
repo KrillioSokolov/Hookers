@@ -16,6 +16,11 @@ final class MixListCollectionViewCell: UICollectionViewCell, NibReusable {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var glassView: UIView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var tabaccoLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +28,15 @@ final class MixListCollectionViewCell: UICollectionViewCell, NibReusable {
         priceLabel.addDefaultSoftShadow()
         nameLabel.addDefaultSoftShadow()
         infoButton.addShadowView()
+        descriptionLabel.addDefaultSoftShadow()
+        tabaccoLabel.addDefaultSoftShadow()
         containerView.layer.cornerRadius = 6
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        infoView.isHidden = true
     }
 
     override var isHighlighted: Bool {
@@ -41,5 +54,17 @@ final class MixListCollectionViewCell: UICollectionViewCell, NibReusable {
             }
         }
     }
+    
+    @IBAction private func showInfo(_ sender: Any) {
+        let isHidden = infoView.isHidden
+        
+        let animation: UIView.AnimationOptions = isHidden ? .transitionFlipFromLeft : .transitionFlipFromRight
+        
+        UIView.transition(with: contentView, duration: 0.4, options: animation, animations: {
+            self.infoView.isHidden = !isHidden
+        }, completion: nil)
+    }
+    
+    
     
 }

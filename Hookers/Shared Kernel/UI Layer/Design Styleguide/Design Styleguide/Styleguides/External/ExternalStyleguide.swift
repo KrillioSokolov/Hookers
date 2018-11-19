@@ -40,6 +40,7 @@ public protocol ColorStyleGuide: class {
     var labelTextColor: UIColor { get }
     var shadowColor: UIColor { get }
     var bubbleColor: UIColor { get }
+    var glassColor: UIColor {get}
     
     var CTAButtonTitleColor: UIColor { get }
     var normalCTAButtonBackgroundImage: UIImage? { get }

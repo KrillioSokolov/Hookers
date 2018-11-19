@@ -20,17 +20,19 @@ final class MixListCollectionViewService: NSObject  {
     private weak var delegate: MixListServiceDelegate?
     private var mixes: [HookahMix] = []
     private weak var mixListCollectionView: UICollectionView?
+    private var styleguide: DesignStyleGuide!
     
     init(collectionView: UICollectionView) {
         mixListCollectionView = collectionView
     }
     
-    func configurate(with delegate: MixListServiceDelegate) {
+    func configurate(with delegate: MixListServiceDelegate, styleguide: DesignStyleGuide) {
         mixListCollectionView?.delegate = self
         mixListCollectionView?.dataSource = self
         mixListCollectionView?.registerReusableCell(cellType: MixListCollectionViewCell.self)
         
         self.delegate = delegate
+        self.styleguide = styleguide
     }
     
     func updateMixes(with newMixes: [HookahMix]) {
@@ -54,6 +56,12 @@ extension MixListCollectionViewService: UICollectionViewDelegate, UICollectionVi
         cell.nameLabel.text = mix.name
         cell.mixImageView.download(image: mix.imageURL, placeholderImage: UIImage(named: "default_mix"))
         cell.priceLabel.text = String(mix.price) + " " + HookahMenuViewController.Constants.grn
+        cell.descriptionLabel.text = mix.description
+        cell.glassView.backgroundColor = styleguide.glassColor
+        
+        let tobacos = mix.tabacco.map({$0.brand}).joined(separator: ", ")
+        
+        cell.tabaccoLabel.text = tobacos
         
         return cell
     }

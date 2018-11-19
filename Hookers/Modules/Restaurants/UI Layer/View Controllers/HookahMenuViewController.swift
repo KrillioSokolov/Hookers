@@ -91,7 +91,7 @@ extension HookahMenuViewController {
     
     func configurateMixListCollectionView() {
         mixListCollectionViewService = MixListCollectionViewService(collectionView: mixListCollectionView)
-        mixListCollectionViewService.configurate(with: self)
+        mixListCollectionViewService.configurate(with: self, styleguide: styleguide)
     }
     
     func configurateOrderItemsTableView() {
