@@ -202,3 +202,14 @@ extension DarkThemeDesignStyleGuide: KeyboardAppearanceStyleGuide {
     }
     
 }
+
+
+// MARK: - LayerStyleGuide
+
+extension DarkThemeDesignStyleGuide {
+
+    public var cornerRadius: CGFloat {
+        return 6
+    }
+    
+}
