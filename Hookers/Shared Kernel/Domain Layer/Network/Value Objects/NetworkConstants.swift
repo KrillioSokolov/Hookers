@@ -15,7 +15,7 @@ struct NetworkConstants {
     }
     static let kirillNgrokURL = URL(string: "http://46738d97.ngrok.io/")!
     static let nikaNgrokURL = URL(string: "https://a72eac1c.ngrok.io/")!
-    static let stasNgrokURL = URL(string: "https://ec0cbbc3.ngrok.io/")!
+    static let stasNgrokURL = URL(string: "https://19ceaeb1.ngrok.io/")!
     static let localHostUrl = URL(string: "http://localhost:8081/")!
     static let prodServerURL = ""
     
