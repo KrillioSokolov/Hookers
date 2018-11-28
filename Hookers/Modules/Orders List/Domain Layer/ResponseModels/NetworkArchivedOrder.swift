@@ -10,20 +10,13 @@ import Foundation
 
 struct NetworkArchivedOrder: Decodable {
     
-    struct NetworkOrderHookah: Decodable {
-        
-        let name: String
-        let mixId: String
-        
-    }
-    
     let clientName: String
     let phoneNumber: String
     let hookahMasterId: String
     let orderId: String
     let dueDate: String
     let condition: String
-    let hookahs: [NetworkOrderHookah]
+    let hookahs: [HookahMix]
     let clientId: String
     let restaurantId: String
     let peopleCount: String
