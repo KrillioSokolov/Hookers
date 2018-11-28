@@ -25,8 +25,7 @@ final class OrdersListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configurateTableView()
-        configurateService()
+        configurateTableViewService()
         ordersListStore.getOrdersList()
     }
     
@@ -49,15 +48,9 @@ final class OrdersListViewController: UIViewController {
 //MARK: - Configurate
 extension OrdersListViewController {
     
-    private func configurateTableView() {
-        tableView.backgroundColor = styleguide.backgroundScreenColor
-        tableView.tableFooterView = UIView()
-        tableView.separatorStyle = .none
-    }
-    
-    private func configurateService() {
+    private func configurateTableViewService() {
         service = OrdersListTableViewService(tableView: tableView)
-        service.configurate(styleGuide: styleguide)
+        service.configurate(with: styleguide)
     }
     
 }

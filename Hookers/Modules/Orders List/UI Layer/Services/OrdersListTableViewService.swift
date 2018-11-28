@@ -11,21 +11,23 @@ import UIKit
 final class OrdersListTableViewService: NSObject  {
     
     private var orders: [NetworkArchivedOrder] = []
-    private var styleGuide: DesignStyleGuide!
+    private var styleguide: DesignStyleGuide!
     private weak var ordersListTableView: UITableView?
 
     init(tableView: UITableView) {
         ordersListTableView = tableView
     }
     
-    func configurate(styleGuide: DesignStyleGuide) {
+    func configurate(with styleguide: DesignStyleGuide) {
         ordersListTableView?.delegate = self
         ordersListTableView?.dataSource = self
-        
+        ordersListTableView?.backgroundColor = styleguide.backgroundScreenColor
+        ordersListTableView?.tableFooterView = UIView()
+        ordersListTableView?.separatorStyle = .none
         ordersListTableView?.registerReusableCell(cellType:
             OrdersListTableViewCell.self)
         
-        self.styleGuide = styleGuide
+        self.styleguide = styleguide
     }
     
     func updateOrdersList(with newList: [NetworkArchivedOrder]) {
@@ -54,7 +56,7 @@ extension OrdersListTableViewService: UITableViewDelegate, UITableViewDataSource
         cell.priceLabel.text = order.amount + HookahMenuViewController.Constants.grn
         cell.statusLabel.text = order.condition
         
-        cell.refreshUI(withStyleguide: styleGuide)
+        cell.refreshUI(withStyleguide: styleguide)
         
         return cell
     }
