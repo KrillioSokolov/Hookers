@@ -32,10 +32,10 @@ final class OrdersListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setupNavigation()
+        setupNavigationBar()
     }
 
-    private func setupNavigation() {
+    private func setupNavigationBar() {
         navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.barTintColor = .clear
         navigationController?.navigationBar.isTranslucent = true
