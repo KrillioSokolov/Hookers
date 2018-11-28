@@ -22,27 +22,25 @@ final class OrdersListViewController: UIViewController {
     
     private var service: OrdersListTableViewService!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configurateTableView()
-        configurateService()
+        configurateTableViewService()
         ordersListStore.getOrdersList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setupNavigation()
+        setupNavigationBar()
     }
 
-    private func setupNavigation() {
-        navigationController?.navigationBar.barStyle = .blackOpaque
-        navigationItem.title = "Мои Заказы".localized()
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.barTintColor = .clear
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.isNavigationBarHidden = false
+        navigationItem.title = "Мои Заказы".localized()
     }
     
 }
@@ -50,21 +48,10 @@ final class OrdersListViewController: UIViewController {
 //MARK: - Configurate
 extension OrdersListViewController {
     
-    private func configurateTableView() {
-        tableView.backgroundColor = .black
-        tableView.tableFooterView = UIView()
-        tableView.separatorStyle = .none
-    }
-    
-    private func configurateService() {
+    private func configurateTableViewService() {
         service = OrdersListTableViewService(tableView: tableView)
-        service.configurate(with: self, styleGuide: styleguide)
+        service.configurate(with: styleguide)
     }
-    
-}
-
-//MARK: - OrdersListServiceDelegate
-extension OrdersListViewController: OrdersListServiceDelegate {
     
 }
 
@@ -83,10 +70,9 @@ extension OrdersListViewController: DataStateListening {
         }
     }
     
-    //CS: TODO:
     private func ordersListStoreStateChange(change: OrdersListStoreStateChange) {
         if change.contains(.isLoadingState) {
-            ordersListStore.isLoading ? self.showSpinner() : self.hideSpinner()
+            ordersListStore.isLoading ? showSpinner() : hideSpinner()
 
             //KS: TODO: Show/hide skeleton
             //restaurantStore.isLoading ? addSkeletonViewController() : hideSkeletonViewController()
@@ -95,7 +81,7 @@ extension OrdersListViewController: DataStateListening {
         if change.contains(.orders) {
             guard let orders = ordersListStore.orders else { return }
 
-            self.service.updateOrdersList(with: orders)
+            service.updateOrdersList(with: orders)
         }
     }
     

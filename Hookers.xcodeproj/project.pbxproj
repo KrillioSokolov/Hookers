@@ -8,19 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		2CBA32E355CC17149F91B5C9 /* Pods_Hookers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65483C0664BF4D9DB06C7E97 /* Pods_Hookers.framework */; };
-		3D772BF2219E2B7500B677E9 /* OrdersListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D772BE3219E2B7500B677E9 /* OrdersListCoordinator.swift */; };
-		3D772BF3219E2B7500B677E9 /* UIStoryboards+OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D772BE6219E2B7500B677E9 /* UIStoryboards+OrdersList.swift */; };
-		3D772BF4219E2B7500B677E9 /* OrdersList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D772BE7219E2B7500B677E9 /* OrdersList.storyboard */; };
-		3D772BF5219E2B7500B677E9 /* OrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D772BE9219E2B7500B677E9 /* OrdersListTableViewCell.swift */; };
-		3D772BF6219E2B7500B677E9 /* OrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D772BEA219E2B7500B677E9 /* OrdersListTableViewCell.xib */; };
-		3D772BF7219E2B7500B677E9 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D772BEC219E2B7500B677E9 /* OrderDetailViewController.swift */; };
-		3D772BF8219E2B7500B677E9 /* OrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D772BED219E2B7500B677E9 /* OrdersListViewController.swift */; };
-		3D772BF9219E2B7500B677E9 /* OrdersListTableViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D772BEF219E2B7500B677E9 /* OrdersListTableViewService.swift */; };
-		3DC07EAD21A0E27500B03E04 /* OrdersListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC07EAC21A0E27500B03E04 /* OrdersListStore.swift */; };
-		3DC07EB121A0E39C00B03E04 /* OrdersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC07EB021A0E39C00B03E04 /* OrdersNetworkService.swift */; };
-		3DC07EB421A0E52900B03E04 /* OrdersEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC07EB321A0E52900B03E04 /* OrdersEvent.swift */; };
-		3DC07EB821A19B1600B03E04 /* NetworkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC07EB721A19B1600B03E04 /* NetworkOrder.swift */; };
-		3DC07EBA21A19D0D00B03E04 /* NetworkOrdersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC07EB921A19D0D00B03E04 /* NetworkOrdersListResponse.swift */; };
+		3DB7A87421AF332700111FC3 /* OrdersListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A85E21AF332700111FC3 /* OrdersListCoordinator.swift */; };
+		3DB7A87521AF332700111FC3 /* UIStoryboards+OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86121AF332700111FC3 /* UIStoryboards+OrdersList.swift */; };
+		3DB7A87621AF332700111FC3 /* OrdersList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A86221AF332700111FC3 /* OrdersList.storyboard */; };
+		3DB7A87721AF332700111FC3 /* OrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A86421AF332700111FC3 /* OrdersListTableViewCell.xib */; };
+		3DB7A87821AF332700111FC3 /* OrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86521AF332700111FC3 /* OrdersListTableViewCell.swift */; };
+		3DB7A87921AF332700111FC3 /* OrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86721AF332700111FC3 /* OrdersListViewController.swift */; };
+		3DB7A87A21AF332700111FC3 /* OrdersListTableViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86921AF332700111FC3 /* OrdersListTableViewService.swift */; };
+		3DB7A87B21AF332700111FC3 /* OrdersListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86C21AF332700111FC3 /* OrdersListStore.swift */; };
+		3DB7A87C21AF332700111FC3 /* NetworkArchivedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86E21AF332700111FC3 /* NetworkArchivedOrder.swift */; };
+		3DB7A87D21AF332700111FC3 /* NetworkOrdersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86F21AF332700111FC3 /* NetworkOrdersListResponse.swift */; };
+		3DB7A87E21AF332700111FC3 /* OrdersEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A87121AF332700111FC3 /* OrdersEvent.swift */; };
+		3DB7A87F21AF332700111FC3 /* OrdersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A87321AF332700111FC3 /* OrdersNetworkService.swift */; };
 		56422C50A0B2DA805FBE1DD1 /* Pods_Hookers_HookersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCB692BEF477EA6FB75884A /* Pods_Hookers_HookersTests.framework */; };
 		71A490E37C91D318A0CDBC17 /* Pods_HookersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB76549EE62251F8609EB6CF /* Pods_HookersTests.framework */; };
 		ED02C24321594D69000A882B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02C24221594D69000A882B /* AppDelegate.swift */; };
@@ -174,19 +173,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D772BE3219E2B7500B677E9 /* OrdersListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListCoordinator.swift; sourceTree = "<group>"; };
-		3D772BE6219E2B7500B677E9 /* UIStoryboards+OrdersList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboards+OrdersList.swift"; sourceTree = "<group>"; };
-		3D772BE7219E2B7500B677E9 /* OrdersList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrdersList.storyboard; sourceTree = "<group>"; };
-		3D772BE9219E2B7500B677E9 /* OrdersListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListTableViewCell.swift; sourceTree = "<group>"; };
-		3D772BEA219E2B7500B677E9 /* OrdersListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrdersListTableViewCell.xib; sourceTree = "<group>"; };
-		3D772BEC219E2B7500B677E9 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
-		3D772BED219E2B7500B677E9 /* OrdersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListViewController.swift; sourceTree = "<group>"; };
-		3D772BEF219E2B7500B677E9 /* OrdersListTableViewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListTableViewService.swift; sourceTree = "<group>"; };
-		3DC07EAC21A0E27500B03E04 /* OrdersListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListStore.swift; sourceTree = "<group>"; };
-		3DC07EB021A0E39C00B03E04 /* OrdersNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersNetworkService.swift; sourceTree = "<group>"; };
-		3DC07EB321A0E52900B03E04 /* OrdersEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersEvent.swift; sourceTree = "<group>"; };
-		3DC07EB721A19B1600B03E04 /* NetworkOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOrder.swift; sourceTree = "<group>"; };
-		3DC07EB921A19D0D00B03E04 /* NetworkOrdersListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOrdersListResponse.swift; sourceTree = "<group>"; };
+		3DB7A85E21AF332700111FC3 /* OrdersListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListCoordinator.swift; sourceTree = "<group>"; };
+		3DB7A86121AF332700111FC3 /* UIStoryboards+OrdersList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboards+OrdersList.swift"; sourceTree = "<group>"; };
+		3DB7A86221AF332700111FC3 /* OrdersList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrdersList.storyboard; sourceTree = "<group>"; };
+		3DB7A86421AF332700111FC3 /* OrdersListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrdersListTableViewCell.xib; sourceTree = "<group>"; };
+		3DB7A86521AF332700111FC3 /* OrdersListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListTableViewCell.swift; sourceTree = "<group>"; };
+		3DB7A86721AF332700111FC3 /* OrdersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListViewController.swift; sourceTree = "<group>"; };
+		3DB7A86921AF332700111FC3 /* OrdersListTableViewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListTableViewService.swift; sourceTree = "<group>"; };
+		3DB7A86C21AF332700111FC3 /* OrdersListStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListStore.swift; sourceTree = "<group>"; };
+		3DB7A86E21AF332700111FC3 /* NetworkArchivedOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkArchivedOrder.swift; sourceTree = "<group>"; };
+		3DB7A86F21AF332700111FC3 /* NetworkOrdersListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOrdersListResponse.swift; sourceTree = "<group>"; };
+		3DB7A87121AF332700111FC3 /* OrdersEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersEvent.swift; sourceTree = "<group>"; };
+		3DB7A87321AF332700111FC3 /* OrdersNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersNetworkService.swift; sourceTree = "<group>"; };
 		65483C0664BF4D9DB06C7E97 /* Pods_Hookers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hookers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8BFC01B2ADE6DA155DE0A9 /* Pods-Hookers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hookers.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hookers/Pods-Hookers.release.xcconfig"; sourceTree = "<group>"; };
 		9870D867D5643ECCD506821C /* Pods-Hookers-HookersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hookers-HookersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hookers-HookersTests/Pods-Hookers-HookersTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -362,120 +360,119 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D772BE0219E2B7500B677E9 /* Orders List */ = {
+		3DB7A85B21AF332700111FC3 /* Orders List */ = {
 			isa = PBXGroup;
 			children = (
-				3DC07EAF21A0E37E00B03E04 /* Infastructure Layer */,
-				3DC07EAA21A0E23B00B03E04 /* Domain Layer */,
-				3D772BE1219E2B7500B677E9 /* Application Layer */,
-				3D772BE4219E2B7500B677E9 /* UI Layer */,
+				3DB7A85C21AF332700111FC3 /* Application Layer */,
+				3DB7A85F21AF332700111FC3 /* UI Layer */,
+				3DB7A86A21AF332700111FC3 /* Domain Layer */,
+				3DB7A87221AF332700111FC3 /* Infastructure Layer */,
 			);
 			path = "Orders List";
 			sourceTree = "<group>";
 		};
-		3D772BE1219E2B7500B677E9 /* Application Layer */ = {
+		3DB7A85C21AF332700111FC3 /* Application Layer */ = {
 			isa = PBXGroup;
 			children = (
-				3D772BE2219E2B7500B677E9 /* Coordinators */,
+				3DB7A85D21AF332700111FC3 /* Coordinators */,
 			);
 			path = "Application Layer";
 			sourceTree = "<group>";
 		};
-		3D772BE2219E2B7500B677E9 /* Coordinators */ = {
+		3DB7A85D21AF332700111FC3 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				3D772BE3219E2B7500B677E9 /* OrdersListCoordinator.swift */,
+				3DB7A85E21AF332700111FC3 /* OrdersListCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		3D772BE4219E2B7500B677E9 /* UI Layer */ = {
+		3DB7A85F21AF332700111FC3 /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
-				3D772BE5219E2B7500B677E9 /* Storyboards */,
-				3D772BE8219E2B7500B677E9 /* Cells */,
-				3D772BEB219E2B7500B677E9 /* View Controllers  */,
-				3D772BEE219E2B7500B677E9 /* Services */,
+				3DB7A86021AF332700111FC3 /* Storyboards */,
+				3DB7A86321AF332700111FC3 /* Cells */,
+				3DB7A86621AF332700111FC3 /* View Controllers  */,
+				3DB7A86821AF332700111FC3 /* Services */,
 			);
 			path = "UI Layer";
 			sourceTree = "<group>";
 		};
-		3D772BE5219E2B7500B677E9 /* Storyboards */ = {
+		3DB7A86021AF332700111FC3 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				3D772BE7219E2B7500B677E9 /* OrdersList.storyboard */,
-				3D772BE6219E2B7500B677E9 /* UIStoryboards+OrdersList.swift */,
+				3DB7A86121AF332700111FC3 /* UIStoryboards+OrdersList.swift */,
+				3DB7A86221AF332700111FC3 /* OrdersList.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		3D772BE8219E2B7500B677E9 /* Cells */ = {
+		3DB7A86321AF332700111FC3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				3D772BEA219E2B7500B677E9 /* OrdersListTableViewCell.xib */,
-				3D772BE9219E2B7500B677E9 /* OrdersListTableViewCell.swift */,
+				3DB7A86421AF332700111FC3 /* OrdersListTableViewCell.xib */,
+				3DB7A86521AF332700111FC3 /* OrdersListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		3D772BEB219E2B7500B677E9 /* View Controllers  */ = {
+		3DB7A86621AF332700111FC3 /* View Controllers  */ = {
 			isa = PBXGroup;
 			children = (
-				3D772BED219E2B7500B677E9 /* OrdersListViewController.swift */,
-				3D772BEC219E2B7500B677E9 /* OrderDetailViewController.swift */,
+				3DB7A86721AF332700111FC3 /* OrdersListViewController.swift */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
 		};
-		3D772BEE219E2B7500B677E9 /* Services */ = {
+		3DB7A86821AF332700111FC3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3D772BEF219E2B7500B677E9 /* OrdersListTableViewService.swift */,
+				3DB7A86921AF332700111FC3 /* OrdersListTableViewService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		3DC07EAA21A0E23B00B03E04 /* Domain Layer */ = {
+		3DB7A86A21AF332700111FC3 /* Domain Layer */ = {
 			isa = PBXGroup;
 			children = (
-				3DC07EB621A19ACB00B03E04 /* ResponseModels */,
-				3DC07EAB21A0E25D00B03E04 /* Stores */,
-				3DC07EB221A0E50700B03E04 /* Events */,
+				3DB7A86B21AF332700111FC3 /* Stores */,
+				3DB7A86D21AF332700111FC3 /* ResponseModels */,
+				3DB7A87021AF332700111FC3 /* Events */,
 			);
 			path = "Domain Layer";
 			sourceTree = "<group>";
 		};
-		3DC07EAB21A0E25D00B03E04 /* Stores */ = {
+		3DB7A86B21AF332700111FC3 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				3DC07EAC21A0E27500B03E04 /* OrdersListStore.swift */,
+				3DB7A86C21AF332700111FC3 /* OrdersListStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
 		};
-		3DC07EAF21A0E37E00B03E04 /* Infastructure Layer */ = {
+		3DB7A86D21AF332700111FC3 /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
-				3DC07EB021A0E39C00B03E04 /* OrdersNetworkService.swift */,
+				3DB7A86E21AF332700111FC3 /* NetworkArchivedOrder.swift */,
+				3DB7A86F21AF332700111FC3 /* NetworkOrdersListResponse.swift */,
 			);
-			path = "Infastructure Layer";
+			path = ResponseModels;
 			sourceTree = "<group>";
 		};
-		3DC07EB221A0E50700B03E04 /* Events */ = {
+		3DB7A87021AF332700111FC3 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				3DC07EB321A0E52900B03E04 /* OrdersEvent.swift */,
+				3DB7A87121AF332700111FC3 /* OrdersEvent.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
 		};
-		3DC07EB621A19ACB00B03E04 /* ResponseModels */ = {
+		3DB7A87221AF332700111FC3 /* Infastructure Layer */ = {
 			isa = PBXGroup;
 			children = (
-				3DC07EB721A19B1600B03E04 /* NetworkOrder.swift */,
-				3DC07EB921A19D0D00B03E04 /* NetworkOrdersListResponse.swift */,
+				3DB7A87321AF332700111FC3 /* OrdersNetworkService.swift */,
 			);
-			path = ResponseModels;
+			path = "Infastructure Layer";
 			sourceTree = "<group>";
 		};
 		74FAA22AE6C3B2C0B75C3ACD /* Frameworks */ = {
@@ -1114,7 +1111,7 @@
 		EDD668EB215A6AF7004DAB67 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				3D772BE0219E2B7500B677E9 /* Orders List */,
+				3DB7A85B21AF332700111FC3 /* Orders List */,
 				EDD668EC215A6B21004DAB67 /* Restaurants */,
 				EDD668C9215A3C02004DAB67 /* Main */,
 			);
@@ -1274,7 +1271,6 @@
 				ED02C23C21594D69000A882B /* Frameworks */,
 				ED02C23D21594D69000A882B /* Resources */,
 				47D6C0179BA3DAC6EF8B4FE3 /* [CP] Embed Pods Frameworks */,
-				B3B5EF4081A144EE930BEB91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1294,7 +1290,6 @@
 				ED02C25321594D6B000A882B /* Frameworks */,
 				ED02C25421594D6B000A882B /* Resources */,
 				228B4D2344B946ADDB86E8B5 /* [CP] Embed Pods Frameworks */,
-				D0975334D926729BD1CFF306 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1353,15 +1348,15 @@
 			files = (
 				EDFE7A86215E98CB00FC9D24 /* RestaurantTableViewCell.xib in Resources */,
 				ED02C25021594D6B000A882B /* LaunchScreen.storyboard in Resources */,
+				3DB7A87621AF332700111FC3 /* OrdersList.storyboard in Resources */,
 				ED8EA8A021711F3700369DAB /* OrderItemTableViewCell.xib in Resources */,
 				EDD668F2215A7CD3004DAB67 /* Restaurants.storyboard in Resources */,
-				3D772BF6219E2B7500B677E9 /* OrdersListTableViewCell.xib in Resources */,
 				EDFE7A8D2161095B00FC9D24 /* CircleImageCollectionViewCell.xib in Resources */,
-				3D772BF4219E2B7500B677E9 /* OrdersList.storyboard in Resources */,
 				EDD668E1215A3C02004DAB67 /* Main.storyboard in Resources */,
 				ED47B98B217E59B5000C7675 /* Assets.xcassets in Resources */,
 				EDBE58A021A18F1A004D3725 /* SegmentedControlHeaderView.xib in Resources */,
 				ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */,
+				3DB7A87721AF332700111FC3 /* OrdersListTableViewCell.xib in Resources */,
 				ED8EA8A9217665DE00369DAB /* HookerMasterCollectionViewCell.xib in Resources */,
 				EDE2A042216E729800FF84E6 /* MixListCollectionViewCell.xib in Resources */,
 				ED5047F9216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib in Resources */,
@@ -1442,36 +1437,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B3B5EF4081A144EE930BEB91 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hookers/Pods-Hookers-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0975334D926729BD1CFF306 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hookers-HookersTests/Pods-Hookers-HookersTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F23BF72D49A1B072AF61B3CC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1499,8 +1464,6 @@
 			files = (
 				ED5049FC216BD45000E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.swift in Sources */,
 				ED8EA8A42172350500369DAB /* OrderInfoViewController.swift in Sources */,
-				3D772BF5219E2B7500B677E9 /* OrdersListTableViewCell.swift in Sources */,
-				3D772BF7219E2B7500B677E9 /* OrderDetailViewController.swift in Sources */,
 				EDD668C4215A3362004DAB67 /* CoreDataModelConvertible.swift in Sources */,
 				ED17ACD02187C677005B7125 /* ApplicationAlert.swift in Sources */,
 				EDD6687621595631004DAB67 /* String.swift in Sources */,
@@ -1512,7 +1475,6 @@
 				ED128A40217D039100C2062D /* ConfirmOrderViewController.swift in Sources */,
 				ED9BD3D5218ECD920092B13A /* HookahOrder.swift in Sources */,
 				ED17ACCF2187C677005B7125 /* Alert.swift in Sources */,
-				3DC07EB121A0E39C00B03E04 /* OrdersNetworkService.swift in Sources */,
 				EDD6686C21595631004DAB67 /* UUID.swift in Sources */,
 				ED48CA2121825C4600CB26B3 /* NetworkResponse.swift in Sources */,
 				EDFE7A8C2161095B00FC9D24 /* CircleImageCollectionViewCell.swift in Sources */,
@@ -1523,7 +1485,6 @@
 				ED47B989217E4BD3000C7675 /* OrderModel.swift in Sources */,
 				EDD668C1215A3362004DAB67 /* FetchRequest.swift in Sources */,
 				ED17ACD22187C677005B7125 /* SpinnerPresenting.swift in Sources */,
-				3DC07EBA21A19D0D00B03E04 /* NetworkOrdersListResponse.swift in Sources */,
 				ED2565DF218A249D0077955B /* HookahMastersListResponse.swift in Sources */,
 				ED3A458E2167F03F0078B673 /* UIViewController.swift in Sources */,
 				EDD6687521595631004DAB67 /* String+Shared.swift in Sources */,
@@ -1542,6 +1503,8 @@
 				EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */,
 				ED48CA2A2182612400CB26B3 /* RestaurantNetworkService.swift in Sources */,
 				ED3A458B2167E46A0078B673 /* RestaurantInfoViewController.swift in Sources */,
+				3DB7A87E21AF332700111FC3 /* OrdersEvent.swift in Sources */,
+				3DB7A87B21AF332700111FC3 /* OrdersListStore.swift in Sources */,
 				EDD6686221595631004DAB67 /* Array.swift in Sources */,
 				ED128A3E217B51F200C2062D /* DisplayableRestaurant.swift in Sources */,
 				EDD6686321595631004DAB67 /* Collection.swift in Sources */,
@@ -1553,21 +1516,20 @@
 				ED128A25217A6D8100C2062D /* DarkThemeDesignStyleGuide.swift in Sources */,
 				EDD6686121595631004DAB67 /* UIView.swift in Sources */,
 				ED8EA8A8217665DE00369DAB /* HookerMasterCollectionViewCell.swift in Sources */,
-				3D772BF9219E2B7500B677E9 /* OrdersListTableViewService.swift in Sources */,
+				3DB7A87A21AF332700111FC3 /* OrdersListTableViewService.swift in Sources */,
 				EDE2A03D216E6F8E00FF84E6 /* CategoryCollectionViewService.swift in Sources */,
-				3D772BF3219E2B7500B677E9 /* UIStoryboards+OrdersList.swift in Sources */,
 				EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */,
 				EDD668A0215A2F0F004DAB67 /* CoordinatingContext.swift in Sources */,
 				EDD6690C215BA640004DAB67 /* UITableView+Reusable.swift in Sources */,
-				3D772BF2219E2B7500B677E9 /* OrdersListCoordinator.swift in Sources */,
 				EDD668F5215A7CFC004DAB67 /* RestaurantsListViewController.swift in Sources */,
 				EDD6687021595631004DAB67 /* UIDevice.swift in Sources */,
 				EDD668B1215A2FD9004DAB67 /* Result.swift in Sources */,
 				ED9BD3E4218F5ECF0092B13A /* NetworkErrorHandling.swift in Sources */,
 				ED17ACA72184C778005B7125 /* HookahMasterTableViewCell.swift in Sources */,
+				3DB7A87C21AF332700111FC3 /* NetworkArchivedOrder.swift in Sources */,
 				EDD668EF215A7C41004DAB67 /* UIStoryboard+Restaurants.swift in Sources */,
-				3DC07EB821A19B1600B03E04 /* NetworkOrder.swift in Sources */,
 				EDFE7A91216117C800FC9D24 /* RestaurantsEvent.swift in Sources */,
+				3DB7A87F21AF332700111FC3 /* OrdersNetworkService.swift in Sources */,
 				EDD6686721595631004DAB67 /* KeyedDecodingContainer.swift in Sources */,
 				ED17ACAA21864D64005B7125 /* Executor.swift in Sources */,
 				ED8EA89F21711F3700369DAB /* OrderItemTableViewCell.swift in Sources */,
@@ -1575,14 +1537,16 @@
 				EDD6687321595631004DAB67 /* UIImage.swift in Sources */,
 				EDD6686A21595631004DAB67 /* UIUserNotificationType.swift in Sources */,
 				EDD6685E21595631004DAB67 /* UIScrollView.swift in Sources */,
+				3DB7A87D21AF332700111FC3 /* NetworkOrdersListResponse.swift in Sources */,
 				ED2BA26A216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift in Sources */,
 				ED48CA322183BF4300CB26B3 /* DisplayableRestaurantListItem.swift in Sources */,
+				3DB7A87821AF332700111FC3 /* OrdersListTableViewCell.swift in Sources */,
 				EDBE5896218F626B004D3725 /* BaseNetworkService.swift in Sources */,
 				EDD6686021595631004DAB67 /* Date.swift in Sources */,
 				EDD668C8215A3362004DAB67 /* DataBaseService.swift in Sources */,
 				EDD6686421595631004DAB67 /* UIImageView+SDWebImage.swift in Sources */,
-				3D772BF8219E2B7500B677E9 /* OrdersListViewController.swift in Sources */,
 				ED47B984217E4395000C7675 /* MixCategory.swift in Sources */,
+				3DB7A87421AF332700111FC3 /* OrdersListCoordinator.swift in Sources */,
 				EDD668EA215A65BC004DAB67 /* RestaurantsCoordinator.swift in Sources */,
 				EDD668C3215A3362004DAB67 /* CoreDataStackLessThanIOS10.swift in Sources */,
 				EDFE7A85215E98CB00FC9D24 /* RestaurantTableViewCell.swift in Sources */,
@@ -1604,8 +1568,8 @@
 				EDD668E3215A3C02004DAB67 /* TabBarEmbedCoordinable.swift in Sources */,
 				ED47B980217E3138000C7675 /* HookahMix.swift in Sources */,
 				EDD6685F21595631004DAB67 /* CALayer.swift in Sources */,
+				3DB7A87521AF332700111FC3 /* UIStoryboards+OrdersList.swift in Sources */,
 				ED17ACA921864D62005B7125 /* DomainModel.swift in Sources */,
-				3DC07EAD21A0E27500B03E04 /* OrdersListStore.swift in Sources */,
 				ED02C24B21594D69000A882B /* Hookers.xcdatamodeld in Sources */,
 				EDD668AF215A2FD9004DAB67 /* Dispatcher.swift in Sources */,
 				EDBE5895218F626B004D3725 /* HTTPStatusCode.swift in Sources */,
@@ -1619,6 +1583,7 @@
 				EDD668C2215A3362004DAB67 /* CoreDataDBService.swift in Sources */,
 				ED02C24321594D69000A882B /* AppDelegate.swift in Sources */,
 				ED128A27217A6D8100C2062D /* DesignStyleGuideProviding.swift in Sources */,
+				3DB7A87921AF332700111FC3 /* OrdersListViewController.swift in Sources */,
 				ED9BD3E3218F5ECF0092B13A /* GeneralNetworkPresentingError.swift in Sources */,
 				ED47B98D217E5A09000C7675 /* HookahMaster.swift in Sources */,
 				EDFE7A932161227A00FC9D24 /* HookahMenuViewController.swift in Sources */,
@@ -1630,7 +1595,6 @@
 				EDCA5F93215961280079CFBF /* Storyboard+Hookers.swift in Sources */,
 				EDBE5897218F626B004D3725 /* NetworkRequestExecutor.swift in Sources */,
 				ED9BD3DA218EE0D90092B13A /* HookahOrderResponse.swift in Sources */,
-				3DC07EB421A0E52900B03E04 /* OrdersEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1794,7 +1758,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7AL6AYBK23;
+				DEVELOPMENT_TEAM = 23ZH6RDVXA;
 				INFOPLIST_FILE = Hookers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1814,7 +1778,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7AL6AYBK23;
+				DEVELOPMENT_TEAM = 23ZH6RDVXA;
 				INFOPLIST_FILE = Hookers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

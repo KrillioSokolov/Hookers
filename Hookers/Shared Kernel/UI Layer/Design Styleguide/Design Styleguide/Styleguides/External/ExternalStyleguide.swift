@@ -61,4 +61,11 @@ public protocol FontStyleGuide: class {
 }
 
 @objc
-public protocol ExternalStyleguide: ColorStyleGuide, FontStyleGuide {}
+public protocol LayerStyleGuide: class {
+    
+    var cornerRadius: CGFloat { get }
+    
+}
+
+@objc
+public protocol ExternalStyleguide: ColorStyleGuide, FontStyleGuide, LayerStyleGuide {}

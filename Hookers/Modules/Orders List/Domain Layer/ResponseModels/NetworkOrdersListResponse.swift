@@ -12,7 +12,7 @@ struct NetworkOrdersListResponse: Decodable {
     
     struct Data: Decodable {
         
-        let ordersList: [NetworkOrder]
+        let ordersList: [NetworkArchivedOrder]
         
     }
     

@@ -19,16 +19,10 @@ struct OrdersListStoreStateChange: OptionSet, DataStateChange {
 
 final class OrdersListStore: DomainModel {
     
-    let networkService: OrdersNetwork
-    let dispatcher: Dispatcher
+    private(set) var networkService: OrdersNetwork
+    private(set) var dispatcher: Dispatcher
     
-    private(set) var orders: [NetworkOrder]?
-//    private(set) var hookahMenuData: HookahMenuResponse.Data?
-//    private(set) var hookahMastersData: HookahMastersListResponse.Data?
-//    private(set) var hookahOrderResponseData: HookahOrderResponse.Data?
-    
-//    private(set) var orderedMixes: [HookahMix] = []
-    
+    private(set) var orders: [NetworkArchivedOrder]?
     private(set) var isLoading = false
     
     init(networkService: OrdersNetwork, dispatcher: Dispatcher) {
@@ -44,6 +38,7 @@ extension OrdersListStore {
         startLoading()
 
         taskDispatcher.dispatch {
+            //CS: TODO: change testing ("3" - userId) on variable value
             self.networkService.getOrdersList(with: "3", completion: { (networkResponse, ordersListResponse) in
                 self.changeDataStateOf([.orders, .isLoadingState] as OrdersListStoreStateChange, work: {
                     self.isLoading = false

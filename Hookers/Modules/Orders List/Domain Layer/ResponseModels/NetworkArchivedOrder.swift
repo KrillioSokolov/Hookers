@@ -8,14 +8,7 @@
 
 import Foundation
 
-struct NetworkOrder: Decodable {
-    
-    struct NetworkOrderHookah: Decodable {
-        
-        let name: String
-        let mixId: String
-        
-    }
+struct NetworkArchivedOrder: Decodable {
     
     let clientName: String
     let phoneNumber: String
@@ -23,7 +16,7 @@ struct NetworkOrder: Decodable {
     let orderId: String
     let dueDate: String
     let condition: String
-    let hookahs: [NetworkOrderHookah]
+    let hookahs: [HookahMix]
     let clientId: String
     let restaurantId: String
     let peopleCount: String
@@ -34,13 +27,6 @@ struct NetworkOrder: Decodable {
     let hookahMasterImageURL: String
     let restaurantImageURL: String
     let restaurantName: String
-    
-    
-//    static func makeTestOrders() -> [NetworkOrder] {
-//        let order1 = NetworkOrder(clientName: "Name", phoneNumber: "", hookahMasterId: "", orderId: "", dueDate: "", condition: "", hookahs: [""], clientId: "", restaurantId: "", peopleCount: "", payment: "", amount: "", tableNumber: "")
-//        
-//        return [order1]
-//    }
     
 }
 

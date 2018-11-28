@@ -12,7 +12,7 @@ import UIKit
 fileprivate enum OrdersListStoryboardControllerId: String {
     
     case ordersList = "OrdersListViewControllerStoryboarId"
-    case orderDetail = "OrderDetailViewControllerStoryboardId"
+    
 }
 
 extension UIStoryboard {
@@ -25,10 +25,6 @@ extension UIStoryboard {
         
         static var ordersListViewController: OrdersListViewController {
             return UIStoryboard.ordersListStoryboard.instantiateViewController(withIdentifier: OrdersListStoryboardControllerId.ordersList.rawValue) as! OrdersListViewController
-        }
-        
-        static var orderDetailViewController: OrderDetailViewController {
-            return UIStoryboard.ordersListStoryboard.instantiateViewController(withIdentifier: OrdersListStoryboardControllerId.orderDetail.rawValue) as! OrderDetailViewController
         }
         
     }

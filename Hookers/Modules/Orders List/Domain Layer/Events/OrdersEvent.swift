@@ -21,14 +21,6 @@ struct OrdersEvent {
             
         }
         
-//        struct DidChooseOrder: Event {
-//            typealias Payload = Value
-//
-//            struct Value {
-//                let order: NetworkOrder
-//            }
-//        }
-        
     }
     
 }

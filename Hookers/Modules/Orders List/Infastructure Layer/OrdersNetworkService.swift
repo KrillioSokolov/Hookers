@@ -28,7 +28,4 @@ final class OrdersNetworkService: BaseNetworkService, OrdersNetwork {
         networkService.executeRequest(endpoint: "ordersList", method: .get, parameters: parameters, headers: nil, completion: completion)
     }
     
-    
 }
-
-

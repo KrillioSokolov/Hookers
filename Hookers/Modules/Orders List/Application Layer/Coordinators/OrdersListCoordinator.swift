@@ -32,9 +32,8 @@ final class OrdersListCoordinator: TabBarEmbedCoordinator {
     override func prepareForStart() {
         super.prepareForStart()
         
-        makeOrdersStore()
+        ordersStore = makeOrdersStore()
         openOrdersListViewController()
-        register()
     }
     
     override func createFlow() -> UIViewController {
@@ -45,10 +44,10 @@ final class OrdersListCoordinator: TabBarEmbedCoordinator {
 
 extension OrdersListCoordinator {
     
-    func makeOrdersStore() {
+    func makeOrdersStore() -> OrdersListStore {
         let restaurantNetwork = OrdersNetworkService(networkService: context.networkService)
         
-        ordersStore = OrdersListStore(networkService: restaurantNetwork, dispatcher: context.dispatcher)
+        return OrdersListStore(networkService: restaurantNetwork, dispatcher: context.dispatcher)
     }
     
 }
@@ -66,32 +65,6 @@ extension OrdersListCoordinator {
         root = UINavigationController(rootViewController: ordersListViewController)
     }
     
-
-    
     
 }
-
-//MARK: Register Events
-extension OrdersListCoordinator {
-    
-    private func register() {
-        registerDidChooseOrder()
-    }
-    
-    //CS: TODO:
-    private func registerDidChooseOrder() {
-//        dispatcher.register(type: RestaurantsEvent.NavigationEvent.DidChooseRestaurant.self) { [weak self] result, _ in
-//
-//            switch result {
-//            case .success(let box):
-//                break
-////                self?.openRestaurantViewContoller(withRestaurantId: box.restaurantId)
-//            case .failure(_):
-//                break
-//            }
-//        }
-    }
-
-}
-
 
