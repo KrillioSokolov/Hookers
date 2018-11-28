@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		2CBA32E355CC17149F91B5C9 /* Pods_Hookers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65483C0664BF4D9DB06C7E97 /* Pods_Hookers.framework */; };
+		3DB7A87421AF332700111FC3 /* OrdersListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A85E21AF332700111FC3 /* OrdersListCoordinator.swift */; };
+		3DB7A87521AF332700111FC3 /* UIStoryboards+OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86121AF332700111FC3 /* UIStoryboards+OrdersList.swift */; };
+		3DB7A87621AF332700111FC3 /* OrdersList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A86221AF332700111FC3 /* OrdersList.storyboard */; };
+		3DB7A87721AF332700111FC3 /* OrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A86421AF332700111FC3 /* OrdersListTableViewCell.xib */; };
+		3DB7A87821AF332700111FC3 /* OrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86521AF332700111FC3 /* OrdersListTableViewCell.swift */; };
+		3DB7A87921AF332700111FC3 /* OrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86721AF332700111FC3 /* OrdersListViewController.swift */; };
+		3DB7A87A21AF332700111FC3 /* OrdersListTableViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86921AF332700111FC3 /* OrdersListTableViewService.swift */; };
+		3DB7A87B21AF332700111FC3 /* OrdersListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86C21AF332700111FC3 /* OrdersListStore.swift */; };
+		3DB7A87C21AF332700111FC3 /* NetworkArchivedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86E21AF332700111FC3 /* NetworkArchivedOrder.swift */; };
+		3DB7A87D21AF332700111FC3 /* NetworkOrdersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86F21AF332700111FC3 /* NetworkOrdersListResponse.swift */; };
+		3DB7A87E21AF332700111FC3 /* OrdersEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A87121AF332700111FC3 /* OrdersEvent.swift */; };
+		3DB7A87F21AF332700111FC3 /* OrdersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A87321AF332700111FC3 /* OrdersNetworkService.swift */; };
 		56422C50A0B2DA805FBE1DD1 /* Pods_Hookers_HookersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCB692BEF477EA6FB75884A /* Pods_Hookers_HookersTests.framework */; };
 		71A490E37C91D318A0CDBC17 /* Pods_HookersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB76549EE62251F8609EB6CF /* Pods_HookersTests.framework */; };
 		ED02C24321594D69000A882B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02C24221594D69000A882B /* AppDelegate.swift */; };
@@ -132,10 +144,6 @@
 		EDD668EF215A7C41004DAB67 /* UIStoryboard+Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD668EE215A7C41004DAB67 /* UIStoryboard+Restaurants.swift */; };
 		EDD668F2215A7CD3004DAB67 /* Restaurants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD668F1215A7CD3004DAB67 /* Restaurants.storyboard */; };
 		EDD668F5215A7CFC004DAB67 /* RestaurantsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD668F4215A7CFC004DAB67 /* RestaurantsListViewController.swift */; };
-		EDD668FB215A81BD004DAB67 /* UIStoryboards+OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD668FA215A81BD004DAB67 /* UIStoryboards+OrdersList.swift */; };
-		EDD668FD215A81ED004DAB67 /* OrdersList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD668FC215A81ED004DAB67 /* OrdersList.storyboard */; };
-		EDD668FF215A81FF004DAB67 /* OrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD668FE215A81FF004DAB67 /* OrdersListViewController.swift */; };
-		EDD66905215A83BA004DAB67 /* OrdersListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66904215A83BA004DAB67 /* OrdersListCoordinator.swift */; };
 		EDD6690A215BA640004DAB67 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66907215BA640004DAB67 /* UICollectionView+Reusable.swift */; };
 		EDD6690B215BA640004DAB67 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66908215BA640004DAB67 /* Reusable.swift */; };
 		EDD6690C215BA640004DAB67 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD66909215BA640004DAB67 /* UITableView+Reusable.swift */; };
@@ -165,6 +173,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DB7A85E21AF332700111FC3 /* OrdersListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListCoordinator.swift; sourceTree = "<group>"; };
+		3DB7A86121AF332700111FC3 /* UIStoryboards+OrdersList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboards+OrdersList.swift"; sourceTree = "<group>"; };
+		3DB7A86221AF332700111FC3 /* OrdersList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrdersList.storyboard; sourceTree = "<group>"; };
+		3DB7A86421AF332700111FC3 /* OrdersListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrdersListTableViewCell.xib; sourceTree = "<group>"; };
+		3DB7A86521AF332700111FC3 /* OrdersListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListTableViewCell.swift; sourceTree = "<group>"; };
+		3DB7A86721AF332700111FC3 /* OrdersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListViewController.swift; sourceTree = "<group>"; };
+		3DB7A86921AF332700111FC3 /* OrdersListTableViewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListTableViewService.swift; sourceTree = "<group>"; };
+		3DB7A86C21AF332700111FC3 /* OrdersListStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListStore.swift; sourceTree = "<group>"; };
+		3DB7A86E21AF332700111FC3 /* NetworkArchivedOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkArchivedOrder.swift; sourceTree = "<group>"; };
+		3DB7A86F21AF332700111FC3 /* NetworkOrdersListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOrdersListResponse.swift; sourceTree = "<group>"; };
+		3DB7A87121AF332700111FC3 /* OrdersEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersEvent.swift; sourceTree = "<group>"; };
+		3DB7A87321AF332700111FC3 /* OrdersNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersNetworkService.swift; sourceTree = "<group>"; };
 		65483C0664BF4D9DB06C7E97 /* Pods_Hookers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hookers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8BFC01B2ADE6DA155DE0A9 /* Pods-Hookers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hookers.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hookers/Pods-Hookers.release.xcconfig"; sourceTree = "<group>"; };
 		9870D867D5643ECCD506821C /* Pods-Hookers-HookersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hookers-HookersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hookers-HookersTests/Pods-Hookers-HookersTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -300,10 +320,6 @@
 		EDD668EE215A7C41004DAB67 /* UIStoryboard+Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Restaurants.swift"; sourceTree = "<group>"; };
 		EDD668F1215A7CD3004DAB67 /* Restaurants.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Restaurants.storyboard; sourceTree = "<group>"; };
 		EDD668F4215A7CFC004DAB67 /* RestaurantsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsListViewController.swift; sourceTree = "<group>"; };
-		EDD668FA215A81BD004DAB67 /* UIStoryboards+OrdersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboards+OrdersList.swift"; sourceTree = "<group>"; };
-		EDD668FC215A81ED004DAB67 /* OrdersList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrdersList.storyboard; sourceTree = "<group>"; };
-		EDD668FE215A81FF004DAB67 /* OrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewController.swift; sourceTree = "<group>"; };
-		EDD66904215A83BA004DAB67 /* OrdersListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListCoordinator.swift; sourceTree = "<group>"; };
 		EDD66907215BA640004DAB67 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
 		EDD66908215BA640004DAB67 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		EDD66909215BA640004DAB67 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
@@ -344,6 +360,121 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DB7A85B21AF332700111FC3 /* Orders List */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A85C21AF332700111FC3 /* Application Layer */,
+				3DB7A85F21AF332700111FC3 /* UI Layer */,
+				3DB7A86A21AF332700111FC3 /* Domain Layer */,
+				3DB7A87221AF332700111FC3 /* Infastructure Layer */,
+			);
+			path = "Orders List";
+			sourceTree = "<group>";
+		};
+		3DB7A85C21AF332700111FC3 /* Application Layer */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A85D21AF332700111FC3 /* Coordinators */,
+			);
+			path = "Application Layer";
+			sourceTree = "<group>";
+		};
+		3DB7A85D21AF332700111FC3 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A85E21AF332700111FC3 /* OrdersListCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		3DB7A85F21AF332700111FC3 /* UI Layer */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A86021AF332700111FC3 /* Storyboards */,
+				3DB7A86321AF332700111FC3 /* Cells */,
+				3DB7A86621AF332700111FC3 /* View Controllers  */,
+				3DB7A86821AF332700111FC3 /* Services */,
+			);
+			path = "UI Layer";
+			sourceTree = "<group>";
+		};
+		3DB7A86021AF332700111FC3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A86121AF332700111FC3 /* UIStoryboards+OrdersList.swift */,
+				3DB7A86221AF332700111FC3 /* OrdersList.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3DB7A86321AF332700111FC3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A86421AF332700111FC3 /* OrdersListTableViewCell.xib */,
+				3DB7A86521AF332700111FC3 /* OrdersListTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3DB7A86621AF332700111FC3 /* View Controllers  */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A86721AF332700111FC3 /* OrdersListViewController.swift */,
+			);
+			path = "View Controllers ";
+			sourceTree = "<group>";
+		};
+		3DB7A86821AF332700111FC3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A86921AF332700111FC3 /* OrdersListTableViewService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3DB7A86A21AF332700111FC3 /* Domain Layer */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A86B21AF332700111FC3 /* Stores */,
+				3DB7A86D21AF332700111FC3 /* ResponseModels */,
+				3DB7A87021AF332700111FC3 /* Events */,
+			);
+			path = "Domain Layer";
+			sourceTree = "<group>";
+		};
+		3DB7A86B21AF332700111FC3 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A86C21AF332700111FC3 /* OrdersListStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		3DB7A86D21AF332700111FC3 /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A86E21AF332700111FC3 /* NetworkArchivedOrder.swift */,
+				3DB7A86F21AF332700111FC3 /* NetworkOrdersListResponse.swift */,
+			);
+			path = ResponseModels;
+			sourceTree = "<group>";
+		};
+		3DB7A87021AF332700111FC3 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A87121AF332700111FC3 /* OrdersEvent.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		3DB7A87221AF332700111FC3 /* Infastructure Layer */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A87321AF332700111FC3 /* OrdersNetworkService.swift */,
+			);
+			path = "Infastructure Layer";
+			sourceTree = "<group>";
+		};
 		74FAA22AE6C3B2C0B75C3ACD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,7 +1111,7 @@
 		EDD668EB215A6AF7004DAB67 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				EDD668F6215A8132004DAB67 /* Orders List */,
+				3DB7A85B21AF332700111FC3 /* Orders List */,
 				EDD668EC215A6B21004DAB67 /* Restaurants */,
 				EDD668C9215A3C02004DAB67 /* Main */,
 			);
@@ -1032,41 +1163,6 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		EDD668F6215A8132004DAB67 /* Orders List */ = {
-			isa = PBXGroup;
-			children = (
-				EDD66902215A8340004DAB67 /* Application Layer */,
-				EDD668F7215A814C004DAB67 /* UI Layer */,
-			);
-			path = "Orders List";
-			sourceTree = "<group>";
-		};
-		EDD668F7215A814C004DAB67 /* UI Layer */ = {
-			isa = PBXGroup;
-			children = (
-				EDD668F9215A815C004DAB67 /* Storyboards */,
-				EDD668F8215A8154004DAB67 /* View Controllers  */,
-			);
-			path = "UI Layer";
-			sourceTree = "<group>";
-		};
-		EDD668F8215A8154004DAB67 /* View Controllers  */ = {
-			isa = PBXGroup;
-			children = (
-				EDD668FE215A81FF004DAB67 /* OrdersListViewController.swift */,
-			);
-			path = "View Controllers ";
-			sourceTree = "<group>";
-		};
-		EDD668F9215A815C004DAB67 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				EDD668FA215A81BD004DAB67 /* UIStoryboards+OrdersList.swift */,
-				EDD668FC215A81ED004DAB67 /* OrdersList.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		EDD66900215A8326004DAB67 /* Application Layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1079,22 +1175,6 @@
 			isa = PBXGroup;
 			children = (
 				EDD668E9215A65BC004DAB67 /* RestaurantsCoordinator.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		EDD66902215A8340004DAB67 /* Application Layer */ = {
-			isa = PBXGroup;
-			children = (
-				EDD66903215A834F004DAB67 /* Coordinators */,
-			);
-			path = "Application Layer";
-			sourceTree = "<group>";
-		};
-		EDD66903215A834F004DAB67 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				EDD66904215A83BA004DAB67 /* OrdersListCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1191,7 +1271,6 @@
 				ED02C23C21594D69000A882B /* Frameworks */,
 				ED02C23D21594D69000A882B /* Resources */,
 				47D6C0179BA3DAC6EF8B4FE3 /* [CP] Embed Pods Frameworks */,
-				B3B5EF4081A144EE930BEB91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1211,7 +1290,6 @@
 				ED02C25321594D6B000A882B /* Frameworks */,
 				ED02C25421594D6B000A882B /* Resources */,
 				228B4D2344B946ADDB86E8B5 /* [CP] Embed Pods Frameworks */,
-				D0975334D926729BD1CFF306 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1270,6 +1348,7 @@
 			files = (
 				EDFE7A86215E98CB00FC9D24 /* RestaurantTableViewCell.xib in Resources */,
 				ED02C25021594D6B000A882B /* LaunchScreen.storyboard in Resources */,
+				3DB7A87621AF332700111FC3 /* OrdersList.storyboard in Resources */,
 				ED8EA8A021711F3700369DAB /* OrderItemTableViewCell.xib in Resources */,
 				EDD668F2215A7CD3004DAB67 /* Restaurants.storyboard in Resources */,
 				EDFE7A8D2161095B00FC9D24 /* CircleImageCollectionViewCell.xib in Resources */,
@@ -1277,8 +1356,8 @@
 				ED47B98B217E59B5000C7675 /* Assets.xcassets in Resources */,
 				EDBE58A021A18F1A004D3725 /* SegmentedControlHeaderView.xib in Resources */,
 				ED2BA26B216CC55A0026EC64 /* MixCategoryCollectionViewCell.xib in Resources */,
+				3DB7A87721AF332700111FC3 /* OrdersListTableViewCell.xib in Resources */,
 				ED8EA8A9217665DE00369DAB /* HookerMasterCollectionViewCell.xib in Resources */,
-				EDD668FD215A81ED004DAB67 /* OrdersList.storyboard in Resources */,
 				EDE2A042216E729800FF84E6 /* MixListCollectionViewCell.xib in Resources */,
 				ED5047F9216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib in Resources */,
 				EDFE7A992162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib in Resources */,
@@ -1358,36 +1437,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B3B5EF4081A144EE930BEB91 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hookers/Pods-Hookers-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0975334D926729BD1CFF306 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hookers-HookersTests/Pods-Hookers-HookersTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F23BF72D49A1B072AF61B3CC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1454,6 +1503,8 @@
 				EDCA5F8D21595F0B0079CFBF /* DataStateLocking.swift in Sources */,
 				ED48CA2A2182612400CB26B3 /* RestaurantNetworkService.swift in Sources */,
 				ED3A458B2167E46A0078B673 /* RestaurantInfoViewController.swift in Sources */,
+				3DB7A87E21AF332700111FC3 /* OrdersEvent.swift in Sources */,
+				3DB7A87B21AF332700111FC3 /* OrdersListStore.swift in Sources */,
 				EDD6686221595631004DAB67 /* Array.swift in Sources */,
 				ED128A3E217B51F200C2062D /* DisplayableRestaurant.swift in Sources */,
 				EDD6686321595631004DAB67 /* Collection.swift in Sources */,
@@ -1465,6 +1516,7 @@
 				ED128A25217A6D8100C2062D /* DarkThemeDesignStyleGuide.swift in Sources */,
 				EDD6686121595631004DAB67 /* UIView.swift in Sources */,
 				ED8EA8A8217665DE00369DAB /* HookerMasterCollectionViewCell.swift in Sources */,
+				3DB7A87A21AF332700111FC3 /* OrdersListTableViewService.swift in Sources */,
 				EDE2A03D216E6F8E00FF84E6 /* CategoryCollectionViewService.swift in Sources */,
 				EDCA5452215958B40079CFBF /* AppCoordinator.swift in Sources */,
 				EDD668A0215A2F0F004DAB67 /* CoordinatingContext.swift in Sources */,
@@ -1473,11 +1525,11 @@
 				EDD6687021595631004DAB67 /* UIDevice.swift in Sources */,
 				EDD668B1215A2FD9004DAB67 /* Result.swift in Sources */,
 				ED9BD3E4218F5ECF0092B13A /* NetworkErrorHandling.swift in Sources */,
-				EDD668FB215A81BD004DAB67 /* UIStoryboards+OrdersList.swift in Sources */,
 				ED17ACA72184C778005B7125 /* HookahMasterTableViewCell.swift in Sources */,
-				EDD668FF215A81FF004DAB67 /* OrdersListViewController.swift in Sources */,
+				3DB7A87C21AF332700111FC3 /* NetworkArchivedOrder.swift in Sources */,
 				EDD668EF215A7C41004DAB67 /* UIStoryboard+Restaurants.swift in Sources */,
 				EDFE7A91216117C800FC9D24 /* RestaurantsEvent.swift in Sources */,
+				3DB7A87F21AF332700111FC3 /* OrdersNetworkService.swift in Sources */,
 				EDD6686721595631004DAB67 /* KeyedDecodingContainer.swift in Sources */,
 				ED17ACAA21864D64005B7125 /* Executor.swift in Sources */,
 				ED8EA89F21711F3700369DAB /* OrderItemTableViewCell.swift in Sources */,
@@ -1485,13 +1537,16 @@
 				EDD6687321595631004DAB67 /* UIImage.swift in Sources */,
 				EDD6686A21595631004DAB67 /* UIUserNotificationType.swift in Sources */,
 				EDD6685E21595631004DAB67 /* UIScrollView.swift in Sources */,
+				3DB7A87D21AF332700111FC3 /* NetworkOrdersListResponse.swift in Sources */,
 				ED2BA26A216CC55A0026EC64 /* MixCategoryCollectionViewCell.swift in Sources */,
 				ED48CA322183BF4300CB26B3 /* DisplayableRestaurantListItem.swift in Sources */,
+				3DB7A87821AF332700111FC3 /* OrdersListTableViewCell.swift in Sources */,
 				EDBE5896218F626B004D3725 /* BaseNetworkService.swift in Sources */,
 				EDD6686021595631004DAB67 /* Date.swift in Sources */,
 				EDD668C8215A3362004DAB67 /* DataBaseService.swift in Sources */,
 				EDD6686421595631004DAB67 /* UIImageView+SDWebImage.swift in Sources */,
 				ED47B984217E4395000C7675 /* MixCategory.swift in Sources */,
+				3DB7A87421AF332700111FC3 /* OrdersListCoordinator.swift in Sources */,
 				EDD668EA215A65BC004DAB67 /* RestaurantsCoordinator.swift in Sources */,
 				EDD668C3215A3362004DAB67 /* CoreDataStackLessThanIOS10.swift in Sources */,
 				EDFE7A85215E98CB00FC9D24 /* RestaurantTableViewCell.swift in Sources */,
@@ -1513,6 +1568,7 @@
 				EDD668E3215A3C02004DAB67 /* TabBarEmbedCoordinable.swift in Sources */,
 				ED47B980217E3138000C7675 /* HookahMix.swift in Sources */,
 				EDD6685F21595631004DAB67 /* CALayer.swift in Sources */,
+				3DB7A87521AF332700111FC3 /* UIStoryboards+OrdersList.swift in Sources */,
 				ED17ACA921864D62005B7125 /* DomainModel.swift in Sources */,
 				ED02C24B21594D69000A882B /* Hookers.xcdatamodeld in Sources */,
 				EDD668AF215A2FD9004DAB67 /* Dispatcher.swift in Sources */,
@@ -1527,10 +1583,10 @@
 				EDD668C2215A3362004DAB67 /* CoreDataDBService.swift in Sources */,
 				ED02C24321594D69000A882B /* AppDelegate.swift in Sources */,
 				ED128A27217A6D8100C2062D /* DesignStyleGuideProviding.swift in Sources */,
+				3DB7A87921AF332700111FC3 /* OrdersListViewController.swift in Sources */,
 				ED9BD3E3218F5ECF0092B13A /* GeneralNetworkPresentingError.swift in Sources */,
 				ED47B98D217E5A09000C7675 /* HookahMaster.swift in Sources */,
 				EDFE7A932161227A00FC9D24 /* HookahMenuViewController.swift in Sources */,
-				EDD66905215A83BA004DAB67 /* OrdersListCoordinator.swift in Sources */,
 				ED48CA2021825B9E00CB26B3 /* NetworkConstants.swift in Sources */,
 				ED47B982217E4369000C7675 /* HookahMenuResponse.swift in Sources */,
 				ED128A2C217A6F6C00C2062D /* ExternalStyleguide.swift in Sources */,
@@ -1702,7 +1758,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7AL6AYBK23;
+				DEVELOPMENT_TEAM = 23ZH6RDVXA;
 				INFOPLIST_FILE = Hookers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1722,7 +1778,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7AL6AYBK23;
+				DEVELOPMENT_TEAM = 23ZH6RDVXA;
 				INFOPLIST_FILE = Hookers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

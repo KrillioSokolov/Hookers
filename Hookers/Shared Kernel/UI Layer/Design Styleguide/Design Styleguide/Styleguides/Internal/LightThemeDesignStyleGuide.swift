@@ -201,3 +201,13 @@ extension LightThemeDesignStyleGuide: KeyboardAppearanceStyleGuide {
     }
     
 }
+
+// MARK: - LayerStyleGuide
+
+extension LightThemeDesignStyleGuide {
+    
+    public var cornerRadius: CGFloat {
+        return 6
+    }
+    
+}

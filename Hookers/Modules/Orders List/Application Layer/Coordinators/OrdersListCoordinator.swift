@@ -11,6 +11,11 @@ import UIKit
 final class OrdersListCoordinator: TabBarEmbedCoordinator {
     
     fileprivate var root: UINavigationController!
+    fileprivate var ordersStore: OrdersListStore!
+    
+    private var dispatcher: Dispatcher {
+        return context.dispatcher
+    }
     
     init(context: CoordinatingContext) {
         let servicesImage = UIImage(named: "services")
@@ -27,9 +32,8 @@ final class OrdersListCoordinator: TabBarEmbedCoordinator {
     override func prepareForStart() {
         super.prepareForStart()
         
-        let ordersListViewController = UIStoryboard.OrdersList.ordersListViewController
-        
-        root = UINavigationController(rootViewController: ordersListViewController)
+        ordersStore = makeOrdersStore()
+        openOrdersListViewController()
     }
     
     override func createFlow() -> UIViewController {
@@ -37,3 +41,30 @@ final class OrdersListCoordinator: TabBarEmbedCoordinator {
     }
     
 }
+
+extension OrdersListCoordinator {
+    
+    func makeOrdersStore() -> OrdersListStore {
+        let restaurantNetwork = OrdersNetworkService(networkService: context.networkService)
+        
+        return OrdersListStore(networkService: restaurantNetwork, dispatcher: context.dispatcher)
+    }
+    
+}
+
+//MARK: Open View Controllers
+extension OrdersListCoordinator {
+    
+    private func openOrdersListViewController() {
+        let ordersListViewController = UIStoryboard.OrdersList.ordersListViewController
+        
+        ordersListViewController.dispatcher = context.dispatcher
+        ordersListViewController.styleguide = context.styleguide
+        ordersListViewController.ordersListStore = ordersStore
+        
+        root = UINavigationController(rootViewController: ordersListViewController)
+    }
+    
+    
+}
+

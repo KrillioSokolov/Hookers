@@ -22,8 +22,8 @@ struct RestaurantStoreStateChange: OptionSet, DataStateChange {
 
 final class RestaurantStore: DomainModel {
     
-    let networkService: RestaurantNetwork
-    let dispatcher: Dispatcher
+    private(set) var networkService: RestaurantNetwork
+    private(set) var dispatcher: Dispatcher
     
     private(set) var restaurants: [NetworkRestaurant]?
     private(set) var hookahMenuData: HookahMenuResponse.Data?

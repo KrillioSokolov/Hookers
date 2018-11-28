@@ -11,10 +11,11 @@ import Foundation
 struct NetworkConstants {
     
     static var devServerBaseURL: URL {
-        return NetworkConstants.kirillNgrokURL
+        return NetworkConstants.stasNgrokURL
     }
     static let kirillNgrokURL = URL(string: "http://46738d97.ngrok.io/")!
     static let nikaNgrokURL = URL(string: "https://a72eac1c.ngrok.io/")!
+    static let stasNgrokURL = URL(string: "https://c2510073.ngrok.io/")!
     static let localHostUrl = URL(string: "http://localhost:8081/")!
     static let prodServerURL = ""
     

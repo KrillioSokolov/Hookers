@@ -9,27 +9,80 @@
 import UIKit
 
 final class OrdersListViewController: UIViewController {
-
+    
+    @IBOutlet private weak var tableView: UITableView!
+    
+    var dispatcher: Dispatcher!
+    var styleguide: DesignStyleGuide!
+    var ordersListStore: OrdersListStore! {
+        didSet {
+            ordersListStore.addDataStateListener(self)
+        }
+    }
+    
+    private var service: OrdersListTableViewService!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        configurateTableViewService()
+        ordersListStore.getOrdersList()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupNavigationBar()
     }
-    */
 
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.barStyle = .blackTranslucent
+        navigationController?.navigationBar.barTintColor = .clear
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.title = "Мои Заказы".localized()
+    }
+    
+}
+
+//MARK: - Configurate
+extension OrdersListViewController {
+    
+    private func configurateTableViewService() {
+        service = OrdersListTableViewService(tableView: tableView)
+        service.configurate(with: styleguide)
+    }
+    
+}
+
+//MARK: - DataStateListening
+extension OrdersListViewController: DataStateListening {
+    
+    func domainModel(_ model: DomainModel, didChangeDataStateOf change: DataStateChange) {
+        DispatchQueue.updateUI {
+            self.domainModelChanged(model, didChangeDataStateOf: change)
+        }
+    }
+    
+    private func domainModelChanged(_ model: DomainModel, didChangeDataStateOf change: DataStateChange) {
+        if let change = change as? OrdersListStoreStateChange {
+            ordersListStoreStateChange(change: change)
+        }
+    }
+    
+    private func ordersListStoreStateChange(change: OrdersListStoreStateChange) {
+        if change.contains(.isLoadingState) {
+            ordersListStore.isLoading ? showSpinner() : hideSpinner()
+
+            //KS: TODO: Show/hide skeleton
+            //restaurantStore.isLoading ? addSkeletonViewController() : hideSkeletonViewController()
+        }
+
+        if change.contains(.orders) {
+            guard let orders = ordersListStore.orders else { return }
+
+            service.updateOrdersList(with: orders)
+        }
+    }
+    
 }
