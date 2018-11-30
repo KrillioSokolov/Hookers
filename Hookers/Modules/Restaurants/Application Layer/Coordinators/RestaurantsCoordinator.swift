@@ -102,6 +102,8 @@ extension RestaurantsCoordinator {
         
         let navBarOnModal: UINavigationController = UINavigationController(rootViewController: controller)
         
+        navBarOnModal.modalTransitionStyle = .crossDissolve
+        
         root.tabBarController?.tabBar.isHidden = true
         root.present(navBarOnModal, animated: true, completion: nil)
     }

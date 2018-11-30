@@ -177,6 +177,10 @@ extension DarkThemeDesignStyleGuide {
         return .black //UIColor.white.withAlphaComponent(0.1)
     }
     
+    public var glassColor: UIColor {
+        return UIColor.white.withAlphaComponent(0.15)
+    }
+    
 }
 
 extension DarkThemeDesignStyleGuide: AdditionalColorStyleGuide {

@@ -20,13 +20,12 @@ struct HookahMenuResponse: Decodable {
     let data: HookahMenuResponse.Data
     
     static func makeTestData() -> [MixCategory] {
+        let lemon = HookahMix(mixId: "", name: "Лемонный пирог", imageURL: "lemon_pie", price: Double(280), categoryId: "sour", restaurantId: "", strength: "Средняя", likes: 73, tabacco: [HookahMix.Tabacco(brand: "Fumari", sort: "")], description: "Лимонный вкус, с нотками пряностей и корицы", hookahBowl: "", filling: "")
         
-//        let lemon = HookahMix(name: "Лемонный пирог", imageURL: "lemon_pie", price: Double(280), categoryId: "sour", strength: "Средняя", likes: 73, tabacco: "Fumari", description: "Лимонный вкус, с нотками пряностей и корицы")
-//
-//        let mishki = HookahMix.init(name: "Мишки гамми", imageURL: "mishki", price: 260, categoryId: "sweet",  strength: "Средняя", likes: 41, tabacco: "Fumari", description: "Вкус любимых мармеладных мишек детства")
-//
-//        let vata = HookahMix.init(name: "Сладкая вата", imageURL: "vata", price: 180, categoryId: "sweet", strength: "Легкий", likes: 28, tabacco: "Adalia", description: "Очень легкая и сладкая вата")
-//
+        let mishki = HookahMix(mixId: "", name: "Мишки гамми", imageURL: "mishki", price: Double(280), categoryId: "sweet", restaurantId: "", strength: "Средняя", likes: 73, tabacco: [HookahMix.Tabacco(brand: "Fumari", sort: "")], description: "Вкус любимых мармеладных мишек детства", hookahBowl: "", filling: "")
+
+        let vata = HookahMix(mixId: "", name: "Сладкая вата", imageURL: "vata", price: Double(280), categoryId: "sweet", restaurantId: "", strength: "Средняя", likes: 73, tabacco: [HookahMix.Tabacco(brand: "Fumari", sort: "")], description: "Очень легкая и сладкая вата", hookahBowl: "", filling: "")
+
 //        let pinacolada = HookahMix.init(name: "Пина колада", imageURL: "pina-colada", price: 210, categoryId: "sweet",  strength: "Легкий", likes: 31, tabacco: "Afzal, Alfakher", description: "Мягкий вкус кокоса отлично сочетается с ананасовым соком")
 //
 //        let moxito = HookahMix.init(name: "Moxито", imageURL: "moxito", price: 200, categoryId: "mint",  strength: "Средний", likes: 57, tabacco: "Afzal", description: "Освежающий мохито освежит твой день")
@@ -47,28 +46,28 @@ struct HookahMenuResponse: Decodable {
 //
 //        let slivki =  HookahMix.init(name: "Клубничный десерт", imageURL: "slivki", price: 210, categoryId: "fruits",  strength: "Легкий", likes: 24, tabacco: "Serbetly", description: "Нежный как попка младенца клубничный десерт со сливками")
 //
-//
-//        let sweet = [vata, mishki, pinacolada]
-//
-//        let sour = [lemon, yagoda]
-//
+
+        let sweet = [vata, mishki]
+
+        let sour = [lemon]
+
 //        let fruits = [arbuz, slivki, jogurt]
 //
 //        let exotic = [mafin, spicedTea, cola]
 //
 //        let mint = [myataShoko, moxito]
 //
-//        let sourCat = MixCategory(categoryId: "sour", name: "Кислые", imageURL: "kisliy", mixes: sour)
-//
-//        let sweetCat = MixCategory(categoryId: "sweet", name: "Сладкие", imageURL: "sladkiy", mixes: sweet)
-//
+        let sourCat = MixCategory(categoryId: "sour", name: "Кислые", imageURL: "kisliy", mixes: sour)
+
+        let sweetCat = MixCategory(categoryId: "sweet", name: "Сладкие", imageURL: "sladkiy", mixes: sweet)
+
 //        let fruitsCat = MixCategory(categoryId: "fruits", name: "Фруктовые", imageURL: "fruktoviy", mixes: fruits)
 //
 //        let exoticCat = MixCategory(categoryId: "exotic", name: "Другие", imageURL: "exotic", mixes: exotic)
 //
 //        let mintCat = MixCategory(categoryId: "mint", name: "Мятные", imageURL: "myata", mixes: mint)
 
-        return [] //[sourCat, sweetCat, fruitsCat, mintCat, exoticCat]
+        return [sourCat, sweetCat] //, fruitsCat, mintCat, exoticCat]
         
     }
     

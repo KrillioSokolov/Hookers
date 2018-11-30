@@ -17,7 +17,7 @@ protocol HookahMastersServiceDelegate: class {
 
 final class HookahMastersCollectionViewService: NSObject  {
     
-    let size = CGSize(width: UIScreen.main.bounds.size.width/2 - 10, height: UIScreen.main.bounds.size.height/3)
+    let size = CGSize(width: UIScreen.main.bounds.size.width / 2 - 10, height: UIScreen.main.bounds.size.height / 3)
     
     var selectedHookahMaster: HookahMaster?
     var hookahMasters: [HookahMaster] = []

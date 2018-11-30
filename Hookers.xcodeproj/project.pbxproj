@@ -20,6 +20,9 @@
 		3DB7A87D21AF332700111FC3 /* NetworkOrdersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A86F21AF332700111FC3 /* NetworkOrdersListResponse.swift */; };
 		3DB7A87E21AF332700111FC3 /* OrdersEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A87121AF332700111FC3 /* OrdersEvent.swift */; };
 		3DB7A87F21AF332700111FC3 /* OrdersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A87321AF332700111FC3 /* OrdersNetworkService.swift */; };
+		3DCCEF8821AF50D800DF1E11 /* MixDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCCEF8621AF50D800DF1E11 /* MixDescriptionView.swift */; };
+		3DCCEF8921AF50D800DF1E11 /* MixDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCCEF8721AF50D800DF1E11 /* MixDescriptionView.xib */; };
+		3DCCEF8B21AF524700DF1E11 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCCEF8A21AF524600DF1E11 /* NSAttributedString.swift */; };
 		56422C50A0B2DA805FBE1DD1 /* Pods_Hookers_HookersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDCB692BEF477EA6FB75884A /* Pods_Hookers_HookersTests.framework */; };
 		71A490E37C91D318A0CDBC17 /* Pods_HookersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB76549EE62251F8609EB6CF /* Pods_HookersTests.framework */; };
 		ED02C24321594D69000A882B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02C24221594D69000A882B /* AppDelegate.swift */; };
@@ -185,6 +188,9 @@
 		3DB7A86F21AF332700111FC3 /* NetworkOrdersListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOrdersListResponse.swift; sourceTree = "<group>"; };
 		3DB7A87121AF332700111FC3 /* OrdersEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersEvent.swift; sourceTree = "<group>"; };
 		3DB7A87321AF332700111FC3 /* OrdersNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersNetworkService.swift; sourceTree = "<group>"; };
+		3DCCEF8621AF50D800DF1E11 /* MixDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixDescriptionView.swift; sourceTree = "<group>"; };
+		3DCCEF8721AF50D800DF1E11 /* MixDescriptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MixDescriptionView.xib; sourceTree = "<group>"; };
+		3DCCEF8A21AF524600DF1E11 /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		65483C0664BF4D9DB06C7E97 /* Pods_Hookers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hookers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8BFC01B2ADE6DA155DE0A9 /* Pods-Hookers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hookers.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hookers/Pods-Hookers.release.xcconfig"; sourceTree = "<group>"; };
 		9870D867D5643ECCD506821C /* Pods-Hookers-HookersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hookers-HookersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hookers-HookersTests/Pods-Hookers-HookersTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -473,6 +479,15 @@
 				3DB7A87321AF332700111FC3 /* OrdersNetworkService.swift */,
 			);
 			path = "Infastructure Layer";
+			sourceTree = "<group>";
+		};
+		3DCCEF8521AF50D800DF1E11 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DCCEF8621AF50D800DF1E11 /* MixDescriptionView.swift */,
+				3DCCEF8721AF50D800DF1E11 /* MixDescriptionView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		74FAA22AE6C3B2C0B75C3ACD /* Frameworks */ = {
@@ -975,6 +990,7 @@
 		EDD6683721595631004DAB67 /* String */ = {
 			isa = PBXGroup;
 			children = (
+				3DCCEF8A21AF524600DF1E11 /* NSAttributedString.swift */,
 				EDD6683821595631004DAB67 /* String+Shared.swift */,
 				EDD6683921595631004DAB67 /* String.swift */,
 			);
@@ -1137,6 +1153,7 @@
 				EDFE7A7D215E96C800FC9D24 /* Cells */,
 				EDD668F3215A7CDB004DAB67 /* View Controllers */,
 				EDD668F0215A7CB3004DAB67 /* Storyboards */,
+				3DCCEF8521AF50D800DF1E11 /* Views */,
 			);
 			path = "UI Layer";
 			sourceTree = "<group>";
@@ -1362,6 +1379,7 @@
 				ED5047F9216BD44F00E6C0D1 /* OrderStepsExpandedSectionTableViewHeader.xib in Resources */,
 				EDFE7A992162971C00FC9D24 /* CircleImageTableViewHeaderFooterView.xib in Resources */,
 				ED17ACA82184C778005B7125 /* HookahMasterTableViewCell.xib in Resources */,
+				3DCCEF8921AF50D800DF1E11 /* MixDescriptionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1529,6 +1547,7 @@
 				3DB7A87C21AF332700111FC3 /* NetworkArchivedOrder.swift in Sources */,
 				EDD668EF215A7C41004DAB67 /* UIStoryboard+Restaurants.swift in Sources */,
 				EDFE7A91216117C800FC9D24 /* RestaurantsEvent.swift in Sources */,
+				3DCCEF8B21AF524700DF1E11 /* NSAttributedString.swift in Sources */,
 				3DB7A87F21AF332700111FC3 /* OrdersNetworkService.swift in Sources */,
 				EDD6686721595631004DAB67 /* KeyedDecodingContainer.swift in Sources */,
 				ED17ACAA21864D64005B7125 /* Executor.swift in Sources */,
@@ -1588,6 +1607,7 @@
 				ED47B98D217E5A09000C7675 /* HookahMaster.swift in Sources */,
 				EDFE7A932161227A00FC9D24 /* HookahMenuViewController.swift in Sources */,
 				ED48CA2021825B9E00CB26B3 /* NetworkConstants.swift in Sources */,
+				3DCCEF8821AF50D800DF1E11 /* MixDescriptionView.swift in Sources */,
 				ED47B982217E4369000C7675 /* HookahMenuResponse.swift in Sources */,
 				ED128A2C217A6F6C00C2062D /* ExternalStyleguide.swift in Sources */,
 				EDD6690B215BA640004DAB67 /* Reusable.swift in Sources */,

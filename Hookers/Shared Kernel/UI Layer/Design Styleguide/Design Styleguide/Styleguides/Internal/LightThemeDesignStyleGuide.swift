@@ -176,6 +176,10 @@ extension LightThemeDesignStyleGuide {
         return UIColor(r: 240, g: 240, b: 240)
     }
     
+    public var glassColor: UIColor {
+        return UIColor.white.withAlphaComponent(0.15)
+    }
+    
 }
 
 extension LightThemeDesignStyleGuide: AdditionalColorStyleGuide {
