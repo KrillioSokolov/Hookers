@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol MixListCollectionViewCellDelegate: class {
+    
+    func didUserFlip(cell: MixListCollectionViewCell, withStatus isFlipped: Bool)
+    
+}
+
 final class MixListCollectionViewCell: UICollectionViewCell, NibReusable {
 
     @IBOutlet weak var infoButton: UIButton!
@@ -16,11 +22,9 @@ final class MixListCollectionViewCell: UICollectionViewCell, NibReusable {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var blurView: UIVisualEffectView!
-    @IBOutlet weak var infoView: UIView!
-    @IBOutlet weak var glassView: UIView!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var tabaccoLabel: UILabel!
     
+    let descriptionView = MixDescriptionView.instantiateFromNib()
+    weak var delegate: MixListCollectionViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,15 +32,30 @@ final class MixListCollectionViewCell: UICollectionViewCell, NibReusable {
         priceLabel.addDefaultSoftShadow()
         nameLabel.addDefaultSoftShadow()
         infoButton.addShadowView()
-        descriptionLabel.addDefaultSoftShadow()
-        tabaccoLabel.addDefaultSoftShadow()
-        containerView.layer.cornerRadius = 6
+
+        descriptionView.frame = contentView.bounds
+        descriptionView.isHidden = true
+        containerView.insertSubview(descriptionView, belowSubview: infoButton)
+        
+        prepareGestureRecognizers()
+    }
+    
+    private func prepareGestureRecognizers() {
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(flip(_:)))
+        
+        leftSwipe.direction = [.left]
+        contentView.addGestureRecognizer(leftSwipe)
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(flip(_:)))
+        
+        rightSwipe.direction = [.right]
+        contentView.addGestureRecognizer(rightSwipe)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        infoView.isHidden = true
+        descriptionView.isHidden = true
     }
 
     override var isHighlighted: Bool {
@@ -55,16 +74,38 @@ final class MixListCollectionViewCell: UICollectionViewCell, NibReusable {
         }
     }
     
+    // MARK: - Actions
+    
     @IBAction private func showInfo(_ sender: Any) {
-        let isHidden = infoView.isHidden
+        flip()
+    }
+    
+    @objc private func flip(_ swipe: UISwipeGestureRecognizer) {
+
+        let animationOption: UIViewAnimationOptions = swipe.direction == .left ? .transitionFlipFromRight : .transitionFlipFromLeft
+
+        flip(with: [animationOption])
+    }
+    
+    private func flip(with animateOption: UIViewAnimationOptions = .transitionFlipFromLeft) {
+        let isHidden = !descriptionView.isHidden
         
-        let animation: UIView.AnimationOptions = isHidden ? .transitionFlipFromLeft : .transitionFlipFromRight
+        let isFlipped = isHidden == false
         
-        UIView.transition(with: contentView, duration: 0.4, options: animation, animations: {
-            self.infoView.isHidden = !isHidden
+        delegate?.didUserFlip(cell: self, withStatus: isFlipped)
+        
+        UIView.transition(with: contentView, duration: 0.25, options: [animateOption], animations: {
+            self.descriptionView.isHidden = isHidden
         }, completion: nil)
     }
     
+}
+
+//MARK: - UIStyleGuideRefreshing
+extension MixListCollectionViewCell: UIStyleGuideRefreshing {
     
+    func refreshUI(withStyleguide styleguide: DesignStyleGuide) {
+        containerView.layer.cornerRadius = styleguide.cornerRadius
+    }
     
 }

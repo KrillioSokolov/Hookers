@@ -21,6 +21,7 @@ final class MixListCollectionViewService: NSObject  {
     private var mixes: [HookahMix] = []
     private weak var mixListCollectionView: UICollectionView?
     private var styleguide: DesignStyleGuide!
+    private var flippedCellsIndexPaths: [IndexPath] = []
     
     init(collectionView: UICollectionView) {
         mixListCollectionView = collectionView
@@ -37,11 +38,13 @@ final class MixListCollectionViewService: NSObject  {
     
     func updateMixes(with newMixes: [HookahMix]) {
         mixes = newMixes
+        flippedCellsIndexPaths.removeAll()
         mixListCollectionView?.reloadData()
     }
  
 }
 
+// MARK: - UICollectionViewDataSource
 extension MixListCollectionViewService: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -55,30 +58,59 @@ extension MixListCollectionViewService: UICollectionViewDelegate, UICollectionVi
         
         cell.nameLabel.text = mix.name
         cell.mixImageView.download(image: mix.imageURL, placeholderImage: UIImage(named: "default_mix"))
+        cell.descriptionView.titleLabel.text = mix.name
+        cell.descriptionView.glassView.backgroundColor = styleguide.glassColor
         cell.priceLabel.text = String(mix.price) + " " + HookahMenuViewController.Constants.grn
-        cell.descriptionLabel.text = mix.description
-        cell.glassView.backgroundColor = styleguide.glassColor
         
-        let tobacos = mix.tabacco.map({$0.brand}).joined(separator: ", ")
+        let tobacos = mix.tabacco.map({ $0.brand + "(" + $0.sort  + ")" }).joined(separator: ", ")
+
+        let descriptionStrings: [String] = [
+            "Крепкость: \(mix.strength)",
+            "В колбе: \(mix.filling ?? "")",
+            "Табаки: \(tobacos)",
+            "Описание: \(mix.description)"
+        ]
         
-        cell.tabaccoLabel.text = tobacos
+        cell.descriptionView.descriptionLabel.attributedText = NSAttributedString.make(from: descriptionStrings, font: styleguide.regularFont(ofSize: 13))
+        cell.delegate = self
+        cell.refreshUI(withStyleguide: styleguide)
         
+        if flippedCellsIndexPaths.contains(indexPath) {
+            cell.descriptionView.isHidden = false
+        }
+
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.serviceDidChoseMix(self, chosenMix: mixes[indexPath.row])
     }
     
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension MixListCollectionViewService: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let size = CGSize(width: UIScreen.main.bounds.size.width/2 - 10, height: UIScreen.main.bounds.size.height/3)
+        let size = CGSize(width: UIScreen.main.bounds.size.width / 2 - 10, height: UIScreen.main.bounds.size.height / 3)
         
         return size
+    }
+    
+}
+
+// MARK: - MixListCollectionViewCellDelegate
+extension MixListCollectionViewService: MixListCollectionViewCellDelegate {
+    
+    func didUserFlip(cell: MixListCollectionViewCell, withStatus isFlipped: Bool) {
+        guard let indexPath = mixListCollectionView?.indexPath(for: cell) else { return }
+        
+        if !isFlipped, let index = flippedCellsIndexPaths.firstIndex(of: indexPath) {
+            flippedCellsIndexPaths.remove(at: index)
+        } else {
+            flippedCellsIndexPaths.append(indexPath)
+        }
     }
     
 }
